@@ -5,6 +5,7 @@ void Engine::input()
 	Event zdarzenie;
 	while (m_Window.pollEvent(zdarzenie))
 	{
+	if(walka==false)
 		switch (zdarzenie.type)
 		{
 		case Event::Closed:
@@ -19,7 +20,7 @@ void Engine::input()
 					ethan.set_ym(ethan.get_ym() + 1);
 					//map1->wypisz(ethan.get_xm(), ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(RIGHT);
-					view.move(16, 0);
+					view_e.move(16, 0);
 					//m_Window.setView(view);
 				}
 			}
@@ -30,7 +31,7 @@ void Engine::input()
 					ethan.set_xm(ethan.get_xm() - 1);
 					//map1->wypisz(ethan.get_xm(), ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(UP);
-					view.move(0, -16);
+					view_e.move(0, -16);
 					//m_Window.setView(view);
 				}
 			}
@@ -41,7 +42,7 @@ void Engine::input()
 					ethan.set_xm(ethan.get_xm() + 1);
 					//map1->wypisz(ethan.get_xm(), ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(DOWN);
-					view.move(0, 16);
+					view_e.move(0, 16);
 					//m_Window.setView(view);
 				}
 			}
@@ -52,13 +53,30 @@ void Engine::input()
 					ethan.set_ym(ethan.get_ym() - 1);
 					//map1->wypisz(ethan.get_xm(),ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(LEFT);
-					view.move(-16, 0);
+					view_e.move(-16, 0);
 					//m_Window.setView(view);
 				}
 			}
 			break;
 		}
 		default: break;
+	}
+	else 
+			switch (zdarzenie.type)
+			{
+			case Event::Closed:
+				m_Window.close();
+				break;
+			case Event::KeyPressed:
+			{
+				if (zdarzenie.key.code == Keyboard::Escape)
+				{
+					walka = false;
+				}			
+				break;
+			}
+			default: break;
+			}
 		}
 	}
 }

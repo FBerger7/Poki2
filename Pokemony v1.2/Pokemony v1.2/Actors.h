@@ -4,7 +4,7 @@
 #include<map>
 #include<string>
 #include<iostream>
-//#include"Mapa.h"
+#include"Mapa.h"
 
 using namespace std;
 using namespace sf;
@@ -29,7 +29,7 @@ class Gracz :
 	public Actors
 {
 	RectangleShape osoba;
-	float x = 1040, y = 0;
+	float x = 0, y = 0;
 	int xm = 0, ym = 0;
 public:
 	Gracz();

@@ -2,13 +2,20 @@
 
 void Engine::draw()
 {
-	m_Window.clear(Color::White);
-	m_Window.setView(view);
-	m_Window.draw(m_BackgroundSprite);
-	for (ethan.it = ethan.Lista_aktorow.begin(); ethan.it != ethan.Lista_aktorow.end(); ethan.it++)
+	if (walka == false) 
 	{
-		m_Window.draw(ethan.it->second);
+		m_Window.setView(view_e);
+		mapa.draw(m_Window);
+		for (ethan.it = ethan.Lista_aktorow.begin(); ethan.it != ethan.Lista_aktorow.end(); ethan.it++)
+		{
+			m_Window.draw(ethan.it->second);
+		}
 	}
-
+	else
+	{
+		m_Window.setView(view_b);
+		pojedynek.draw(m_Window);
+	}
 	m_Window.display();
+
 }

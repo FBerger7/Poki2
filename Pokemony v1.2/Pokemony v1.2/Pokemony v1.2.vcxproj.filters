@@ -39,6 +39,10 @@
     <ClCompile Include="Update.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Okno_walki.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Okno_eksploracji.cpp">
     <ClCompile Include="Mapa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
