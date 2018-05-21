@@ -2,7 +2,7 @@
 
 Okno_eksploracji::Okno_eksploracji()
 {
-	IntRect wym1(2, 2, 640, 290);
+	IntRect wym1(0, 0, 1470, 576);
 	m_BackgroundTexture.loadFromFile("Town3.png");
 	m_BackgroundSprite.setTexture(m_BackgroundTexture);
 	m_BackgroundSprite.setTextureRect(wym1);

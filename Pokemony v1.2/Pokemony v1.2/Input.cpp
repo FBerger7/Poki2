@@ -5,49 +5,63 @@ void Engine::input()
 	Event zdarzenie;
 	while (m_Window.pollEvent(zdarzenie))
 	{
-		if(walka==false)
-			switch (zdarzenie.type)
+	if(walka==false)
+		switch (zdarzenie.type)
+		{
+		case Event::Closed:
+			m_Window.close();
+			break;
+		case Event::KeyPressed:
+		{
+			if (zdarzenie.key.code == Keyboard::Right)
 			{
-			case Event::Closed :
-				m_Window.close();
-				break;
-			case Event::KeyPressed:
-			{
-				if (zdarzenie.key.code == Keyboard::Right)
+				if (!map1->check_colision(RIGHT, ethan))
 				{
+					ethan.set_ym(ethan.get_ym() + 1);
+					//map1->wypisz(ethan.get_xm(), ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(RIGHT);
 					view_e.move(16, 0);
 					//m_Window.setView(view);
 				}
-				else if (zdarzenie.key.code == Keyboard::Up)
+			}
+			else if (zdarzenie.key.code == Keyboard::Up)
+			{
+				if (!map1->check_colision(UP, ethan))
 				{
+					ethan.set_xm(ethan.get_xm() - 1);
+					//map1->wypisz(ethan.get_xm(), ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(UP);
 					view_e.move(0, -16);
 					//m_Window.setView(view);
 				}
-				else if (zdarzenie.key.code == Keyboard::Down)
+			}
+			else if (zdarzenie.key.code == Keyboard::Down)
+			{
+				if (!map1->check_colision(DOWN, ethan))
 				{
+					ethan.set_xm(ethan.get_xm() + 1);
+					//map1->wypisz(ethan.get_xm(), ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(DOWN);
 					view_e.move(0, 16);
 					//m_Window.setView(view);
 				}
-				else if (zdarzenie.key.code == Keyboard::Left)
+			}
+			else if (zdarzenie.key.code == Keyboard::Left)
+			{
+				if (!map1->check_colision(LEFT, ethan))
 				{
+					ethan.set_ym(ethan.get_ym() - 1);
+					//map1->wypisz(ethan.get_xm(),ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(LEFT);
 					view_e.move(-16, 0);
 					//m_Window.setView(view);
 				}
-				else if (zdarzenie.key.code == Keyboard::W)
-				{
-					pojedynek.create(m_Window);
-					walka = true;
-				}
-				break;
 			}
-
-			default: break;
-			}
-		else 
+			break;
+		}
+		default: break;
+	}
+	else 
 			switch (zdarzenie.type)
 			{
 			case Event::Closed:
@@ -63,5 +77,6 @@ void Engine::input()
 			}
 			default: break;
 			}
+		}
 	}
 }

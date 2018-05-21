@@ -1,5 +1,4 @@
 #pragma once
-
 #include<string>
 #include <SFML/Graphics.hpp>
 
@@ -45,3 +44,4 @@ public:
 	void update(RenderWindow &m_Window);
 	void draw(RenderWindow &m_Window);
 };
+

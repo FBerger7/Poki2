@@ -51,18 +51,18 @@ IntRect Gracz::ustaw_kierunek_tekstury(Direction D)
 	IntRect wymiarU(106, 3, 15, 18);
 	switch (D)
 	{
-		case RIGHT:
-			return wymiarR;
-			break;
-		case LEFT:
-			return wymiarL;
-			break;
-		case DOWN:
-			return wymiarD;
-			break;
-		case UP:
-			return wymiarU;
-			break;
+	case RIGHT:
+		return wymiarR;
+		break;
+	case LEFT:
+		return wymiarL;
+		break;
+	case DOWN:
+		return wymiarD;
+		break;
+	case UP:
+		return wymiarU;
+		break;
 	}
 }
 
@@ -102,6 +102,17 @@ void Gracz::move(Direction D)
 	}
 }
 
+
+void Gracz::set_xm(int _x)
+{
+	xm = _x;
+}
+
+void Gracz::set_ym(int _y)
+{
+	ym = _y;
+}
+
 RectangleShape Gracz::getSprite()
 {
 	return osoba;
@@ -124,6 +135,17 @@ float Gracz::getY()
 {
 	return y;
 }
+
+int Gracz::get_xm()
+{
+	return xm;
+}
+
+int Gracz::get_ym()
+{
+	return ym;
+}
+
 
 
 

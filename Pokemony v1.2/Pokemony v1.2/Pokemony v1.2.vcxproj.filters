@@ -43,6 +43,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Okno_eksploracji.cpp">
+    <ClCompile Include="Mapa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,6 +55,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mapa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
