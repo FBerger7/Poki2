@@ -4,7 +4,7 @@
 #include<map>
 #include<string>
 #include<iostream>
-#include"Mapa.h"
+
 
 using namespace std;
 using namespace sf;
