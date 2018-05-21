@@ -57,6 +57,11 @@ void Engine::input()
 					//m_Window.setView(view);
 				}
 			}
+			else if (zdarzenie.key.code == Keyboard::W)
+			{
+				pojedynek.create(m_Window);
+				walka = true;
+			}
 			break;
 		}
 		default: break;
@@ -78,5 +83,4 @@ void Engine::input()
 			default: break;
 			}
 		}
-	}
 }

@@ -5,12 +5,11 @@ Engine::Engine()
 	m_Window.create(VideoMode(800, 600), "Pokemon");
 
 	//LISTA NPC
-	Gracz *pom = new Gracz(0,0);
+	
+	Gracz *pom = new Gracz(1024, 144);
 	ethan.Lista_aktorow.insert(pair<string, Gracz>("ethan", *pom));
 	
-	m_BackgroundSprite.setOrigin(22, 0);
 	map1 = new Mapa();
-	Gracz *pom = new Gracz(1024, 144);
 	ethan.ustaw_pozycje(1024, 144);
 	
 	view_e.setSize(sf::Vector2f(800, 600));
