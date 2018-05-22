@@ -4,7 +4,7 @@
 #include "Actors.h"
 #include "Sceny.h"
 #include "Mapa.h"
-
+#include "Pokemon.h"
 using namespace sf;
 
 
@@ -24,7 +24,7 @@ private:
 	bool walka = false;
 	//MAPA
 	Mapa *map1;
-
+	
 	Okno_eksploracji mapa;
 	Okno_walki pojedynek;
 	
