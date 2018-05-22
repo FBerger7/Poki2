@@ -13,7 +13,7 @@ Pokemon::Pokemon()
 	TYP = Normal;
 }
 
-void Pokemon::scale(int level,bool czy_sojusznik)
+void Pokemon::scale(int level,bool czy_sojusznik) //skalowanie pokemonow napotkanych w krzakach
 {
 	sojusznik = czy_sojusznik;
 	C_HP = 10;
