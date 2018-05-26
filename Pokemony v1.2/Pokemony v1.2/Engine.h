@@ -6,7 +6,7 @@
 #include <cstdlib>
 #include<ctime>
 #include "Mapa.h"
-
+#include "Pokemon.h"
 using namespace sf;
 
 
@@ -28,7 +28,7 @@ private:
 
 	//MAPA
 	Mapa *map1;
-
+	
 	Okno_eksploracji mapa;
 	Okno_walki pojedynek;
 	
