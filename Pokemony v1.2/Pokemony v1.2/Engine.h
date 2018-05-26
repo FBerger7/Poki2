@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include "Actors.h"
 #include "Sceny.h"
+#include <cstdlib>
+#include<ctime>
 #include "Mapa.h"
 
 using namespace sf;
@@ -22,6 +24,8 @@ private:
 	Gracz ethan;
 	// Tryb gry
 	bool walka = false;
+	int RANDOM_NUMBER = 100;
+
 	//MAPA
 	Mapa *map1;
 
@@ -29,13 +33,13 @@ private:
 	Okno_walki pojedynek;
 	
 	// Funkcje prywatne do uzytku wewnetrznego
-	void input();
+	void input(); 
 	void update();
 	void draw();
 
 public:
 	Engine();
-
+	bool czy_jest_walka();
 	void start();
 
 };
