@@ -4,7 +4,7 @@ bool Engine::czy_jest_walka()
 {
 	RANDOM_NUMBER = rand() % 100;
 	cout << RANDOM_NUMBER << endl;
-	if ( RANDOM_NUMBER < 20)
+	if ( RANDOM_NUMBER < 15)
 		return true;
 	else
 		return false;
