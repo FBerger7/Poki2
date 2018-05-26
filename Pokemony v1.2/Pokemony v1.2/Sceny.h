@@ -1,7 +1,7 @@
 #pragma once
 #include<string>
 #include <SFML/Graphics.hpp>
-#include "Pokemon.h"
+#include "Biblioteka_Pokemonow.h"
 
 using namespace std;
 using namespace sf;
@@ -34,11 +34,11 @@ class Okno_walki : public Scena_abstrakcyjna
 private:
 	Sprite b_BackgroundSprite; //battle background
 	Texture b_BackgroundTexture;
-	Pokemon Przeciwnik;
+	Pokemon *Przeciwnik;
 	RectangleShape przeciwnik_texture;
 	RectangleShape hp_przeciwnika;
 
-	Pokemon Sojusznik;
+	Pokemon *Sojusznik;
 	RectangleShape sojusznik_texture;
 	RectangleShape hp_sojusznika;
 	RectangleShape exp;

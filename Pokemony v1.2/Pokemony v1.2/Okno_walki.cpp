@@ -8,31 +8,9 @@ Okno_walki::Okno_walki()
 	b_BackgroundSprite.setTexture(b_BackgroundTexture);
 	b_BackgroundSprite.setTextureRect(wymiary_okna);
 
-	//PRZECIWNIK
-	Przeciwnik.scale(5, false);
-	hp_przeciwnika.setPosition(97, 62); //polozenia paska hp
-	hp_przeciwnika.setSize(Vector2f(181*Przeciwnik.C_HP/Przeciwnik.MAX_HP, 8));//rozmiar paska zycia
-	if(Przeciwnik.C_HP / Przeciwnik.MAX_HP <= 1 && Przeciwnik.C_HP / Przeciwnik.MAX_HP > 0.5)
-		hp_przeciwnika.setFillColor(Color::Green);
-	else if (Przeciwnik.C_HP / Przeciwnik.MAX_HP <= 0.5 && Przeciwnik.C_HP / Przeciwnik.MAX_HP > 0.25)
-		hp_przeciwnika.setFillColor(Color::Yellow);
-	else if (Przeciwnik.C_HP / Przeciwnik.MAX_HP <= 0.25 && Przeciwnik.C_HP / Przeciwnik.MAX_HP > 0)
-		hp_przeciwnika.setFillColor(Color::Red);
 
-	//SOJUSZNIK
-	Sojusznik.scale(5, true);
-	hp_sojusznika.setPosition(581, 330);
-	hp_sojusznika.setSize(Vector2f(184*Sojusznik.C_HP/Sojusznik.MAX_HP, 8)); //rozmiar paska zycia
-	if (Sojusznik.C_HP / Sojusznik.MAX_HP <= 1 && Sojusznik.C_HP / Sojusznik.MAX_HP > 0.5)
-		hp_sojusznika.setFillColor(Color::Green);
-	else if (Sojusznik.C_HP / Sojusznik.MAX_HP <= 0.5 && Sojusznik.C_HP / Sojusznik.MAX_HP > 0.25)
-		hp_sojusznika.setFillColor(Color::Yellow);
-	else if (Sojusznik.C_HP / Sojusznik.MAX_HP <= 0.25 && Sojusznik.C_HP / Sojusznik.MAX_HP > 0)
-		hp_sojusznika.setFillColor(Color::Red);
 
-	exp.setPosition(520, 382);
-	exp.setSize(Vector2f(245*Sojusznik.C_EXP/Sojusznik.MAX_EXP, 4)); //rozmiar paska exp
-	exp.setFillColor(Color::Blue);
+
 }
 
 Okno_walki::~Okno_walki()
@@ -44,8 +22,47 @@ Okno_walki::~Okno_walki()
 
 void Okno_walki::create(RenderWindow &m_Window)//parametry: przciwnik(gracz/pokemon)
 {
-	m_Window.draw(Przeciwnik.PokemonSprite);
-	m_Window.draw(Sojusznik.PokemonSprite);
+	//PRZECIWNIK
+	int jaki_przeciwnik = rand() % 2;
+	switch (jaki_przeciwnik)
+	{
+		case 0:
+			Przeciwnik = new Poliwrath(5, false);
+			break;
+		case 1:
+			Przeciwnik = new Stelfozaur(5, false);
+			break;
+		case 2:
+			break;
+	}
+
+	hp_przeciwnika.setPosition(97, 62); //polozenia paska hp
+	hp_przeciwnika.setSize(Vector2f(181 * Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP(), 8));//rozmiar paska zycia
+	//if (Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP() <= 1 && Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP() > 0.5)
+		hp_przeciwnika.setFillColor(Color::Green);
+	/*else if (Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP() <= 0.5 && Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP() > 0.25)
+		hp_przeciwnika.setFillColor(Color::Yellow);
+	else if (Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP() <= 0.25 && Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP() > 0)
+		hp_przeciwnika.setFillColor(Color::Red);*/
+
+	//SOJUSZNIK
+	Sojusznik = new Poliwrath(5, true);
+	hp_sojusznika.setPosition(581, 330);
+	hp_sojusznika.setSize(Vector2f(184 * Sojusznik->getC_HP() / Sojusznik->getMAX_HP(), 8)); //rozmiar paska zycia
+	if (Sojusznik->getC_HP() / Sojusznik->getMAX_HP() <= 1 && Sojusznik->getC_HP() / Sojusznik->getMAX_HP() > 0.5)
+		hp_sojusznika.setFillColor(Color::Green);
+	else if (Sojusznik->getC_HP() / Sojusznik->getMAX_HP() <= 0.5 && Sojusznik->getC_HP() / Sojusznik->getMAX_HP() > 0.25)
+		hp_sojusznika.setFillColor(Color::Yellow);
+	else if (Sojusznik->getC_HP() / Sojusznik->getMAX_HP() <= 0.25 && Sojusznik->getC_HP() / Sojusznik->getMAX_HP() > 0)
+		hp_sojusznika.setFillColor(Color::Red);
+
+	exp.setPosition(520, 382);
+	exp.setSize(Vector2f(245 * Sojusznik->getC_EXP() / Sojusznik->getMAX_EXP(), 4)); //rozmiar paska exp
+	exp.setFillColor(Color::Blue);
+
+
+	m_Window.draw(Przeciwnik->getSprite());
+	m_Window.draw(Sojusznik->getSprite());
 	m_Window.draw(hp_przeciwnika);
 	m_Window.draw(hp_sojusznika);
 	m_Window.draw(exp);
@@ -60,8 +77,8 @@ void Okno_walki::draw(RenderWindow &m_Window)
 {
 	m_Window.clear(Color::White);
 	m_Window.draw(b_BackgroundSprite);
-	m_Window.draw(Przeciwnik.PokemonSprite);
-	m_Window.draw(Sojusznik.PokemonSprite);
+	m_Window.draw(Przeciwnik->getSprite());
+	m_Window.draw(Sojusznik->getSprite());
 	m_Window.draw(hp_przeciwnika);
 	m_Window.draw(hp_sojusznika);
 	m_Window.draw(exp);
