@@ -1,9 +1,19 @@
 #include"Engine.h"
 
+bool Engine::czy_jest_walka()
+{
+	RANDOM_NUMBER = rand() % 100;
+	cout << RANDOM_NUMBER << endl;
+	if ( RANDOM_NUMBER < 20)
+		return true;
+	else
+		return false;
+}
+
 Engine::Engine()
 {
 	m_Window.create(VideoMode(800, 600), "Pokemon");
-
+	srand(time(NULL));
 	//LISTA NPC
 	
 	Gracz *pom = new Gracz(1024, 144);

@@ -21,6 +21,12 @@ void Engine::input()
 					//map1->wypisz(ethan.get_xm(), ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(RIGHT);
 					view_e.move(16, 0);
+					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
+						if (czy_jest_walka())
+						{
+							pojedynek.create(m_Window);
+							walka = true;
+						}
 					//m_Window.setView(view);
 				}
 			}
@@ -32,6 +38,12 @@ void Engine::input()
 					//map1->wypisz(ethan.get_xm(), ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(UP);
 					view_e.move(0, -16);
+					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
+						if (czy_jest_walka())
+						{
+							pojedynek.create(m_Window);
+							walka = true;
+						}
 					//m_Window.setView(view);
 				}
 			}
@@ -43,6 +55,12 @@ void Engine::input()
 					//map1->wypisz(ethan.get_xm(), ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(DOWN);
 					view_e.move(0, 16);
+					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
+						if (czy_jest_walka())
+						{
+							pojedynek.create(m_Window);
+							walka = true;
+						}
 					//m_Window.setView(view);
 				}
 			}
@@ -54,13 +72,14 @@ void Engine::input()
 					//map1->wypisz(ethan.get_xm(),ethan.get_ym());
 					ethan.Lista_aktorow.at("ethan").move(LEFT);
 					view_e.move(-16, 0);
+					if(map1->is_grass(ethan.get_xm(),ethan.get_ym()))
+					if (czy_jest_walka())
+					{
+						pojedynek.create(m_Window);
+						walka = true;
+					}
 					//m_Window.setView(view);
 				}
-			}
-			else if (zdarzenie.key.code == Keyboard::W)
-			{
-				pojedynek.create(m_Window);
-				walka = true;
 			}
 			break;
 		}

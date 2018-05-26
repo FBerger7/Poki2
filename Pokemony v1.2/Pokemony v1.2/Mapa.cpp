@@ -8,11 +8,27 @@ void Tile::set_tile_colision(tile_type T, Tile *pom)
 void Tile::set_tile_no_colision(tile_type T, Tile *pom)
 {
 	pom->colision = false;
+	if (T == GRASS)
+		pom->is_grass = true;
+}
+
+bool Tile::tile_is_grass()
+{
+	if (is_grass)
+		return true;
+	else return false;
 }
 
 bool Tile::return_colision()
 {
 	return colision;
+}
+
+bool Mapa::is_grass(int _x, int _y)
+{
+	if (tab[_x][_y]->tile_is_grass())
+		return true;
+	else return false;
 }
 
 
@@ -33,11 +49,17 @@ Mapa::Mapa()
 					tab[i][j] = tmp;
 					tmp->set_tile_no_colision(NORMAL, tmp);
 				}
-				if (x == '1' || x == '2' || x == '3')
+				if (x == '1' || x == '3')
 				{
 					Tile * tmp = new Tile();
 					tab[i][j] = tmp;
 					tmp->set_tile_colision(NORMAL, tmp);
+				}
+				if (x == '2')
+				{
+					Tile * tmp = new Tile();
+					tab[i][j] = tmp;
+					tmp->set_tile_no_colision(GRASS, tmp);
 				}
 			}
 	}
