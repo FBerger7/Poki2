@@ -60,9 +60,15 @@ void Okno_walki::create(RenderWindow &m_Window)//parametry: przciwnik(gracz/poke
 	exp.setSize(Vector2f(245 * Sojusznik->getC_EXP() / Sojusznik->getMAX_EXP(), 4)); //rozmiar paska exp
 	exp.setFillColor(Color::Blue);
 
-
 	m_Window.draw(Przeciwnik->getSprite());
 	m_Window.draw(Sojusznik->getSprite());
+
+	m_Window.draw(Przeciwnik->getNazwa());
+	m_Window.draw(Sojusznik->getNazwa());
+
+	m_Window.draw(Przeciwnik->getLevel());
+	m_Window.draw(Sojusznik->getLevel());
+
 	m_Window.draw(hp_przeciwnika);
 	m_Window.draw(hp_sojusznika);
 	m_Window.draw(exp);
@@ -77,9 +83,19 @@ void Okno_walki::draw(RenderWindow &m_Window)
 {
 	m_Window.clear(Color::White);
 	m_Window.draw(b_BackgroundSprite);
+
 	m_Window.draw(Przeciwnik->getSprite());
 	m_Window.draw(Sojusznik->getSprite());
+
+	m_Window.draw(Przeciwnik->getNazwa());
+	m_Window.draw(Sojusznik->getNazwa());
+
+
+	m_Window.draw(Przeciwnik->getLevel());
+	m_Window.draw(Sojusznik->getLevel());
+
 	m_Window.draw(hp_przeciwnika);
 	m_Window.draw(hp_sojusznika);
 	m_Window.draw(exp);
+
 };

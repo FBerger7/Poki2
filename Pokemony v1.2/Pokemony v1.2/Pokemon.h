@@ -22,9 +22,15 @@ protected:
 	Texture PokemonTexture;
 	Sprite PokemonSprite;
 
+	Font font;
+	Text Nazwa;
+	Text Level;
+
 public:
 
 	// Pobieranie danych pokemona    --- Metody wspolne
+	Text getNazwa();
+	Text getLevel();
 	float getATK();
 	float getDEF();
 	float getSPD();
@@ -34,8 +40,14 @@ public:
 	float getMAX_EXP();
 	Sprite getSprite();
 	int getLVL();
+	//-------------------------------------------------
+
+
 	void zrob_sojusznik();
 	void scale_sprite();
+
+	void ustaw_Nazwe();
+	void ustaw_LVL();
 	//----------------------------
 
 

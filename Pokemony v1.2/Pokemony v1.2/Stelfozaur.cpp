@@ -10,6 +10,13 @@ Stelfozaur::Stelfozaur(int lvl, bool s)
 {
 	LVL = lvl;
 	sojusznik = s;
+
+	Nazwa.setString("Stelfozaur");
+	ustaw_Nazwe();
+
+	Level.setString(to_string(lvl));
+	ustaw_LVL();
+
 	C_EXP = 0;
 	MAX_EXP = 100 + (lvl * MAX_EXP_UP);
 	C_HP = MAX_HP = 15 + (lvl * MAX_HP_UP);
