@@ -53,7 +53,7 @@ void Engine::input()
 							IntRect wymiar_dla_gyma(646, 2, 288, 160);
 							GYM = new Okno_eksploracji("GYM.png", wymiar_dla_gyma);
 							is_in_gym = true;
-							ethan.set_xm(19);
+							ethan.set_xm(18);
 							ethan.set_ym(6);
 							//JAK SIE ODWOLYWAC POTEM WSZEDZIE NP. DO GYM->CHECK_COLISION ITD.
 						}
@@ -81,8 +81,10 @@ void Engine::input()
 						if (map1->check_door(ethan.get_xm(), ethan.get_ym()))
 						{
 							is_in_gym = false;
+							//Vector2f offset(0,-16);
+							//mapa.move(offset);
 							map1 = new Mapa("Mapa.txt", 36, 56);
-							ethan.set_xm(23);
+							ethan.set_xm(24);
 							ethan.set_ym(46);
 						}
 					}
