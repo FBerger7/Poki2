@@ -10,6 +10,14 @@ Okno_eksploracji::Okno_eksploracji()
 
 };
 
+Okno_eksploracji::Okno_eksploracji(string nazwa_budynku, IntRect wymiary)
+{
+	m_BackgroundTexture.loadFromFile(nazwa_budynku);
+	m_Sprite_Budynku.setTexture(m_BackgroundTexture);
+	m_Sprite_Budynku.setTextureRect(wymiary);
+	m_Sprite_Budynku.setOrigin(1200, 200);
+}
+
 Okno_eksploracji::~Okno_eksploracji()
 {
 

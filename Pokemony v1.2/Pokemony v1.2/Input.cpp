@@ -27,6 +27,7 @@ void Engine::input()
 							pojedynek.create(m_Window);
 							walka = true;
 						}
+
 					//m_Window.setView(view);
 				}
 			}
@@ -44,6 +45,20 @@ void Engine::input()
 							pojedynek.create(m_Window);
 							walka = true;
 						}
+					if (map1->check_door(ethan.get_xm(), ethan.get_ym()))
+					{
+						if (ethan.get_xm() == 23 && ethan.get_ym() == 46)
+						{
+							map1 = new Mapa("Mapa_GYM.txt", 20, 12);
+							IntRect wymiar_dla_gyma(646, 2, 288, 160);
+							GYM = new Okno_eksploracji("GYM.png", wymiar_dla_gyma);
+							is_in_gym = true;
+							ethan.set_xm(19);
+							ethan.set_ym(6);
+							//JAK SIE ODWOLYWAC POTEM WSZEDZIE NP. DO GYM->CHECK_COLISION ITD.
+						}
+
+					}
 					//m_Window.setView(view);
 				}
 			}
@@ -61,6 +76,16 @@ void Engine::input()
 							pojedynek.create(m_Window);
 							walka = true;
 						}
+					if (is_in_gym)
+					{
+						if (map1->check_door(ethan.get_xm(), ethan.get_ym()))
+						{
+							is_in_gym = false;
+							map1 = new Mapa("Mapa.txt", 36, 56);
+							ethan.set_xm(23);
+							ethan.set_ym(46);
+						}
+					}
 					//m_Window.setView(view);
 				}
 			}
