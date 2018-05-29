@@ -8,7 +8,7 @@ void Engine::draw()
 		mapa.draw(m_Window);
 		if (is_in_gym)
 		{
-			GYM->draw(m_Window);
+			GYM.draw(m_Window);
 		}
 		for (ethan.it = ethan.Lista_aktorow.begin(); ethan.it != ethan.Lista_aktorow.end(); ethan.it++)
 		{

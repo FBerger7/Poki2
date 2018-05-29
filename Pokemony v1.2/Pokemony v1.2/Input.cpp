@@ -51,7 +51,7 @@ void Engine::input()
 						{
 							map1 = new Mapa("Mapa_GYM.txt", 20, 12);
 							IntRect wymiar_dla_gyma(646, 2, 288, 160);
-							GYM = new Okno_eksploracji("GYM.png", wymiar_dla_gyma);
+							GYM = Okno_eksploracji("GYM.png", wymiar_dla_gyma);
 							is_in_gym = true;
 							ethan.set_xm(18);
 							ethan.set_ym(6);

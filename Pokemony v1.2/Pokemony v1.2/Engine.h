@@ -32,7 +32,7 @@ private:
 	Mapa *GYM_MAP;
 	
 	Okno_eksploracji mapa;
-	Okno_eksploracji *GYM;
+	Okno_eksploracji GYM;
 	Okno_walki pojedynek;
 	
 	// Funkcje prywatne do uzytku wewnetrznego
