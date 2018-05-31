@@ -10,6 +10,8 @@ void Tile::set_tile_no_colision(tile_type T, Tile *pom)
 	pom->colision = false;
 	if (T == GRASS)
 		pom->is_grass = true;
+	if (T == DOOR)
+		pom->is_door = true;
 }
 
 bool Tile::tile_is_grass()
@@ -31,16 +33,31 @@ bool Mapa::is_grass(int _x, int _y)
 	else return false;
 }
 
+bool Tile::tile_is_door()
+{
+	if (is_door)
+		return true;
+	else return false;
+}
 
-Mapa::Mapa()
+bool Mapa::check_door(int _x, int _y)
+{
+	if (tab[_x][_y]->tile_is_door())
+		return true;
+	else return false;
+}
+
+
+Mapa::Mapa(string nazwa, int _a, int _b)
 {
 	fstream plik;
-	plik.open("Mapa.txt", ios::in);
+	plik.open(nazwa, ios::in);
+	cout << "GYM zaldowany" << endl;
 	if (plik.good() == true)
 	{
 		char x;
-		for (int i = 0; i<36; i++)
-			for (int j = 0; j<56; j++)
+		for (int i = 0; i<_a; i++)
+			for (int j = 0; j<_b; j++)
 			{
 				plik >> x;
 				if (x == '0')
@@ -60,6 +77,12 @@ Mapa::Mapa()
 					Tile * tmp = new Tile();
 					tab[i][j] = tmp;
 					tmp->set_tile_no_colision(GRASS, tmp);
+				}
+				if (x == '4')
+				{
+					Tile * tmp = new Tile();
+					tab[i][j] = tmp;
+					tmp->set_tile_no_colision(DOOR, tmp);
 				}
 			}
 	}

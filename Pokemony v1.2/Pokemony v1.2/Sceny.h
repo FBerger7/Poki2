@@ -26,6 +26,7 @@ public:
 	Okno_eksploracji();
 	~Okno_eksploracji();
 
+	Okno_eksploracji(string nazwa_budynku, IntRect wymiary);
 	void create(RenderWindow &m_Window);
 	void draw(RenderWindow &m_Window);
 };
