@@ -19,18 +19,22 @@ private:
 	
 	View view_e;
 	View view_b;
+	View view_budynku;
 
 	// Tu bedzie gracz
 	Gracz ethan;
 	// Tryb gry
 	bool walka = false;
+	bool is_in_gym = false;
 	int RANDOM_NUMBER = 100;
 
 	//MAPA
 	Mapa *map1;
+	Mapa *GYM_MAP;
 	
-	Okno_eksploracji mapa;
 	Okno_walki *pojedynek;
+	Okno_eksploracji *mapa;
+	Okno_eksploracji *GYM;
 	
 	// Funkcje prywatne do uzytku wewnetrznego
 	void input(); 
