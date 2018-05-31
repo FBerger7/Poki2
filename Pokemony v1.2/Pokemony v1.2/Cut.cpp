@@ -4,7 +4,7 @@
 
 Cut::Cut()
 {
-	Sila = 0.5;
+	Sila = 0.8f;
 	Nazwa.setString("Cut");
 }
 

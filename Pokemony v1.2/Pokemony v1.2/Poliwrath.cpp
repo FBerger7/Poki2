@@ -33,9 +33,8 @@ Poliwrath::Poliwrath(int lvl, bool s)
 	setSprite();
 
 	dodaj_atak(new Cut());
-	dodaj_atak(new Cut());
-	dodaj_atak(new Cut());
-	dodaj_atak(new Cut());
+	dodaj_atak(new Punch());
+
 
 	if (s)
 		for (int i = 0; i < lista_atakow.size(); i++)

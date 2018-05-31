@@ -16,6 +16,8 @@
     <ClCompile Include="Stelfozaur.cpp" />
     <ClCompile Include="Atak.cpp" />
     <ClCompile Include="Cut.cpp" />
+    <ClCompile Include="Punch.cpp" />
+    <ClCompile Include="Kick.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actors.h" />
@@ -29,6 +31,8 @@
     <ClInclude Include="Atak.h" />
     <ClInclude Include="Biblioteka_atakow.h" />
     <ClInclude Include="Cut.h" />
+    <ClInclude Include="Punch.h" />
+    <ClInclude Include="Kick.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
