@@ -19,6 +19,8 @@ Engine::Engine()
 	Gracz *pom = new Gracz(1024, 150);
 	ethan.Lista_aktorow.insert(pair<string, Gracz>("ethan", *pom));
 	
+	mapa = new Okno_eksploracji();
+
 	map1 = new Mapa("Mapa.txt", 36, 56);
 	ethan.ustaw_pozycje(1024, 150);
 	

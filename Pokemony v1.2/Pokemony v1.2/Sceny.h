@@ -20,7 +20,6 @@ class Okno_eksploracji : public Scena_abstrakcyjna
 {
 private:
 	Sprite m_BackgroundSprite; //battle background
-	Sprite m_Sprite_Budynku;
 	Texture m_BackgroundTexture;
 
 public:

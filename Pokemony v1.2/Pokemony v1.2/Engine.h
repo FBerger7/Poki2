@@ -19,6 +19,7 @@ private:
 	
 	View view_e;
 	View view_b;
+	View view_budynku;
 
 	// Tu bedzie gracz
 	Gracz ethan;
@@ -31,8 +32,8 @@ private:
 	Mapa *map1;
 	Mapa *GYM_MAP;
 	
-	Okno_eksploracji mapa;
-	Okno_eksploracji GYM;
+	Okno_eksploracji *mapa;
+	Okno_eksploracji *GYM;
 	Okno_walki pojedynek;
 	
 	// Funkcje prywatne do uzytku wewnetrznego

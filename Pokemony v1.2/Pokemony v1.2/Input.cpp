@@ -50,8 +50,9 @@ void Engine::input()
 						if (ethan.get_xm() == 23 && ethan.get_ym() == 46)
 						{
 							map1 = new Mapa("Mapa_GYM.txt", 20, 12);
-							IntRect wymiar_dla_gyma(646, 2, 288, 160);
-							GYM = Okno_eksploracji("GYM.png", wymiar_dla_gyma);
+							IntRect wymiar_dla_gyma(646, 2, 160, 288);
+							GYM = new Okno_eksploracji("GYM2.png", wymiar_dla_gyma);
+							delete mapa;
 							is_in_gym = true;
 							ethan.set_xm(18);
 							ethan.set_ym(6);
@@ -81,8 +82,10 @@ void Engine::input()
 						if (map1->check_door(ethan.get_xm(), ethan.get_ym()))
 						{
 							is_in_gym = false;
+							delete GYM;
 							//Vector2f offset(0,-16);
 							//mapa.move(offset);
+							mapa = new Okno_eksploracji();
 							map1 = new Mapa("Mapa.txt", 36, 56);
 							ethan.set_xm(24);
 							ethan.set_ym(46);

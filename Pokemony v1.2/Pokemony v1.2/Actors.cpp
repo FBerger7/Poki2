@@ -30,7 +30,7 @@ Gracz::Gracz(float Tx, float Ty)
 	//osoba.setScale(3, 3);
 	ustaw_pozycje(Tx, Ty);
 	//Lista_aktorow.insert(pair<string, Gracz>("Ethan", *this));
-	//Chyba nie mozna listy aktorow robic lokalnie :(((
+	//Chyba nie mozna listy aktorow robic lokalnie :(
 }
 
 void Gracz::draw(RenderTarget & target, RenderStates state) const
@@ -70,7 +70,7 @@ void Gracz::move(Direction D)
 {
 	if (D == RIGHT)
 	{
-		cout << "wchodzi se tu" << endl;
+		cout << "wchodzi tu" << endl;
 		x += 16;
 		cout << x << " " << y << endl;
 		osoba.setPosition(x, y);
@@ -78,7 +78,7 @@ void Gracz::move(Direction D)
 	}
 	if (D == LEFT)
 	{
-		cout << "wchodzi se tu" << endl;
+		cout << "wchodzi tu" << endl;
 		x -= 16;
 		cout << x << " " << y << endl;
 		osoba.setPosition(x, y);
@@ -86,7 +86,7 @@ void Gracz::move(Direction D)
 	}
 	if (D == UP)
 	{
-		cout << "wchodzi se tu" << endl;
+		cout << "wchodzi tu" << endl;
 		y -= 16;
 		cout << x << " " << y << endl;
 		osoba.setPosition(x, y);
@@ -94,7 +94,7 @@ void Gracz::move(Direction D)
 	}
 	if (D == DOWN)
 	{
-		cout << "wchodzi se tu" << endl;
+		cout << "wchodzi tu" << endl;
 		y += 16;
 		cout << x << " " << y << endl;
 		osoba.setPosition(x, y);
