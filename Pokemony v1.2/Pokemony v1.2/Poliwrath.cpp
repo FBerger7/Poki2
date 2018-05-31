@@ -7,6 +7,17 @@
 #define SPD_UP 3
 
 
+void Poliwrath::ustaw_statystyki(int lvl)
+{
+	C_EXP = 0;
+	MAX_EXP = 100 + (lvl * MAX_EXP_UP);
+	C_HP = MAX_HP = 10 + (lvl * MAX_HP_UP);
+	ATK = 5 + (lvl * ATK_UP);
+	DEF = 8 + (lvl * DEF_UP);
+	SPD = 5 + (lvl * SPD_UP);
+	TYP = Water;
+}
+
 Poliwrath::Poliwrath(int lvl, bool s)
 {
 	sojusznik = s;
@@ -18,14 +29,16 @@ Poliwrath::Poliwrath(int lvl, bool s)
 	Level.setString(to_string(lvl));
 	ustaw_LVL();
 
-	C_EXP = 0;
-	MAX_EXP = 100 + ( lvl * MAX_EXP_UP);
-	C_HP =	MAX_HP = 10 + (lvl * MAX_HP_UP);
-	ATK = 5 + (lvl * ATK_UP);
-	DEF = 8 + (lvl * DEF_UP);
-	SPD = 5 + (lvl * SPD_UP);
-	TYP = Water;
+	ustaw_statystyki(lvl);
 	setSprite();
+
+	dodaj_atak(new Cut());
+	dodaj_atak(new Punch());
+
+
+	if (s)
+		for (int i = 0; i < lista_atakow.size(); i++)
+			lista_atakow[i]->ustaw_Nazwe();
 }
 
 Poliwrath::~Poliwrath()

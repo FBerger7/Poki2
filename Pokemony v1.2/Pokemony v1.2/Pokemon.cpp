@@ -46,6 +46,16 @@ void Pokemon::ustaw_LVL()
 	Level.setFillColor(Color::Black);
 }
 
+void Pokemon::dodaj_atak(Atak* nowy_atak)
+{
+	if (lista_atakow.size() < 4)
+	{
+		lista_atakow.push_back(nowy_atak);
+		nowy_atak->setIndeks(lista_atakow.size());
+	}
+
+}
+
 
 Text Pokemon::getNazwa()
 {

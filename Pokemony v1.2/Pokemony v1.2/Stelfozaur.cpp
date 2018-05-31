@@ -6,6 +6,7 @@
 #define DEF_UP 5
 #define SPD_UP 4
 
+
 Stelfozaur::Stelfozaur(int lvl, bool s)
 {
 	LVL = lvl;
@@ -17,6 +18,25 @@ Stelfozaur::Stelfozaur(int lvl, bool s)
 	Level.setString(to_string(lvl));
 	ustaw_LVL();
 
+	ustaw_statystyki(lvl);
+
+	setSprite();
+
+	dodaj_atak(new Cut());
+
+	if (s)
+		for (auto i = lista_atakow.front(); i < lista_atakow.back(); i++)
+			i->ustaw_Nazwe();
+}
+
+
+Stelfozaur::~Stelfozaur()
+{
+
+}
+
+void Stelfozaur::ustaw_statystyki(int lvl)
+{
 	C_EXP = 0;
 	MAX_EXP = 100 + (lvl * MAX_EXP_UP);
 	C_HP = MAX_HP = 15 + (lvl * MAX_HP_UP);
@@ -24,12 +44,6 @@ Stelfozaur::Stelfozaur(int lvl, bool s)
 	DEF = 10 + (lvl * DEF_UP);
 	SPD = 4 + (lvl * SPD_UP);
 	TYP = Electric;
-	setSprite();
-}
-
-
-Stelfozaur::~Stelfozaur()
-{
 }
 
 void Stelfozaur::setSprite()

@@ -2,6 +2,8 @@
 #include<string>
 #include <SFML/Graphics.hpp>
 #include "Biblioteka_Pokemonow.h"
+#include <memory>
+#include "Menu_walki.h"
 
 using namespace std;
 using namespace sf;
@@ -44,8 +46,12 @@ private:
 	RectangleShape hp_sojusznika;
 	RectangleShape exp;
 
+
+
 public:
+	Menu_walki *wybierz_akcje;
 	Okno_walki();
+	Okno_walki(RenderWindow &m_Window);
 	~Okno_walki();
 	void create(RenderWindow &m_Window);
 	void update(RenderWindow &m_Window);

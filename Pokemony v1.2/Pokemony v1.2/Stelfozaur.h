@@ -7,6 +7,7 @@ using namespace sf;
 class Stelfozaur :
 	public Pokemon
 {
+	void ustaw_statystyki(int lvl);
 public:
 	Stelfozaur(int lvl, bool s);
 	~Stelfozaur();

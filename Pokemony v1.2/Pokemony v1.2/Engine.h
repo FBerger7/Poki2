@@ -32,9 +32,9 @@ private:
 	Mapa *map1;
 	Mapa *GYM_MAP;
 	
+	Okno_walki *pojedynek;
 	Okno_eksploracji *mapa;
 	Okno_eksploracji *GYM;
-	Okno_walki pojedynek;
 	
 	// Funkcje prywatne do uzytku wewnetrznego
 	void input(); 

@@ -114,26 +114,37 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actors.cpp" />
+    <ClCompile Include="Atak.cpp" />
+    <ClCompile Include="Cut.cpp" />
     <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Kick.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Menu_walki.cpp" />
     <ClCompile Include="Okno_eksploracji.cpp" />
     <ClCompile Include="Okno_walki.cpp" />
     <ClCompile Include="Mapa.cpp" />
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="Poliwrath.cpp" />
+    <ClCompile Include="Punch.cpp" />
     <ClCompile Include="Sceny.cpp" />
     <ClCompile Include="Stelfozaur.cpp" />
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actors.h" />
+    <ClInclude Include="Atak.h" />
+    <ClInclude Include="Biblioteka_atakow.h" />
     <ClInclude Include="Biblioteka_Pokemonow.h" />
+    <ClInclude Include="Cut.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="Kick.h" />
     <ClInclude Include="Mapa.h" />
+    <ClInclude Include="Menu_walki.h" />
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="Poliwrath.h" />
+    <ClInclude Include="Punch.h" />
     <ClInclude Include="Sceny.h" />
     <ClInclude Include="Stelfozaur.h" />
   </ItemGroup>

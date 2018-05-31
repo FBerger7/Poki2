@@ -24,7 +24,7 @@ void Engine::input()
 					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 						if (czy_jest_walka())
 						{
-							pojedynek.create(m_Window);
+							pojedynek = new Okno_walki(m_Window);
 							walka = true;
 						}
 
@@ -42,7 +42,7 @@ void Engine::input()
 					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 						if (czy_jest_walka())
 						{
-							pojedynek.create(m_Window);
+							pojedynek = new Okno_walki(m_Window);
 							walka = true;
 						}
 					if (map1->check_door(ethan.get_xm(), ethan.get_ym()))
@@ -74,7 +74,7 @@ void Engine::input()
 					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 						if (czy_jest_walka())
 						{
-							pojedynek.create(m_Window);
+							pojedynek = new Okno_walki(m_Window);
 							walka = true;
 						}
 					if (is_in_gym)
@@ -105,7 +105,7 @@ void Engine::input()
 					if(map1->is_grass(ethan.get_xm(),ethan.get_ym()))
 					if (czy_jest_walka())
 					{
-						pojedynek.create(m_Window);
+						pojedynek = new Okno_walki(m_Window);
 						walka = true;
 					}
 					//m_Window.setView(view);
@@ -123,8 +123,25 @@ void Engine::input()
 				break;
 			case Event::KeyPressed:
 			{
-				if (zdarzenie.key.code == Keyboard::Escape)
+				if (zdarzenie.key.code == Keyboard::Up)
 				{
+					pojedynek->wybierz_akcje->move(UP);
+				}
+				else if (zdarzenie.key.code == Keyboard::Down)
+				{
+					pojedynek->wybierz_akcje->move(DOWN);
+				}
+				else if (zdarzenie.key.code == Keyboard::Left)
+				{
+					pojedynek->wybierz_akcje->move(LEFT);
+				}
+				else if (zdarzenie.key.code == Keyboard::Right)
+				{
+					pojedynek->wybierz_akcje->move(RIGHT);
+				}
+				else if (zdarzenie.key.code == Keyboard::Escape)
+				{
+					delete pojedynek;
 					walka = false;
 				}			
 				break;

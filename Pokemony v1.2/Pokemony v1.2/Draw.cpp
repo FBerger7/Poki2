@@ -20,7 +20,7 @@ void Engine::draw()
 	else
 	{
 		m_Window.setView(view_b);
-		pojedynek.draw(m_Window);
+		pojedynek->draw(m_Window);
 	}
 	m_Window.display();
 }

@@ -14,6 +14,11 @@
     <ClCompile Include="Poliwrath.cpp" />
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="Stelfozaur.cpp" />
+    <ClCompile Include="Atak.cpp" />
+    <ClCompile Include="Cut.cpp" />
+    <ClCompile Include="Punch.cpp" />
+    <ClCompile Include="Kick.cpp" />
+    <ClCompile Include="Menu_walki.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actors.h" />
@@ -24,6 +29,12 @@
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="Biblioteka_Pokemonow.h" />
     <ClInclude Include="Stelfozaur.h" />
+    <ClInclude Include="Atak.h" />
+    <ClInclude Include="Biblioteka_atakow.h" />
+    <ClInclude Include="Cut.h" />
+    <ClInclude Include="Punch.h" />
+    <ClInclude Include="Kick.h" />
+    <ClInclude Include="Menu_walki.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
