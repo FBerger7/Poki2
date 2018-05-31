@@ -9,8 +9,15 @@
 
 Poliwrath::Poliwrath(int lvl, bool s)
 {
-	LVL = lvl;
 	sojusznik = s;
+	LVL = lvl;
+	
+	Nazwa.setString("Poliwrath");
+	ustaw_Nazwe();
+
+	Level.setString(to_string(lvl));
+	ustaw_LVL();
+
 	C_EXP = 0;
 	MAX_EXP = 100 + ( lvl * MAX_EXP_UP);
 	C_HP =	MAX_HP = 10 + (lvl * MAX_HP_UP);
