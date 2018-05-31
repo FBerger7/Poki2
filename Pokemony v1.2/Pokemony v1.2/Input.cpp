@@ -24,7 +24,7 @@ void Engine::input()
 					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 						if (czy_jest_walka())
 						{
-							pojedynek.create(m_Window);
+							pojedynek = new Okno_walki(m_Window);
 							walka = true;
 						}
 					//m_Window.setView(view);
@@ -41,7 +41,7 @@ void Engine::input()
 					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 						if (czy_jest_walka())
 						{
-							pojedynek.create(m_Window);
+							pojedynek = new Okno_walki(m_Window);
 							walka = true;
 						}
 					//m_Window.setView(view);
@@ -58,7 +58,7 @@ void Engine::input()
 					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 						if (czy_jest_walka())
 						{
-							pojedynek.create(m_Window);
+							pojedynek = new Okno_walki(m_Window);
 							walka = true;
 						}
 					//m_Window.setView(view);
@@ -75,7 +75,7 @@ void Engine::input()
 					if(map1->is_grass(ethan.get_xm(),ethan.get_ym()))
 					if (czy_jest_walka())
 					{
-						pojedynek.create(m_Window);
+						pojedynek = new Okno_walki(m_Window);
 						walka = true;
 					}
 					//m_Window.setView(view);
@@ -95,6 +95,7 @@ void Engine::input()
 			{
 				if (zdarzenie.key.code == Keyboard::Escape)
 				{
+					delete pojedynek;
 					walka = false;
 				}			
 				break;

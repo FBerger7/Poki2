@@ -2,6 +2,7 @@
 #include<string>
 #include <SFML/Graphics.hpp>
 #include "Biblioteka_Pokemonow.h"
+#include <memory>
 
 using namespace std;
 using namespace sf;
@@ -45,6 +46,7 @@ private:
 
 public:
 	Okno_walki();
+	Okno_walki(RenderWindow &m_Window);
 	~Okno_walki();
 	void create(RenderWindow &m_Window);
 	void update(RenderWindow &m_Window);

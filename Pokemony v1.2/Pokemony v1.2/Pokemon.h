@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Biblioteka_atakow.h"
+#include <vector>
 
 using namespace std;
 using namespace sf;
@@ -26,7 +28,10 @@ protected:
 	Text Nazwa;
 	Text Level;
 
+	virtual void ustaw_statystyki(int lvl)=0;
+
 public:
+	vector <Atak*> lista_atakow;
 
 	// Pobieranie danych pokemona    --- Metody wspolne
 	Text getNazwa();
@@ -49,6 +54,8 @@ public:
 	void ustaw_Nazwe();
 	void ustaw_LVL();
 	//----------------------------
+
+	void dodaj_atak(Atak* nowy_atak);
 
 
 	// Metody wirtualne

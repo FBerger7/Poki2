@@ -30,7 +30,7 @@ private:
 	Mapa *map1;
 	
 	Okno_eksploracji mapa;
-	Okno_walki pojedynek;
+	Okno_walki *pojedynek;
 	
 	// Funkcje prywatne do uzytku wewnetrznego
 	void input(); 
