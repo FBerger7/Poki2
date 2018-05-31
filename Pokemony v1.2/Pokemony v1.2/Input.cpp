@@ -93,7 +93,23 @@ void Engine::input()
 				break;
 			case Event::KeyPressed:
 			{
-				if (zdarzenie.key.code == Keyboard::Escape)
+				if (zdarzenie.key.code == Keyboard::Up)
+				{
+					pojedynek->wybierz_akcje->move(UP);
+				}
+				else if (zdarzenie.key.code == Keyboard::Down)
+				{
+					pojedynek->wybierz_akcje->move(DOWN);
+				}
+				else if (zdarzenie.key.code == Keyboard::Left)
+				{
+					pojedynek->wybierz_akcje->move(LEFT);
+				}
+				else if (zdarzenie.key.code == Keyboard::Right)
+				{
+					pojedynek->wybierz_akcje->move(RIGHT);
+				}
+				else if (zdarzenie.key.code == Keyboard::Escape)
 				{
 					delete pojedynek;
 					walka = false;

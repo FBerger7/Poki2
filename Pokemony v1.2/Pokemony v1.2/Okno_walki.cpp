@@ -20,12 +20,17 @@ Okno_walki::Okno_walki(RenderWindow & m_Window)
 	exp.setFillColor(Color::Blue);
 
 	create(m_Window);
+
+	wybierz_akcje = new Menu_walki();
+
+
 }
 
 Okno_walki::~Okno_walki()
 {
 	delete(Przeciwnik);
 	delete(Sojusznik);
+	delete(wybierz_akcje);
 
 };
 
@@ -66,12 +71,6 @@ void Okno_walki::create(RenderWindow &m_Window)//parametry: przciwnik(gracz/poke
 		hp_sojusznika.setFillColor(Color::Red);
 
 	exp.setSize(Vector2f(245 * Sojusznik->getC_EXP() / Sojusznik->getMAX_EXP(), 4)); //rozmiar paska exp
-
-
-	/*for (auto i = Sojusznik->lista_atakow.front(); i < Sojusznik->lista_atakow.back(); i++)
-	{
-		m_Window.draw(i->getNazwa());
-	}*/
 };
 
 void Okno_walki::update(RenderWindow &m_Window)
@@ -97,6 +96,8 @@ void Okno_walki::draw(RenderWindow &m_Window)
 	m_Window.draw(hp_przeciwnika);
 	m_Window.draw(hp_sojusznika);
 	m_Window.draw(exp);
+
+	m_Window.draw(wybierz_akcje->getSprite());
 
 	for (int i = 0; i < Sojusznik->lista_atakow.size(); i++)
 		m_Window.draw(Sojusznik->lista_atakow[i]->getNazwa());
