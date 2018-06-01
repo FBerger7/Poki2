@@ -19,7 +19,19 @@ Engine::Engine()
 	Gracz *pom = new Gracz(1024, 150);
 	ethan.Lista_aktorow.insert(pair<string, Gracz>("ethan", *pom));
 	
+	//------------Ladowanie muzyki------------------
+	if (!gym_music.openFromFile("Gym_sound.wav"))
+		cout << "Nie udalo sie wczytac muzyki z GYM'u" << endl;
+	if (!cerulean_music.openFromFile("City_sound.wav"))
+		cout << "Nie udalo sie wczytac muzyki z miasta" << endl;
+	if (!vs_poke_battle_music.openFromFile("vs_wild_poke_sound.wav"))
+		cout << "Nie udalo sie wczytac muzyki z walki vs pokemon" << endl;
+	if (!route_music.openFromFile("route_music.wav"))
+		cout << "Nie udalo sie wczytac route muzyki" << endl;
+	//---------------------------------------------
+
 	mapa = new Okno_eksploracji();
+	cerulean_music.play();
 
 	map1 = new Mapa("Mapa.txt", 36, 56);
 	ethan.ustaw_pozycje(1024, 150);
@@ -30,7 +42,7 @@ Engine::Engine()
 
 	view_b.setSize(sf::Vector2f(800, 600));
 	view_b.setCenter(Vector2f(400, 300));
-	
+
 	ethan.set_xm(9);
 	ethan.set_ym(29);
 }

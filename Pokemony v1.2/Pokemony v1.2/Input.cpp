@@ -26,7 +26,14 @@ void Engine::input()
 						{
 							pojedynek = new Okno_walki(m_Window);
 							walka = true;
+							route_music.stop();
+							vs_poke_battle_music.play();
 						}
+					if (ethan.get_ym() == 16)
+					{
+						route_music.stop();
+						cerulean_music.play();
+					}
 
 					//m_Window.setView(view);
 				}
@@ -44,6 +51,8 @@ void Engine::input()
 						{
 							pojedynek = new Okno_walki(m_Window);
 							walka = true;
+							route_music.stop();
+							vs_poke_battle_music.play();
 						}
 					if (map1->check_door(ethan.get_xm(), ethan.get_ym()))
 					{
@@ -53,6 +62,8 @@ void Engine::input()
 							IntRect wymiar_dla_gyma(646, 2, 160, 288);
 							GYM = new Okno_eksploracji("GYM2.png", wymiar_dla_gyma);
 							delete mapa;
+							cerulean_music.stop();
+							gym_music.play();
 							is_in_gym = true;
 							ethan.set_xm(18);
 							ethan.set_ym(6);
@@ -76,6 +87,8 @@ void Engine::input()
 						{
 							pojedynek = new Okno_walki(m_Window);
 							walka = true;
+							route_music.stop();
+							vs_poke_battle_music.play();
 						}
 					if (is_in_gym)
 					{
@@ -83,6 +96,8 @@ void Engine::input()
 						{
 							is_in_gym = false;
 							delete GYM;
+							gym_music.stop();
+							cerulean_music.play();
 							//Vector2f offset(0,-16);
 							//mapa.move(offset);
 							mapa = new Okno_eksploracji();
@@ -107,6 +122,13 @@ void Engine::input()
 					{
 						pojedynek = new Okno_walki(m_Window);
 						walka = true;
+						route_music.stop();
+						vs_poke_battle_music.play();
+					}
+					if (ethan.get_ym() == 15)
+					{
+						cerulean_music.stop();
+						route_music.play();
 					}
 					//m_Window.setView(view);
 				}
@@ -143,6 +165,8 @@ void Engine::input()
 				{
 					delete pojedynek;
 					walka = false;
+					vs_poke_battle_music.stop();
+					route_music.play();
 				}			
 				break;
 			}

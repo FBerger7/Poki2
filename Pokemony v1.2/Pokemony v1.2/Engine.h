@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Actors.h"
 #include "Sceny.h"
 #include <cstdlib>
@@ -27,6 +28,12 @@ private:
 	bool walka = false;
 	bool is_in_gym = false;
 	int RANDOM_NUMBER = 100;
+
+	//MUZYKA
+	Music gym_music;
+	Music cerulean_music;
+	Music vs_poke_battle_music;
+	Music route_music;
 
 	//MAPA
 	Mapa *map1;
