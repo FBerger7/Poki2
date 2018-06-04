@@ -10,12 +10,15 @@ Okno_eksploracji::Okno_eksploracji()
 
 };
 
-Okno_eksploracji::Okno_eksploracji(string nazwa_budynku, IntRect wymiary)
+Okno_eksploracji::Okno_eksploracji(string nazwa_budynku, IntRect wymiary, string Is_In)
 {
 	m_BackgroundTexture.loadFromFile(nazwa_budynku);
 	m_BackgroundSprite.setTexture(m_BackgroundTexture);
 	//m_BackgroundSprite.setTextureRect(wymiary);
-	m_BackgroundSprite.move(1207, 94);
+	if(Is_In == "GYM")
+		m_BackgroundSprite.move(1207, 94);
+	if(Is_In == "PokeCenter")
+		m_BackgroundSprite.move(1048, 222);
 }
 
 Okno_eksploracji::~Okno_eksploracji()

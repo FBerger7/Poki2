@@ -15,6 +15,7 @@ void Engine::input()
 		{
 			if (zdarzenie.key.code == Keyboard::Right)
 			{
+				
 				if (!map1->check_colision(RIGHT, ethan))
 				{
 					ethan.set_ym(ethan.get_ym() + 1);
@@ -60,14 +61,24 @@ void Engine::input()
 						{
 							map1 = new Mapa("Mapa_GYM.txt", 20, 12);
 							IntRect wymiar_dla_gyma(646, 2, 160, 288);
-							GYM = new Okno_eksploracji("GYM2.png", wymiar_dla_gyma);
+							GYM = new Okno_eksploracji("GYM2.png", wymiar_dla_gyma, "GYM");
 							delete mapa;
 							cerulean_music.stop();
 							gym_music.play();
 							is_in_gym = true;
 							ethan.set_xm(18);
 							ethan.set_ym(6);
-							//JAK SIE ODWOLYWAC POTEM WSZEDZIE NP. DO GYM->CHECK_COLISION ITD.
+						}
+						if (ethan.get_xm() == 21 && ethan.get_ym() == 35)
+						{
+							map1 = new Mapa("PokeCenter_colisions.txt", 9, 12);
+							IntRect wymiar_dla_PokeCenter(646, 2, 160, 288);
+							PokeCenter = new Okno_eksploracji("PokeCenter.png", wymiar_dla_PokeCenter, "PokeCenter");
+							delete mapa;
+							is_in_PokeCenter = true;
+							cerulean_music.stop();
+							ethan.set_xm(7);
+							ethan.set_ym(5);
 						}
 
 					}
@@ -90,9 +101,9 @@ void Engine::input()
 							route_music.stop();
 							vs_poke_battle_music.play();
 						}
-					if (is_in_gym)
+					if (map1->check_door(ethan.get_xm(), ethan.get_ym()))
 					{
-						if (map1->check_door(ethan.get_xm(), ethan.get_ym()))
+						if (is_in_gym)
 						{
 							is_in_gym = false;
 							delete GYM;
@@ -105,8 +116,18 @@ void Engine::input()
 							ethan.set_xm(24);
 							ethan.set_ym(46);
 						}
-					}
-					//m_Window.setView(view);
+						if (is_in_PokeCenter)
+						{
+							is_in_PokeCenter = false;
+							delete PokeCenter;
+							cerulean_music.play();
+							mapa = new Okno_eksploracji();
+							map1 = new Mapa("Mapa.txt", 36, 56);
+							ethan.set_xm(22);
+							ethan.set_ym(35);
+
+						}
+					}					
 				}
 			}
 			else if (zdarzenie.key.code == Keyboard::Left)

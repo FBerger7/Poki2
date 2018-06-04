@@ -52,7 +52,6 @@ Mapa::Mapa(string nazwa, int _a, int _b)
 {
 	fstream plik;
 	plik.open(nazwa, ios::in);
-	cout << "GYM zaldowany" << endl;
 	if (plik.good() == true)
 	{
 		char x;

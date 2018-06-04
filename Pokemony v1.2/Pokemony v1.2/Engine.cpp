@@ -52,7 +52,10 @@ void Engine::start()
 	// Timing
 	while (m_Window.isOpen())
 	{
-
+	/*	thread watek_input(&Engine::input, this);
+		thread watek_draw(&Engine::draw, this);
+		watek_input.join();
+		watek_draw.join();*/
 		input();
 		update();
 		draw();

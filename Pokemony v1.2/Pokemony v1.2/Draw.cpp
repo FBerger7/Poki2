@@ -10,6 +10,10 @@ void Engine::draw()
 			//m_Window.setView(view_budynku);
 			GYM->draw(m_Window);
 		}
+		else if (is_in_PokeCenter)
+		{
+			PokeCenter->draw(m_Window);
+		}
 		else
 			mapa->draw(m_Window);
 		for (ethan.it = ethan.Lista_aktorow.begin(); ethan.it != ethan.Lista_aktorow.end(); ethan.it++)

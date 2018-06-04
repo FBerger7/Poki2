@@ -6,6 +6,7 @@
 #include "Sceny.h"
 #include <cstdlib>
 #include<ctime>
+#include<thread>
 #include "Mapa.h"
 #include "Pokemon.h"
 using namespace sf;
@@ -27,6 +28,7 @@ private:
 	// Tryb gry
 	bool walka = false;
 	bool is_in_gym = false;
+	bool is_in_PokeCenter = false;
 	int RANDOM_NUMBER = 100;
 
 	//MUZYKA
@@ -42,14 +44,14 @@ private:
 	Okno_walki *pojedynek;
 	Okno_eksploracji *mapa;
 	Okno_eksploracji *GYM;
+	Okno_eksploracji *PokeCenter;
 	
-	// Funkcje prywatne do uzytku wewnetrznego
-	void input(); 
-	void update();
-	void draw();
 
 public:
 	Engine();
+	void input(); 
+	void update();
+	void draw();
 	bool czy_jest_walka();
 	void start();
 

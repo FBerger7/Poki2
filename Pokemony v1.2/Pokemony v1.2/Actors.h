@@ -32,10 +32,10 @@ class Gracz :
 	float x = 0, y = 0;
 	int xm = 0, ym = 0;
 public:
-	Gracz();
-	Texture ethan_tex;
 	map<string, Gracz> Lista_aktorow;
 	map<string, Gracz>::iterator it;
+	Gracz();
+	Texture ethan_tex;
 	Gracz(float Tx, float Ty);
 	void draw(RenderTarget & target, RenderStates state) const;
 	//Gracz(int x, int y);
