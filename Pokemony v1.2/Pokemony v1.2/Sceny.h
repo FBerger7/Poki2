@@ -56,5 +56,7 @@ public:
 	void create(RenderWindow &m_Window);
 	void update(RenderWindow &m_Window);
 	void draw(RenderWindow &m_Window);
+
+	void atak();
 };
 

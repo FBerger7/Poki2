@@ -13,7 +13,9 @@ enum Direction {
 	RIGHT,
 	LEFT,
 	DOWN,
-	UP
+	UP,
+	EXIT,
+	BACK
 };
 
 class Actors :

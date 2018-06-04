@@ -139,11 +139,27 @@ void Engine::input()
 				{
 					pojedynek->wybierz_akcje->move(RIGHT);
 				}
-				else if (zdarzenie.key.code == Keyboard::Escape)
+				else if (zdarzenie.key.code == Keyboard::X)
 				{
-					delete pojedynek;
-					walka = false;
+					if (pojedynek->wybierz_akcje->getRodzaj() == Walka)
+						pojedynek->wybierz_akcje->move(BACK);
+					else if (pojedynek->wybierz_akcje->getRodzaj() == Menu)
+					{
+						pojedynek->wybierz_akcje->move(EXIT);
+					}
 				}			
+				else if (zdarzenie.key.code == Keyboard::Z)
+				{
+					if (pojedynek->wybierz_akcje->getRodzaj() == Menu)
+						pojedynek->wybierz_akcje->akcja();	//wybor walka/plecak/pokemony/ucieczka
+
+					if (pojedynek->wybierz_akcje->getWyjdz_z_walki() == true)
+					{
+						delete pojedynek;
+						walka = false;
+					}
+					break;
+				}
 				break;
 			}
 			default: break;

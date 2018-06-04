@@ -22,7 +22,7 @@ Okno_walki::Okno_walki(RenderWindow & m_Window)
 	create(m_Window);
 
 	wybierz_akcje = new Menu_walki();
-
+	
 
 }
 
@@ -101,4 +101,9 @@ void Okno_walki::draw(RenderWindow &m_Window)
 
 	for (int i = 0; i < Sojusznik->lista_atakow.size(); i++)
 		m_Window.draw(Sojusznik->lista_atakow[i]->getNazwa());
-};
+}
+void Okno_walki::atak()
+{
+
+}
+;
