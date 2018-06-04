@@ -111,3 +111,11 @@ int Pokemon::getLVL()
 {
 	return LVL;
 }
+
+void Pokemon::setC_HP(float damage)
+{
+	C_HP -= damage;
+	if (C_HP < 0) C_HP = 0;
+	else if (C_HP > MAX_HP) C_HP = MAX_HP;
+}
+

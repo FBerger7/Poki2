@@ -152,7 +152,8 @@ void Engine::input()
 				{
 					if (pojedynek->wybierz_akcje->getRodzaj() == Menu)
 						pojedynek->wybierz_akcje->akcja();	//wybor walka/plecak/pokemony/ucieczka
-
+					else if (pojedynek->wybierz_akcje->getRodzaj() == Walka)
+						pojedynek->update();
 					if (pojedynek->wybierz_akcje->getWyjdz_z_walki() == true)
 					{
 						delete pojedynek;

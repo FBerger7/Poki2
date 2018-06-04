@@ -22,7 +22,7 @@ Okno_walki::Okno_walki(RenderWindow & m_Window)
 	create(m_Window);
 
 	wybierz_akcje = new Menu_walki();
-	
+	tura_gracza = true;
 
 }
 
@@ -73,10 +73,19 @@ void Okno_walki::create(RenderWindow &m_Window)//parametry: przciwnik(gracz/poke
 	exp.setSize(Vector2f(245 * Sojusznik->getC_EXP() / Sojusznik->getMAX_EXP(), 4)); //rozmiar paska exp
 };
 
-void Okno_walki::update(RenderWindow &m_Window)
+void Okno_walki::update()
 {
-	/*m_Window.draw(hp_przeciwnika);
-	m_Window.draw(hp_sojusznika);*/
+	if (tura_gracza)
+	{
+		atak(tura_gracza);
+		hp_przeciwnika.setSize(Vector2f(181 * (Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP()), 8));
+		tura_gracza = false;
+	}
+	else
+	{
+		atak(tura_gracza);
+		tura_gracza = true;
+	}
 };
 void Okno_walki::draw(RenderWindow &m_Window)
 {
@@ -102,8 +111,23 @@ void Okno_walki::draw(RenderWindow &m_Window)
 	for (int i = 0; i < Sojusznik->lista_atakow.size(); i++)
 		m_Window.draw(Sojusznik->lista_atakow[i]->getNazwa());
 }
-void Okno_walki::atak()
+void Okno_walki::atak(bool gracz_atakuje)
 {
-
-}
-;
+	float damage;
+	cout << Sojusznik->lista_atakow.size();
+	cout << wybierz_akcje->getIndeks();
+	if (gracz_atakuje)
+	{
+			if ((wybierz_akcje->getIndeks()) <= Sojusznik->lista_atakow.size())
+			{
+				damage = Sojusznik->lista_atakow[wybierz_akcje->getIndeks()-1]->getSila() * Sojusznik->getATK();
+				Przeciwnik->setC_HP(damage - (Przeciwnik->getDEF()*0.1f));
+			}
+			else cout << "Brak ataku w tym miejscu";
+	}
+	else
+	{
+		damage = Przeciwnik->lista_atakow[rand()%Przeciwnik->lista_atakow.size()]->getSila() * Przeciwnik->getATK();
+		Sojusznik->setC_HP(damage - (Sojusznik->getDEF()*0.1f));
+	}
+};

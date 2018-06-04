@@ -46,7 +46,7 @@ public:
 	Sprite getSprite();
 	int getLVL();
 	//-------------------------------------------------
-
+	void setC_HP(float damage);
 
 	void zrob_sojusznik();
 	void scale_sprite();

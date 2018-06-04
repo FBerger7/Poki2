@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include<string>
 #include <SFML/Graphics.hpp>
 #include "Biblioteka_Pokemonow.h"
@@ -45,7 +46,7 @@ private:
 	RectangleShape sojusznik_texture;
 	RectangleShape hp_sojusznika;
 	RectangleShape exp;
-
+	bool tura_gracza;
 
 
 public:
@@ -54,9 +55,9 @@ public:
 	Okno_walki(RenderWindow &m_Window);
 	~Okno_walki();
 	void create(RenderWindow &m_Window);
-	void update(RenderWindow &m_Window);
+	void update();
 	void draw(RenderWindow &m_Window);
 
-	void atak();
+	void atak(bool gracz_atakuje);
 };
 
