@@ -84,6 +84,7 @@ void Okno_walki::update()
 	else
 	{
 		atak(tura_gracza);
+		hp_sojusznika.setSize(Vector2f(184 * Sojusznik->getC_HP() / Sojusznik->getMAX_HP(), 8)); //rozmiar paska zycia
 		tura_gracza = true;
 	}
 };
@@ -120,14 +121,16 @@ void Okno_walki::atak(bool gracz_atakuje)
 	{
 			if ((wybierz_akcje->getIndeks()) <= Sojusznik->lista_atakow.size())
 			{
-				damage = Sojusznik->lista_atakow[wybierz_akcje->getIndeks()-1]->getSila() * Sojusznik->getATK();
-				Przeciwnik->setC_HP(damage - (Przeciwnik->getDEF()*0.1f));
+				damage = Sojusznik->lista_atakow[wybierz_akcje->getIndeks()-1]->getSila();
+				damage *= Sojusznik->getATK();
+				Przeciwnik->setC_HP(damage - (Przeciwnik->getDEF()*0.2f));
 			}
 			else cout << "Brak ataku w tym miejscu";
 	}
 	else
 	{
-		damage = Przeciwnik->lista_atakow[rand()%Przeciwnik->lista_atakow.size()]->getSila() * Przeciwnik->getATK();
-		Sojusznik->setC_HP(damage - (Sojusznik->getDEF()*0.1f));
+		damage = Przeciwnik->lista_atakow[rand()%Przeciwnik->lista_atakow.size()]->getSila();
+		damage *= Przeciwnik->getATK();
+		Sojusznik->setC_HP(damage - (Sojusznik->getDEF()*0.2f));
 	}
 };
