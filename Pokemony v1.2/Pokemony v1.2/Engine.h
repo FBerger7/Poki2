@@ -36,6 +36,7 @@ private:
 	Music cerulean_music;
 	Music vs_poke_battle_music;
 	Music route_music;
+	Music poke_center_music;
 
 	//MAPA
 	Mapa *map1;

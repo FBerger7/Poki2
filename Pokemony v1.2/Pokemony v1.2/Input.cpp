@@ -77,6 +77,7 @@ void Engine::input()
 							delete mapa;
 							is_in_PokeCenter = true;
 							cerulean_music.stop();
+							poke_center_music.play();
 							ethan.set_xm(7);
 							ethan.set_ym(5);
 						}
@@ -120,6 +121,7 @@ void Engine::input()
 						{
 							is_in_PokeCenter = false;
 							delete PokeCenter;
+							poke_center_music.stop();
 							cerulean_music.play();
 							mapa = new Okno_eksploracji();
 							map1 = new Mapa("Mapa.txt", 36, 56);

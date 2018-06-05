@@ -28,6 +28,8 @@ Engine::Engine()
 		cout << "Nie udalo sie wczytac muzyki z walki vs pokemon" << endl;
 	if (!route_music.openFromFile("route_music.wav"))
 		cout << "Nie udalo sie wczytac route muzyki" << endl;
+	if (!poke_center_music.openFromFile("pokemon-center.wav"))
+		cout << "Nie udalo sie wczytac route muzyki" << endl;
 	//---------------------------------------------
 
 	mapa = new Okno_eksploracji();
