@@ -46,7 +46,7 @@ private:
 	RectangleShape sojusznik_texture;
 	RectangleShape hp_sojusznika;
 	RectangleShape exp;
-	bool tura_gracza;
+	//bool tura_gracza;
 
 
 public:
@@ -58,6 +58,6 @@ public:
 	void update();
 	void draw(RenderWindow &m_Window);
 
-	void atak(bool gracz_atakuje);
+	void atak();
 };
 
