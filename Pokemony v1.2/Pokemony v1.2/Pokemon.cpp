@@ -46,6 +46,37 @@ void Pokemon::ustaw_LVL()
 	Level.setFillColor(Color::Black);
 }
 
+void Pokemon::ustaw_HP_txt()
+{
+	font.loadFromFile("arial.ttf");
+	C_HP_txt.setFont(font);
+	MAX_HP_txt.setFont(font);
+
+	int i = (int)floor(C_HP + 0.5);
+	C_HP_txt.setString(to_string(i));
+	i = (int)floor(MAX_HP + 0.5);
+	MAX_HP_txt.setString(to_string(i));
+
+	FloatRect bounds = C_HP_txt.getLocalBounds();
+
+	C_HP_txt.setPosition(645.f - bounds.width,349.f);
+	MAX_HP_txt.setPosition(667.f,349.f);
+
+	C_HP_txt.setCharacterSize(17);
+	MAX_HP_txt.setCharacterSize(17);
+
+	C_HP_txt.setStyle(Text::Bold);
+	C_HP_txt.setFillColor(Color::Black);
+	MAX_HP_txt.setStyle(Text::Bold);
+	MAX_HP_txt.setFillColor(Color::Black);
+}
+
+void Pokemon::setHP_txt()
+{
+	int i = (int)floor(C_HP + 0.5);
+	C_HP_txt.setString(to_string(i));;
+}
+
 void Pokemon::dodaj_atak(Atak* nowy_atak)
 {
 	if (lista_atakow.size() < 4)
@@ -54,6 +85,17 @@ void Pokemon::dodaj_atak(Atak* nowy_atak)
 		nowy_atak->setIndeks(lista_atakow.size());
 	}
 
+}
+
+void Pokemon::heal()
+{
+	C_HP = MAX_HP;
+}
+
+void Pokemon::heal(float hp)
+{
+	C_HP += hp;
+	if (C_HP > MAX_HP) C_HP = MAX_HP;
 }
 
 
@@ -65,6 +107,16 @@ Text Pokemon::getNazwa()
 Text Pokemon::getLevel()
 {
 	return Level;
+}
+
+Text Pokemon::getC_HP_txt()
+{
+	return C_HP_txt;
+}
+
+Text Pokemon::getMAX_HP_txt()
+{
+	return MAX_HP_txt;
 }
 
 float Pokemon::getATK()
@@ -117,5 +169,15 @@ void Pokemon::setC_HP(float damage)
 	C_HP -= damage;
 	if (C_HP < 0) C_HP = 0;
 	else if (C_HP > MAX_HP) C_HP = MAX_HP;
+}
+
+void Pokemon::setC_EXP(float exp)
+{
+	C_EXP += exp;
+	while(C_EXP >= MAX_EXP)
+	{
+		C_EXP -= MAX_EXP;
+		lvl_up();
+	}
 }
 

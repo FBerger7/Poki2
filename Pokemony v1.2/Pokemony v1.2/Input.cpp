@@ -24,7 +24,7 @@ void Engine::input()
 					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 						if (czy_jest_walka())
 						{
-							pojedynek = new Okno_walki(m_Window);
+							pojedynek = new Okno_walki(m_Window, ethan);
 							walka = true;
 						}
 
@@ -42,7 +42,7 @@ void Engine::input()
 					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 						if (czy_jest_walka())
 						{
-							pojedynek = new Okno_walki(m_Window);
+							pojedynek = new Okno_walki(m_Window, ethan);
 							walka = true;
 						}
 					if (map1->check_door(ethan.get_xm(), ethan.get_ym()))
@@ -74,7 +74,7 @@ void Engine::input()
 					if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 						if (czy_jest_walka())
 						{
-							pojedynek = new Okno_walki(m_Window);
+							pojedynek = new Okno_walki(m_Window, ethan);
 							walka = true;
 						}
 					if (is_in_gym)
@@ -105,7 +105,7 @@ void Engine::input()
 					if(map1->is_grass(ethan.get_xm(),ethan.get_ym()))
 					if (czy_jest_walka())
 					{
-						pojedynek = new Okno_walki(m_Window);
+						pojedynek = new Okno_walki(m_Window, ethan);
 						walka = true;
 					}
 					//m_Window.setView(view);
@@ -115,55 +115,63 @@ void Engine::input()
 		}
 		default: break;
 	}
-	else 
+	else
+	{
+		if(pojedynek->czyKoniec()==false)
 			switch (zdarzenie.type)
 			{
-			case Event::Closed:
-				m_Window.close();
-				break;
-			case Event::KeyPressed:
-			{
-				if (zdarzenie.key.code == Keyboard::Up)
+				case Event::Closed:
+					m_Window.close();
+					break;
+				case Event::KeyPressed:
 				{
-					pojedynek->wybierz_akcje->move(UP);
-				}
-				else if (zdarzenie.key.code == Keyboard::Down)
-				{
-					pojedynek->wybierz_akcje->move(DOWN);
-				}
-				else if (zdarzenie.key.code == Keyboard::Left)
-				{
-					pojedynek->wybierz_akcje->move(LEFT);
-				}
-				else if (zdarzenie.key.code == Keyboard::Right)
-				{
-					pojedynek->wybierz_akcje->move(RIGHT);
-				}
-				else if (zdarzenie.key.code == Keyboard::X)
-				{
-					if (pojedynek->wybierz_akcje->getRodzaj() == Walka)
-						pojedynek->wybierz_akcje->move(BACK);
-					else if (pojedynek->wybierz_akcje->getRodzaj() == Menu)
+					if (zdarzenie.key.code == Keyboard::Up)
 					{
-						pojedynek->wybierz_akcje->move(EXIT);
+						pojedynek->wybierz_akcje->move(UP);
 					}
-				}			
-				else if (zdarzenie.key.code == Keyboard::Z)
-				{
-					if (pojedynek->wybierz_akcje->getRodzaj() == Menu)
-						pojedynek->wybierz_akcje->akcja();	//wybor walka/plecak/pokemony/ucieczka
-					else if (pojedynek->wybierz_akcje->getRodzaj() == Walka)
-						pojedynek->update();
-					if (pojedynek->wybierz_akcje->getWyjdz_z_walki() == true)
+					else if (zdarzenie.key.code == Keyboard::Down)
 					{
-						delete pojedynek;
-						walka = false;
+						pojedynek->wybierz_akcje->move(DOWN);
+					}
+					else if (zdarzenie.key.code == Keyboard::Left)
+					{
+						pojedynek->wybierz_akcje->move(LEFT);
+					}
+					else if (zdarzenie.key.code == Keyboard::Right)
+					{
+						pojedynek->wybierz_akcje->move(RIGHT);
+					}
+					else if (zdarzenie.key.code == Keyboard::X)
+					{
+						if (pojedynek->wybierz_akcje->getRodzaj() == Walka)
+							pojedynek->wybierz_akcje->move(BACK);
+						else if (pojedynek->wybierz_akcje->getRodzaj() == Menu)
+						{
+							pojedynek->wybierz_akcje->move(EXIT);
+						}
+					}			
+					else if (zdarzenie.key.code == Keyboard::Z)
+					{
+						if (pojedynek->wybierz_akcje->getRodzaj() == Menu)
+							pojedynek->wybierz_akcje->akcja();	//wybor walka/plecak/pokemony/ucieczka
+						else if (pojedynek->wybierz_akcje->getRodzaj() == Walka)
+							pojedynek->update();
+						if (pojedynek->wybierz_akcje->getWyjdz_z_walki() == true)
+						{
+							delete pojedynek;
+							walka = false;
+						}
+						break;
 					}
 					break;
 				}
-				break;
-			}
 			default: break;
 			}
+		else
+		{
+			delete pojedynek;
+			walka = false;
+		}
+	}
 		}
 }

@@ -136,6 +136,21 @@ float Gracz::getY()
 	return y;
 }
 
+void Gracz::dodaj_pokemona(Pokemon *pok)
+{
+	lista_pokemonow.push_back(pok);
+}
+
+Pokemon * Gracz::getPokemon(int indeks)
+{
+	return lista_pokemonow[indeks];
+}
+
+vector<Pokemon*> Gracz::getlista_pok()
+{
+	return lista_pokemonow;
+}
+
 int Gracz::get_xm()
 {
 	return xm;

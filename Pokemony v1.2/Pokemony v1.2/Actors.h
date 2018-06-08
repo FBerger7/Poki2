@@ -4,6 +4,9 @@
 #include<map>
 #include<string>
 #include<iostream>
+#include<vector>
+#include "Pokemon.h"
+#include "Biblioteka_pokemonow.h"
 
 
 using namespace std;
@@ -33,8 +36,10 @@ class Gracz :
 	RectangleShape osoba;
 	float x = 0, y = 0;
 	int xm = 0, ym = 0;
+	vector<Pokemon*>lista_pokemonow;
 public:
 	Gracz();
+	~Gracz();
 	Texture ethan_tex;
 	map<string, Gracz> Lista_aktorow;
 	map<string, Gracz>::iterator it;
@@ -52,7 +57,10 @@ public:
 	void ustaw_pozycje(float Tx, float Ty);
 	float getX();
 	float getY();
-	~Gracz();
+
+	void dodaj_pokemona(Pokemon* pok);
+	Pokemon* getPokemon(int indeks);
+	vector<Pokemon*> getlista_pok();
 };
 
 

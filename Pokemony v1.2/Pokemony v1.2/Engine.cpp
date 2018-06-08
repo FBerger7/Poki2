@@ -19,6 +19,9 @@ Engine::Engine()
 	Gracz *pom = new Gracz(1024, 150);
 	ethan.Lista_aktorow.insert(pair<string, Gracz>("ethan", *pom));
 	
+	Pokemon* tmp = new Poliwrath(5, true);
+	ethan.dodaj_pokemona(tmp);
+
 	mapa = new Okno_eksploracji();
 
 	map1 = new Mapa("Mapa.txt", 36, 56);

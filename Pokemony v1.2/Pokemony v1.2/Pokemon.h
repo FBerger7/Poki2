@@ -27,6 +27,8 @@ protected:
 	Font font;
 	Text Nazwa;
 	Text Level;
+	Text C_HP_txt;
+	Text MAX_HP_txt;
 
 	virtual void ustaw_statystyki(int lvl)=0;
 
@@ -36,27 +38,38 @@ public:
 	// Pobieranie danych pokemona    --- Metody wspolne
 	Text getNazwa();
 	Text getLevel();
+	Text getC_HP_txt();
+	Text getMAX_HP_txt();
+
 	float getATK();
 	float getDEF();
 	float getSPD();
+
 	float getC_HP();
 	float getMAX_HP();
+
 	float getC_EXP();
 	float getMAX_EXP();
+
 	Sprite getSprite();
 	int getLVL();
 	//-------------------------------------------------
 	void setC_HP(float damage);
+	void setC_EXP(float exp);
 
 	void zrob_sojusznik();
 	void scale_sprite();
 
 	void ustaw_Nazwe();
 	void ustaw_LVL();
+	void ustaw_HP_txt();
+
+	void setHP_txt();
 	//----------------------------
 
 	void dodaj_atak(Atak* nowy_atak);
-
+	void heal();
+	void heal(float hp);
 
 	// Metody wirtualne
 	virtual void setSprite()=0;

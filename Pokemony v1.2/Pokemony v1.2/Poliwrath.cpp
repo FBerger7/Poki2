@@ -16,6 +16,7 @@ void Poliwrath::ustaw_statystyki(int lvl)
 	DEF = 8 + (lvl * DEF_UP);
 	SPD = 5 + (lvl * SPD_UP);
 	TYP = Water;
+
 }
 
 Poliwrath::Poliwrath(int lvl, bool s)
@@ -37,8 +38,11 @@ Poliwrath::Poliwrath(int lvl, bool s)
 
 
 	if (s)
+	{
 		for (int i = 0; i < lista_atakow.size(); i++)
 			lista_atakow[i]->ustaw_Nazwe();
+		ustaw_HP_txt();
+	}
 }
 
 Poliwrath::~Poliwrath()
@@ -69,9 +73,15 @@ void Poliwrath::setSprite()
 
 void Poliwrath::lvl_up() //skalowanie pokemonow napotkanych w krzakach
 {
+	LVL++;
 	MAX_HP += MAX_HP_UP;
+	C_HP += MAX_HP_UP;
 	ATK += ATK_UP;
 	DEF += DEF_UP;
 	SPD += SPD_UP;
 	MAX_EXP += LVL * MAX_EXP_UP;
+	Level.setString(to_string(LVL));
+
+	C_HP_txt.setString(to_string(C_HP));
+	MAX_HP_txt.setString(to_string(MAX_HP));
 }
