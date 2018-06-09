@@ -182,18 +182,18 @@ void Engine::input()
 					{
 						while (m_Window.pollEvent(rozmowa_siostra))
 						{
-							cout << "HALOO" << endl;
 							switch(rozmowa_siostra.type)
 							case Event::KeyPressed:
 							{
 								if (rozmowa_siostra.key.code == Keyboard::Z)
 								{
+									ethan.ulecz_pokemony();
 									flag = 1;
 									break;
 								}
 								else if (rozmowa_siostra.key.code == Keyboard::X)
 								{
-									flag = 2;
+									flag = 1;
 									break;
 								}
 								break;
@@ -259,7 +259,7 @@ void Engine::input()
 							if (pojedynek->wybierz_akcje->getRodzaj() == Lista_pokemon) menu_pokemon = true;
 							break;
 						case Walka:
-							pojedynek->update(m_Window);
+							pojedynek->update(m_Window, ethan);
 							break;
 						case Lista_pokemon:
 							
