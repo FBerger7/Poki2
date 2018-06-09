@@ -11,34 +11,65 @@
     <ClCompile Include="Mapa.cpp" />
     <ClCompile Include="Sceny.cpp" />
     <ClCompile Include="Update.cpp" />
-    <ClCompile Include="Poliwrath.cpp" />
-    <ClCompile Include="Pokemon.cpp" />
-    <ClCompile Include="Stelfozaur.cpp" />
-    <ClCompile Include="Atak.cpp" />
     <ClCompile Include="Cut.cpp" />
-    <ClCompile Include="Punch.cpp" />
-    <ClCompile Include="Kick.cpp" />
     <ClCompile Include="Menu_walki.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Pokemon.cpp">
+      <Filter>Pokemony</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwrath.cpp">
+      <Filter>Pokemony</Filter>
+    </ClCompile>
+    <ClCompile Include="Stelfozaur.cpp">
+      <Filter>Pokemony</Filter>
+    </ClCompile>
+    <ClCompile Include="Atak.cpp">
+      <Filter>Pokemony</Filter>
+    </ClCompile>
+    <ClCompile Include="Kick.cpp">
+      <Filter>Pokemony</Filter>
+    </ClCompile>
+    <ClCompile Include="Punch.cpp">
+      <Filter>Pokemony</Filter>
+    </ClCompile>
+    <ClCompile Include="Okno_pokemon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actors.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="Sceny.h" />
-    <ClInclude Include="Poliwrath.h" />
-    <ClInclude Include="Pokemon.h" />
     <ClInclude Include="Biblioteka_Pokemonow.h" />
-    <ClInclude Include="Stelfozaur.h" />
-    <ClInclude Include="Atak.h" />
     <ClInclude Include="Biblioteka_atakow.h" />
     <ClInclude Include="Cut.h" />
-    <ClInclude Include="Punch.h" />
-    <ClInclude Include="Kick.h" />
     <ClInclude Include="Menu_walki.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Pokemon.h">
+      <Filter>Pokemony</Filter>
+    </ClInclude>
+    <ClInclude Include="Poliwrath.h">
+      <Filter>Pokemony</Filter>
+    </ClInclude>
+    <ClInclude Include="Stelfozaur.h">
+      <Filter>Pokemony</Filter>
+    </ClInclude>
+    <ClInclude Include="Atak.h">
+      <Filter>Pokemony</Filter>
+    </ClInclude>
+    <ClInclude Include="Kick.h">
+      <Filter>Pokemony</Filter>
+    </ClInclude>
+    <ClInclude Include="Punch.h">
+      <Filter>Pokemony</Filter>
+    </ClInclude>
+    <ClInclude Include="Okno_pokemon.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Pokemony">
+      <UniqueIdentifier>{8ad941c4-bb1c-4381-b37f-0c0d6f792f18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

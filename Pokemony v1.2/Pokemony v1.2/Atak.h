@@ -15,7 +15,7 @@ protected:
 	Text Nazwa;
 
 public:
-	int getSila();
+	float getSila();
 	Text getNazwa();
 
 	void setIndeks(int i);

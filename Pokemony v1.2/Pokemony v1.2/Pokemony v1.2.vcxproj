@@ -124,6 +124,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Menu_walki.cpp" />
     <ClCompile Include="Okno_eksploracji.cpp" />
+    <ClCompile Include="Okno_pokemon.cpp" />
     <ClCompile Include="Okno_walki.cpp" />
     <ClCompile Include="Mapa.cpp" />
     <ClCompile Include="Pokemon.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Menu_walki.h" />
+    <ClInclude Include="Okno_pokemon.h" />
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="Poliwrath.h" />
     <ClInclude Include="Punch.h" />

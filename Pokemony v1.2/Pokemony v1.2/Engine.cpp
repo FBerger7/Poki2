@@ -17,7 +17,7 @@ Engine::Engine()
 	//LISTA NPC
 	
 	Gracz *pom = new Gracz(1024, 150);
-	ethan.Lista_aktorow.insert(pair<string, Gracz>("ethan", *pom));
+	Lista_aktorow.insert(pair<string, Actors*>("ethan", pom));
 	
 	//------------Ladowanie muzyki------------------
 	if (!gym_music.openFromFile("Gym_sound.wav"))
@@ -31,6 +31,8 @@ Engine::Engine()
 	if (!poke_center_music.openFromFile("pokemon-center.wav"))
 		cout << "Nie udalo sie wczytac route muzyki" << endl;
 	//---------------------------------------------
+	Pokemon* tmp = new Poliwrath(5, true);
+	ethan.dodaj_pokemona(tmp);
 
 	mapa = new Okno_eksploracji();
 	cerulean_music.play();
@@ -44,6 +46,10 @@ Engine::Engine()
 
 	view_b.setSize(sf::Vector2f(800, 600));
 	view_b.setCenter(Vector2f(400, 300));
+
+
+	view_pokemon.setSize(sf::Vector2f(800, 600));
+	view_pokemon.setCenter(Vector2f(400, 300));
 
 	ethan.set_xm(9);
 	ethan.set_ym(29);
