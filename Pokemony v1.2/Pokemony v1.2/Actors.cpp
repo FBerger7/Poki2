@@ -206,6 +206,14 @@ void Gracz::set_it()
 	it_pok++;
 }
 
+void Gracz::ulecz_pokemony()
+{
+	for (it_pok = lista_pokemonow.begin(); it_pok != lista_pokemonow.end(); it_pok++)
+	{
+		(*it_pok)->heal();
+	}
+}
+
 Gracz::~Gracz()
 {
 }

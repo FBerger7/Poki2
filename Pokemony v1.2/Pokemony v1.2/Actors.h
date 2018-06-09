@@ -73,6 +73,7 @@ public:
 	Pokemon* wybierz_pierwszego();
 	vector<Pokemon*>::iterator get_it();
 	void set_it();
+	void ulecz_pokemony();
 };
 
 
