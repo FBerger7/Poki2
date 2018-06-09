@@ -4,6 +4,7 @@
 #include "Biblioteka_Pokemonow.h"
 #include <memory>
 #include "Menu_walki.h"
+#include "Menu.h"
 
 using namespace std;
 using namespace sf;

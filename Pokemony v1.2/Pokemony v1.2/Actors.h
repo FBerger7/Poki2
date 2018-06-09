@@ -48,6 +48,7 @@ public:
 	int get_ym();
 	void setSprite(Texture &imgpath);
 	void ustaw_pozycje(float Tx, float Ty);
+	void setXY(float x, float y);
 	float getX();
 	float getY();
 	~Gracz();

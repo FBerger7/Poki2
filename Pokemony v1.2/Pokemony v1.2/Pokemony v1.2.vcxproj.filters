@@ -19,6 +19,7 @@
     <ClCompile Include="Punch.cpp" />
     <ClCompile Include="Kick.cpp" />
     <ClCompile Include="Menu_walki.cpp" />
+    <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actors.h" />
@@ -35,6 +36,7 @@
     <ClInclude Include="Punch.h" />
     <ClInclude Include="Kick.h" />
     <ClInclude Include="Menu_walki.h" />
+    <ClInclude Include="Menu.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

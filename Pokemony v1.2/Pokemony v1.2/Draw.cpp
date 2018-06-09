@@ -20,6 +20,10 @@ void Engine::draw()
 		{
 			m_Window.draw(ethan.it->second);
 		}
+		if (menu_is_open)
+		{
+			opcje->draw(m_Window);
+		}
 	}
 	else
 	{

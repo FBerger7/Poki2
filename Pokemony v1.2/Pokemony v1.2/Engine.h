@@ -29,6 +29,7 @@ private:
 	bool walka = false;
 	bool is_in_gym = false;
 	bool is_in_PokeCenter = false;
+	bool menu_is_open = false;
 	int RANDOM_NUMBER = 100;
 
 	//MUZYKA
@@ -37,6 +38,9 @@ private:
 	Music vs_poke_battle_music;
 	Music route_music;
 	Music poke_center_music;
+
+	//MENU
+	Menu *opcje;
 
 	//MAPA
 	Mapa *map1;

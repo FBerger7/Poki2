@@ -125,6 +125,12 @@ void Gracz::ustaw_pozycje(float Tx, float Ty)
 	y = Ty;
 }
 
+void Gracz::setXY(float x, float y)
+{
+	this->x = this->x - x;
+	this->y = this->y - y;
+}
+
 
 float Gracz::getX()
 {
