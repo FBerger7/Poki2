@@ -24,6 +24,9 @@ protected:
 	Texture PokemonTexture;
 	Sprite PokemonSprite;
 
+	Texture PokemonTexture_menu;
+	Sprite PokemonSprite_menu;
+
 	Font font;
 	Text Nazwa;
 	Text Level;
@@ -52,6 +55,8 @@ public:
 	float getMAX_EXP();
 
 	Sprite getSprite();
+
+	Sprite getSprite_menu(int i);
 	int getLVL();
 	//-------------------------------------------------
 	void setC_HP(float damage);
@@ -66,7 +71,7 @@ public:
 
 	void setHP_txt();
 	//----------------------------
-
+	float stosunek_hp();
 	void dodaj_atak(Atak* nowy_atak);
 	void heal();
 	void heal(float hp);

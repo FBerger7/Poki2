@@ -53,9 +53,9 @@ public:
 class Gracz :
 	public Actors
 {
+public:
 	vector<Pokemon*>lista_pokemonow;
 	vector<Pokemon*>::iterator it_pok;
-public:
 	void setXY(float x, float y);
 	int piniondze;
 	Gracz();
@@ -70,6 +70,10 @@ public:
 	Pokemon* getPokemon(int indeks);
 	vector<Pokemon*> getlista_pok();
 	bool czy_ma_pokemony();
+	Pokemon* wybierz_pierwszego();
+	vector<Pokemon*>::iterator get_it();
+	void set_it();
+	void ulecz_pokemony();
 };
 
 

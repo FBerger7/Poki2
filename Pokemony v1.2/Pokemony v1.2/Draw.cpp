@@ -2,10 +2,10 @@
 
 void Engine::draw()
 {
-	if (menu_pokemon == true)
+	if (menu_pokemon==true)
 	{
 		m_Window.setView(view_pokemon);
-		pokemon_window->draw(m_Window);
+		pokemon_window->draw(m_Window, ethan);
 	}
 	else
 	{

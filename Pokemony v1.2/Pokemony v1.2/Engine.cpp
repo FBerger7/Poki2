@@ -33,6 +33,8 @@ Engine::Engine()
 	//---------------------------------------------
 	Pokemon* tmp = new Poliwrath(5, true);
 	ethan.dodaj_pokemona(tmp);
+	tmp = new Stelfozaur(5, true);
+	ethan.dodaj_pokemona(tmp);
 
 	mapa = new Okno_eksploracji();
 	cerulean_music.play();
@@ -47,7 +49,7 @@ Engine::Engine()
 	view_b.setSize(sf::Vector2f(800, 600));
 	view_b.setCenter(Vector2f(400, 300));
 
-
+	pokemon_window = new Okno_pokemon(m_Window);
 	view_pokemon.setSize(sf::Vector2f(800, 600));
 	view_pokemon.setCenter(Vector2f(400, 300));
 
