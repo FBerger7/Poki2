@@ -194,28 +194,36 @@ void Engine::input()
 					{
 						pojedynek->wybierz_akcje->move(RIGHT);
 					}
-					else if (zdarzenie.key.code == Keyboard::X)
+					else if (zdarzenie.key.code == Keyboard::X) //cofa
 					{
-						if (pojedynek->wybierz_akcje->getRodzaj() == Walka)
-							pojedynek->wybierz_akcje->move(BACK);
-						else if (pojedynek->wybierz_akcje->getRodzaj() == Menu_walka)
+						switch (pojedynek->wybierz_akcje->getRodzaj())
 						{
-							pojedynek->wybierz_akcje->move(EXIT);
+						case Menu_walka:
+							pojedynek->wybierz_akcje->move(EXIT);							
+							break;
+						case Walka:
+							pojedynek->wybierz_akcje->move(BACK);
+							break;
+						case Lista_pokemon:
+							menu_pokemon = false;
+							pojedynek->wybierz_akcje->move(BACK);
+
+							break;
 						}
 					}
-					else if (zdarzenie.key.code == Keyboard::Z)
+					else if (zdarzenie.key.code == Keyboard::Z) //zatwierdza
 					{
 						switch (pojedynek->wybierz_akcje->getRodzaj())
 						{
 						case Menu_walka:
 							pojedynek->wybierz_akcje->akcja(); //wybor walka/plecak/pokemony/ucieczka
+							if (pojedynek->wybierz_akcje->getRodzaj() == Lista_pokemon) menu_pokemon = true;
 							break;
 						case Walka:
 							pojedynek->update();
 							break;
 						case Lista_pokemon:
-							menu_pokemon = true;
-							pojedynek->wybierz_akcje->akcja();
+							
 							break;
 						}
 						if (pojedynek->wybierz_akcje->getWyjdz_z_walki() == true)

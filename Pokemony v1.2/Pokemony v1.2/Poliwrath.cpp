@@ -58,6 +58,12 @@ void Poliwrath::setSprite()
 		PokemonSprite.setTexture(PokemonTexture);
 		PokemonSprite.setTextureRect(wybor_pokemona);
 		PokemonSprite.setPosition(85, 195);
+
+		PokemonTexture_menu.loadFromFile("Pokemon_front.png");
+		IntRect wybor_pokemona2(328, 472, 56, 56);
+		PokemonSprite_menu.setTexture(PokemonTexture_menu);
+		PokemonSprite_menu.setTextureRect(wybor_pokemona2);
+		PokemonSprite_menu.scale(1.7f, 1.7f);
 	}
 
 	else

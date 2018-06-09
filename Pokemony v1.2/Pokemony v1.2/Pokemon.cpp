@@ -77,6 +77,11 @@ void Pokemon::setHP_txt()
 	C_HP_txt.setString(to_string(i));;
 }
 
+float Pokemon::stosunek_hp()
+{
+	return C_HP/MAX_HP;
+}
+
 void Pokemon::dodaj_atak(Atak* nowy_atak)
 {
 	if (lista_atakow.size() < 4)
@@ -157,6 +162,12 @@ float Pokemon::getMAX_EXP()
 Sprite Pokemon::getSprite()
 {
 	return PokemonSprite;
+}
+
+Sprite Pokemon::getSprite_menu(int i)
+{
+	PokemonSprite_menu.setPosition(120.f,50.f + i*84);
+	return PokemonSprite_menu;
 }
 
 int Pokemon::getLVL()

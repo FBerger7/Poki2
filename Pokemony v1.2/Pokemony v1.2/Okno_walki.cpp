@@ -4,11 +4,11 @@ Okno_walki::Okno_walki(RenderWindow & m_Window,Gracz ethan)
 {
 	koniec_walki = false;
 	IntRect wymiary_okna(0, 0, 800, 600);
-	b_BackgroundTexture.loadFromFile("Battle_template.png");
-	b_BackgroundSprite.setTexture(b_BackgroundTexture);
-	b_BackgroundSprite.setTextureRect(wymiary_okna);
+	BackgroundTexture.loadFromFile("Battle_template.png");
+	BackgroundSprite.setTexture(BackgroundTexture);
+	BackgroundSprite.setTextureRect(wymiary_okna);
 
-	gracz =&ethan;
+	gracz = ethan;
 	hp_przeciwnika.setPosition(97, 62); //polozenia paska hp
 	hp_sojusznika.setPosition(581, 330);
 
@@ -51,7 +51,7 @@ void Okno_walki::create(RenderWindow &m_Window)//parametry: przciwnik(gracz/poke
 	hp_przeciwnika.setFillColor(Color::Green);
 
 	//SOJUSZNIK
-	Sojusznik = gracz->getPokemon(0);		//wywlic wyjatek jesli lista puta
+	Sojusznik = gracz.wybierz_pierwszego();
 	hp_sojusznika.setSize(Vector2f(184 * Sojusznik->getC_HP() / Sojusznik->getMAX_HP(), 8)); //rozmiar paska zycia
 	if (Sojusznik->getC_HP() / Sojusznik->getMAX_HP() <= 1 && Sojusznik->getC_HP() / Sojusznik->getMAX_HP() > 0.5)
 		hp_sojusznika.setFillColor(Color::Green);
@@ -88,7 +88,7 @@ void Okno_walki::update()
 void Okno_walki::draw(RenderWindow &m_Window)
 {
 	m_Window.clear(Color::White);
-	m_Window.draw(b_BackgroundSprite);
+	m_Window.draw(BackgroundSprite);
 
 	m_Window.draw(Przeciwnik->getSprite());
 	m_Window.draw(Sojusznik->getSprite());
@@ -137,12 +137,15 @@ void Okno_walki::atak()
 		else { //ATAK przeciwnika
 			damage = Przeciwnik->lista_atakow[rand()%Przeciwnik->lista_atakow.size()]->getSila();
 			damage *= Przeciwnik->getATK();
-			if (damage - (Sojusznik->getDEF()*0.4f) <= 0) damage = 1;
-			else damage -= (Sojusznik->getDEF()*0.4f);
+			if (damage - (Sojusznik->getDEF()*0.2f) <= 0) damage = 1;
+			else damage -= (Sojusznik->getDEF()*0.2f);
 			Sojusznik->setC_HP(damage);
 			if (Sojusznik->getC_HP() <= 0)
 			{
-				koniec_walki = true;
+				if (gracz.czy_ma_pokemony())
+					Sojusznik = gracz.wybierz_pierwszego();
+				else
+					koniec_walki = true;
 			}
 			Sojusznik->setHP_txt();
 		}
@@ -154,5 +157,5 @@ void Okno_walki::wygrana_walka()
 {
 	float exp = Przeciwnik->getLVL() * 1.4 * 25;
 	Sojusznik->setC_EXP(exp);
-	gracz->piniondze += Przeciwnik->getLVL()*((rand() % 4) + 3);
+	gracz.piniondze += Przeciwnik->getLVL()*((rand() % 4) + 3);
 }

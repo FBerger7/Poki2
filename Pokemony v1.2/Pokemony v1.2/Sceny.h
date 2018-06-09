@@ -15,6 +15,9 @@ using namespace sf;
 class Scena_abstrakcyjna :
 	public Sprite
 {
+protected:
+	Sprite BackgroundSprite; //battle background
+	Texture BackgroundTexture;
 public:
 	//virtual void create(RenderWindow &m_Window) = 0;
 	//~Scena_abstrakcyjna();
@@ -23,8 +26,6 @@ public:
 class Okno_eksploracji : public Scena_abstrakcyjna
 {
 private:
-	Sprite m_BackgroundSprite; //battle background
-	Texture m_BackgroundTexture;
 
 public:
 
@@ -38,13 +39,11 @@ public:
 class Okno_walki : public Scena_abstrakcyjna
 {
 private:
-	Sprite b_BackgroundSprite; //battle background
-	Texture b_BackgroundTexture;
 	Pokemon *Przeciwnik;
 	RectangleShape przeciwnik_texture;
 	RectangleShape hp_przeciwnika;
 
-	Gracz *gracz;
+	Gracz gracz;
 	Pokemon *Sojusznik;
 	RectangleShape sojusznik_texture;
 	RectangleShape hp_sojusznika;
