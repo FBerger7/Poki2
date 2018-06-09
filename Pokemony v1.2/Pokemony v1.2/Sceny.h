@@ -2,6 +2,7 @@
 #include <iostream>
 #include<string>
 #include <SFML/Graphics.hpp>
+#include <SFML/System/Time.hpp>
 #include "Biblioteka_Pokemonow.h"
 #include <memory>
 #include "Menu_walki.h"
@@ -56,10 +57,10 @@ public:
 	Okno_walki(RenderWindow &m_Window,Gracz ethan);
 	~Okno_walki();
 	void create(RenderWindow &m_Window);
-	void update();
+	void update(RenderWindow &m_Window);
 	void draw(RenderWindow &m_Window);
 	bool czyKoniec();
-	void atak();
+	void atak(RenderWindow &m_Window);
 	void wygrana_walka();
 };
 

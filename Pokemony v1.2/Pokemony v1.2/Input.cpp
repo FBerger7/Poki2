@@ -220,7 +220,7 @@ void Engine::input()
 							if (pojedynek->wybierz_akcje->getRodzaj() == Lista_pokemon) menu_pokemon = true;
 							break;
 						case Walka:
-							pojedynek->update();
+							pojedynek->update(m_Window);
 							break;
 						case Lista_pokemon:
 							

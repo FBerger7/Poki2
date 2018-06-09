@@ -1,4 +1,4 @@
-#include "Sceny.h"
+﻿#include "Sceny.h"
 
 Okno_walki::Okno_walki(RenderWindow & m_Window,Gracz ethan)
 {
@@ -63,10 +63,9 @@ void Okno_walki::create(RenderWindow &m_Window)//parametry: przciwnik(gracz/poke
 	exp.setSize(Vector2f(245 * Sojusznik->getC_EXP() / Sojusznik->getMAX_EXP(), 4)); //rozmiar paska exp
 };
 
-void Okno_walki::update()
+void Okno_walki::update(RenderWindow &m_Window)
 {
-		atak();
-		
+		atak(m_Window);
 		//Ustawianie koloru paska zycia----------------------------------
 		hp_przeciwnika.setSize(Vector2f(181 * (Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP()), 8));
 		if (Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP() <= 1 && Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP() > 0.5)
@@ -116,7 +115,7 @@ bool Okno_walki::czyKoniec()
 {
 	return koniec_walki;
 }
-void Okno_walki::atak()
+void Okno_walki::atak(RenderWindow &m_Window)
 {
 	int CRIT = rand() % 10;
 	float damage;
@@ -124,11 +123,11 @@ void Okno_walki::atak()
 	cout << wybierz_akcje->getIndeks();
 	if ((wybierz_akcje->getIndeks()) <= Sojusznik->lista_atakow.size())
 	{
+		//Atak gracza
 		damage = Sojusznik->lista_atakow[wybierz_akcje->getIndeks()-1]->getSila();
 		damage *= Sojusznik->getATK();
 		if (CRIT = 0) damage *= 2;
 		Przeciwnik->setC_HP(damage - (Przeciwnik->getDEF()*0.1f));
-
 		if (Przeciwnik->getC_HP() <= 0)
 		{
 			koniec_walki = true; //koniec walki
