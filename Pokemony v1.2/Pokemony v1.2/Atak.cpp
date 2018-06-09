@@ -2,7 +2,7 @@
 
 
 
-int Atak::getSila()
+float Atak::getSila()
 {
 	return Sila;
 }
