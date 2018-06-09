@@ -53,11 +53,11 @@ public:
 class Gracz :
 	public Actors
 {
+int piniondze;
 public:
 	vector<Pokemon*>lista_pokemonow;
 	vector<Pokemon*>::iterator it_pok;
 	void setXY(float x, float y);
-	int piniondze;
 	Gracz();
 	~Gracz();
 	Texture ethan_tex;
@@ -65,7 +65,8 @@ public:
 	//map<string, Gracz>::iterator it;
 	Gracz(float Tx, float Ty);
 
-
+	void setGold(int ilosc);
+	int getGold();
 	void dodaj_pokemona(Pokemon* pok);
 	Pokemon* getPokemon(int indeks);
 	vector<Pokemon*> getlista_pok();

@@ -154,7 +154,16 @@ Gracz::Gracz(float Tx, float Ty)
 	ustaw_pozycje(Tx, Ty);
 	//Lista_aktorow.insert(pair<string, Gracz>("Ethan", *this));
 	//Chyba nie mozna listy aktorow robic lokalnie :(
-	piniondze = 1000;
+}
+
+void Gracz::setGold(int ilosc)
+{
+	this->piniondze = ilosc;
+}
+
+int Gracz::getGold()
+{
+	return this->piniondze;
 }
 
 

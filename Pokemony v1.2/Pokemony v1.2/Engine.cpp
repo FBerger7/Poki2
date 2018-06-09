@@ -18,6 +18,8 @@ Engine::Engine()
 	
 	Gracz *pom = new Gracz(1024, 150);
 	Lista_aktorow.insert(pair<string, Actors*>("ethan", pom));
+
+	ethan.setGold(1234);
 	
 	//------------Ladowanie muzyki------------------
 	if (!gym_music.openFromFile("Gym_sound.wav"))
