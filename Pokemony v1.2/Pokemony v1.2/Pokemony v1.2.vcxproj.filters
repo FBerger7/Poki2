@@ -13,6 +13,7 @@
     <ClCompile Include="Update.cpp" />
     <ClCompile Include="Cut.cpp" />
     <ClCompile Include="Menu_walki.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Pokemon.cpp">
       <Filter>Pokemony</Filter>
     </ClCompile>
@@ -42,6 +43,7 @@
     <ClInclude Include="Biblioteka_atakow.h" />
     <ClInclude Include="Cut.h" />
     <ClInclude Include="Menu_walki.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Pokemon.h">
       <Filter>Pokemony</Filter>
     </ClInclude>

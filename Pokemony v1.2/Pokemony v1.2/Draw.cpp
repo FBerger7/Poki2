@@ -24,10 +24,18 @@ void Engine::draw()
 				m_Window.draw(it->second->getosoba());
 			}
 		}
+		else if (is_in_PokeCenter)
+		{
+			PokeCenter->draw(m_Window);
+		}
 		else
 		{
 			m_Window.setView(view_b);
 			pojedynek->draw(m_Window);
+		}
+		if (menu_is_open)
+		{
+			opcje->draw(m_Window);
 		}
 	}
 	m_Window.display();

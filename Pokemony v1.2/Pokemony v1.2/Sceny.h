@@ -5,6 +5,7 @@
 #include "Biblioteka_Pokemonow.h"
 #include <memory>
 #include "Menu_walki.h"
+#include "Menu.h"
 #include "Actors.h"
 
 using namespace std;
@@ -29,7 +30,7 @@ public:
 	Okno_eksploracji();
 	~Okno_eksploracji();
 
-	Okno_eksploracji(string nazwa_budynku, IntRect wymiary);
+	Okno_eksploracji(string nazwa_budynku, IntRect wymiary, string Is_In);
 	void create(RenderWindow &m_Window);
 	void draw(RenderWindow &m_Window);
 };
