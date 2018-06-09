@@ -5,11 +5,11 @@
 using namespace std;
 using namespace sf;
 
-	typedef enum Akcja {
-		Menu_walka,
-		Walka,
-		Lista_pokemon
-	};
+typedef enum Akcja {
+	Menu_walka,
+	Walka,
+	Lista_pokemon
+};
 
 class Menu_walki
 {

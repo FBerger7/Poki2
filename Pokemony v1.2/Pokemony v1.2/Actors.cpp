@@ -184,11 +184,43 @@ vector<Pokemon*> Gracz::getlista_pok()
 
 bool Gracz::czy_ma_pokemony()
 {
-	for (it_pok = lista_pokemonow.begin(); it_pok != lista_pokemonow.end(); it_pok++)
+	for (int i=0; i< lista_pokemonow.size(); i++)
 	{
-		if ((*it_pok)->getC_HP() > 0) return true;
+		if (lista_pokemonow[i]->getC_HP() > 0) return true;
 	}
 	return false;
+}
+
+Pokemon * Gracz::wybierz_pierwszego()
+{
+	int i = 0;
+	for (it_pok = lista_pokemonow.begin(); it_pok != lista_pokemonow.end(); it_pok++)
+	{
+		if ((*it_pok)->getC_HP() > 0)
+		{
+			return getPokemon(i);		//wywlic wyjatek jesli lista puta
+		}
+		i++;
+	}
+	return nullptr;
+}
+
+vector<Pokemon*>::iterator Gracz::get_it()
+{
+	return it_pok;
+}
+
+void Gracz::set_it()
+{
+	it_pok++;
+}
+
+void Gracz::ulecz_pokemony()
+{
+	for (it_pok = lista_pokemonow.begin(); it_pok != lista_pokemonow.end(); it_pok++)
+	{
+		(*it_pok)->heal();
+	}
 }
 
 Gracz::~Gracz()
