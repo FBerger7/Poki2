@@ -57,10 +57,10 @@ public:
 	Okno_walki(RenderWindow &m_Window,Gracz ethan);
 	~Okno_walki();
 	void create(RenderWindow &m_Window);
-	void update(RenderWindow &m_Window);
+	void update(RenderWindow &m_Window, Gracz &ethan);
 	void draw(RenderWindow &m_Window);
 	bool czyKoniec();
-	void atak(RenderWindow &m_Window);
-	void wygrana_walka();
+	void atak(Gracz &ethan);
+	void wygrana_walka(Gracz &ethan);
 };
 

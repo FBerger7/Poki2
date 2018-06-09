@@ -63,9 +63,9 @@ void Okno_walki::create(RenderWindow &m_Window)//parametry: przciwnik(gracz/poke
 	exp.setSize(Vector2f(245 * Sojusznik->getC_EXP() / Sojusznik->getMAX_EXP(), 4)); //rozmiar paska exp
 };
 
-void Okno_walki::update(RenderWindow &m_Window)
+void Okno_walki::update(RenderWindow &m_Window, Gracz &ethan)
 {
-		atak(m_Window);
+		atak(ethan);
 		//Ustawianie koloru paska zycia----------------------------------
 		hp_przeciwnika.setSize(Vector2f(181 * (Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP()), 8));
 		if (Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP() <= 1 && Przeciwnik->getC_HP() / Przeciwnik->getMAX_HP() > 0.5)
@@ -115,7 +115,7 @@ bool Okno_walki::czyKoniec()
 {
 	return koniec_walki;
 }
-void Okno_walki::atak(RenderWindow &m_Window)
+void Okno_walki::atak(Gracz &ethan)
 {
 	int CRIT = rand() % 10;
 	float damage;
@@ -131,7 +131,7 @@ void Okno_walki::atak(RenderWindow &m_Window)
 		if (Przeciwnik->getC_HP() <= 0)
 		{
 			koniec_walki = true; //koniec walki
-			wygrana_walka();
+			wygrana_walka(ethan);
 		}
 		else { //ATAK przeciwnika
 			damage = Przeciwnik->lista_atakow[rand()%Przeciwnik->lista_atakow.size()]->getSila();
@@ -152,9 +152,9 @@ void Okno_walki::atak(RenderWindow &m_Window)
 	else cout << "Brak ataku w tym miejscu";
 }
 
-void Okno_walki::wygrana_walka()
+void Okno_walki::wygrana_walka(Gracz &ethan)
 {
 	float exp = Przeciwnik->getLVL() * 1.4 * 25;
 	Sojusznik->setC_EXP(exp);
-	gracz->setGold(gracz->getGold() + Przeciwnik->getLVL()*((rand() % 4) + 3));
+	ethan.setGold(gracz.getGold() + Przeciwnik->getLVL()*((rand() % 4) + 3));
 }
