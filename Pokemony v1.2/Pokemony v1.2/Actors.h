@@ -29,11 +29,6 @@ protected:
 	int xm = 0, ym = 0;
 	RectangleShape osoba;
 public:
-	map<string, Gracz> Lista_aktorow;
-	map<string, Gracz>::iterator it;
-	Gracz();
-	Texture ethan_tex;
-	Gracz(float Tx, float Ty);
 	void draw(RenderTarget & target, RenderStates state) const;
 	//Gracz(int x, int y);
 	void move(Direction D);
@@ -47,15 +42,9 @@ public:
 
 	void setSprite(Texture &imgpath);
 	void ustaw_pozycje(float Tx, float Ty);
-	void setXY(float x, float y);
 	float getX();
 	float getY();
 	RectangleShape getosoba();
-
-	void move(Direction D);
-	void draw(RenderTarget & target, RenderStates state) const;
-	RectangleShape getSprite();
-	IntRect ustaw_kierunek_tekstury(Direction D);
 
 	Actors();
 	~Actors();
@@ -67,6 +56,7 @@ class Gracz :
 	vector<Pokemon*>lista_pokemonow;
 	vector<Pokemon*>::iterator it_pok;
 public:
+	void setXY(float x, float y);
 	int piniondze;
 	Gracz();
 	~Gracz();

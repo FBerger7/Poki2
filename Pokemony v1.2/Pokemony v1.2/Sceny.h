@@ -17,6 +17,7 @@ class Scena_abstrakcyjna :
 {
 public:
 	//virtual void create(RenderWindow &m_Window) = 0;
+	//~Scena_abstrakcyjna();
 };
 
 class Okno_eksploracji : public Scena_abstrakcyjna

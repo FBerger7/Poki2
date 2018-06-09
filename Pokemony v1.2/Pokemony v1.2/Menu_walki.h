@@ -6,7 +6,7 @@ using namespace std;
 using namespace sf;
 
 	typedef enum Akcja {
-		Menu,
+		Menu_walka,
 		Walka,
 		Lista_pokemon
 	};

@@ -8,7 +8,7 @@ Menu_walki::Menu_walki()
 	KursorSprite.setPosition(368.f, 457.f);
 	indeks = 1;
 	wyjdz_z_walki = false;
-	rodzaj_menu= Menu;
+	rodzaj_menu= Menu_walka;
 }
 
 
@@ -44,7 +44,7 @@ void Menu_walki::move(int kierunek)
 	case UP:
 		if (indeks >2)
 		{
-			if (rodzaj_menu==Menu)
+			if (rodzaj_menu==Menu_walka)
 				KursorSprite.move(0.f, -70.f);
 			else if (rodzaj_menu==Walka)
 				KursorSprite.move(0.f, -73.f);
@@ -54,7 +54,7 @@ void Menu_walki::move(int kierunek)
 	case DOWN:
 		if (indeks<3)
 		{
-			if (rodzaj_menu == Menu)
+			if (rodzaj_menu == Menu_walka)
 				KursorSprite.move(0.f, 70.f);
 			else if (rodzaj_menu == Walka)
 				KursorSprite.move(0.f, 73.f);
@@ -64,7 +64,7 @@ void Menu_walki::move(int kierunek)
 	case LEFT:
 		if (indeks%2==0)
 		{
-			if (rodzaj_menu == Menu)
+			if (rodzaj_menu == Menu_walka)
 				KursorSprite.move(-240.f, 0.f);
 			else if (rodzaj_menu == Walka)
 				KursorSprite.move(-140.f, 0.f);
@@ -74,7 +74,7 @@ void Menu_walki::move(int kierunek)
 	case RIGHT:
 		if (indeks%2==1)
 		{
-			if (rodzaj_menu == Menu)
+			if (rodzaj_menu == Menu_walka)
 				KursorSprite.move(240.f, 0.f);
 			else if (rodzaj_menu == Walka)
 				KursorSprite.move(140.f, 0.f);
@@ -82,7 +82,7 @@ void Menu_walki::move(int kierunek)
 		}
 		break;
 	case BACK:
-		rodzaj_menu = Menu;
+		rodzaj_menu = Menu_walka;
 		indeks = 1;
 		KursorSprite.setPosition(368.f, 457.f);
 		KursorSprite.scale(2.f, 2.f);
@@ -100,7 +100,7 @@ void Menu_walki::akcja()
 	switch (indeks)
 	{
 	case 1:
-		if (rodzaj_menu == Menu)
+		if (rodzaj_menu == Menu_walka)
 		{
 			rodzaj_menu = Walka;
 			KursorSprite.setPosition(32.f, 443.f);

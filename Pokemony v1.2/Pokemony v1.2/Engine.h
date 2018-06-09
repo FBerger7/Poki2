@@ -10,6 +10,7 @@
 #include "Mapa.h"
 #include "Pokemon.h"
 #include "Okno_pokemon.h"
+#include "Menu.h"
 
 using namespace sf;
 
@@ -46,7 +47,7 @@ private:
 	Music poke_center_music;
 
 	//MENU
-	Menu *opcje;
+	Menu*opcje;
 
 	//MAPA
 	Mapa *map1;
@@ -61,15 +62,12 @@ private:
 	Okno_pokemon *pokemon_window;
 
 	// Funkcje prywatne do uzytku wewnetrznego
-	void input(); 
-	void update();
-	void draw();
 
 public:
-	Engine();
 	void input(); 
 	void update();
 	void draw();
+	Engine();
 	bool czy_jest_walka();
 	void start();
 

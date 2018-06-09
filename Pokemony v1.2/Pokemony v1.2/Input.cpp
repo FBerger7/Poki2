@@ -20,13 +20,13 @@ void Engine::input()
 					{
 						ethan.set_ym(ethan.get_ym() + 1);
 						//map1->wypisz(ethan.get_xm(), ethan.get_ym());
-						ethan.Lista_aktorow.at("ethan").move(RIGHT);
+						Lista_aktorow.at("ethan")->move(RIGHT);
 						view_e.move(16, 0);
 						ethan.setXY(-16, 0);
 						if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 							if (czy_jest_walka())
 							{
-								pojedynek = new Okno_walki(m_Window);
+								pojedynek = new Okno_walki(m_Window, ethan);
 								walka = true;
 								route_music.stop();
 								vs_poke_battle_music.play();
@@ -46,13 +46,13 @@ void Engine::input()
 					{
 						ethan.set_xm(ethan.get_xm() - 1);
 						//map1->wypisz(ethan.get_xm(), ethan.get_ym());
-						ethan.Lista_aktorow.at("ethan").move(UP);
+						Lista_aktorow.at("ethan")->move(UP);
 						view_e.move(0, -16);
 						ethan.setXY(0, 16);
 						if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 							if (czy_jest_walka())
 							{
-								pojedynek = new Okno_walki(m_Window);
+								pojedynek = new Okno_walki(m_Window, ethan);
 								walka = true;
 								route_music.stop();
 								vs_poke_battle_music.play();
@@ -94,13 +94,13 @@ void Engine::input()
 					{
 						ethan.set_xm(ethan.get_xm() + 1);
 						//map1->wypisz(ethan.get_xm(), ethan.get_ym());
-						ethan.Lista_aktorow.at("ethan").move(DOWN);
+						Lista_aktorow.at("ethan")->move(DOWN);
 						view_e.move(0, 16);
 						ethan.setXY(0, -16);
 						if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 							if (czy_jest_walka())
 							{
-								pojedynek = new Okno_walki(m_Window);
+								pojedynek = new Okno_walki(m_Window, ethan);
 								walka = true;
 								route_music.stop();
 								vs_poke_battle_music.play();
@@ -140,13 +140,13 @@ void Engine::input()
 					if (!map1->check_colision(LEFT, ethan))
 					{
 						ethan.set_ym(ethan.get_ym() - 1);
-						ethan.Lista_aktorow.at("ethan").move(LEFT);
+						Lista_aktorow.at("ethan")->move(LEFT);
 						view_e.move(-16, 0);
 						ethan.setXY(16,0);
 						if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
 							if (czy_jest_walka())
 							{
-								pojedynek = new Okno_walki(m_Window);
+								pojedynek = new Okno_walki(m_Window,ethan);
 								walka = true;
 								route_music.stop();
 								vs_poke_battle_music.play();
@@ -170,39 +170,73 @@ void Engine::input()
 			default: break;
 			}
 		else if (walka)
-			switch (zdarzenie.type)
+			if (pojedynek->czyKoniec() == false)
+				switch (zdarzenie.type)
+				{
+				case Event::Closed:
+					m_Window.close();
+					break;
+				case Event::KeyPressed:
+				{
+					if (zdarzenie.key.code == Keyboard::Up)
+					{
+						pojedynek->wybierz_akcje->move(UP);
+					}
+					else if (zdarzenie.key.code == Keyboard::Down)
+					{
+						pojedynek->wybierz_akcje->move(DOWN);
+					}
+					else if (zdarzenie.key.code == Keyboard::Left)
+					{
+						pojedynek->wybierz_akcje->move(LEFT);
+					}
+					else if (zdarzenie.key.code == Keyboard::Right)
+					{
+						pojedynek->wybierz_akcje->move(RIGHT);
+					}
+					else if (zdarzenie.key.code == Keyboard::X)
+					{
+						if (pojedynek->wybierz_akcje->getRodzaj() == Walka)
+							pojedynek->wybierz_akcje->move(BACK);
+						else if (pojedynek->wybierz_akcje->getRodzaj() == Menu_walka)
+						{
+							pojedynek->wybierz_akcje->move(EXIT);
+						}
+					}
+					else if (zdarzenie.key.code == Keyboard::Z)
+					{
+						switch (pojedynek->wybierz_akcje->getRodzaj())
+						{
+						case Menu_walka:
+							pojedynek->wybierz_akcje->akcja(); //wybor walka/plecak/pokemony/ucieczka
+							break;
+						case Walka:
+							pojedynek->update();
+							break;
+						case Lista_pokemon:
+							menu_pokemon = true;
+							pojedynek->wybierz_akcje->akcja();
+							break;
+						}
+						if (pojedynek->wybierz_akcje->getWyjdz_z_walki() == true)
+						{
+							delete pojedynek;
+							walka = false;
+							vs_poke_battle_music.stop();
+							route_music.play();
+						}
+						break;
+					}
+					break;
+				}
+				default: break;
+				}
+			else
 			{
-			case Event::Closed:
-				m_Window.close();
-				break;
-			case Event::KeyPressed:
-			{
-				if (zdarzenie.key.code == Keyboard::Up)
-				{
-					pojedynek->wybierz_akcje->move(UP);
-				}
-				else if (zdarzenie.key.code == Keyboard::Down)
-				{
-					pojedynek->wybierz_akcje->move(DOWN);
-				}
-				else if (zdarzenie.key.code == Keyboard::Left)
-				{
-					pojedynek->wybierz_akcje->move(LEFT);
-				}
-				else if (zdarzenie.key.code == Keyboard::Right)
-				{
-					pojedynek->wybierz_akcje->move(RIGHT);
-				}
-				else if (zdarzenie.key.code == Keyboard::Escape)
-				{
-					delete pojedynek;
-					walka = false;
-					vs_poke_battle_music.stop();
-					route_music.play();
-				}
-				break;
-			}
-			default: break;
+				delete pojedynek;
+				walka = false;
+				vs_poke_battle_music.stop();
+				route_music.play();
 			}
 		else if (menu_is_open)
 			switch (zdarzenie.type)
