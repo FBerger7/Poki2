@@ -163,8 +163,47 @@ void Engine::input()
 				{
 					opcje = new Menu();
 					opcje->ustaw_pozycje(ethan.getX(),ethan.getY());
+					opcje->ustaw_pieniadze(ethan.getGold(), ethan.getX(), ethan.getY());
 					menu_is_open = true;
 				}
+				else if (ethan.get_xm() == 3 && ethan.get_ym() == 4 && zdarzenie.key.code == Keyboard::Z && is_in_PokeCenter)
+				{
+					Texture pasek;
+					pasek.loadFromFile("pasek.png");
+					Sprite rozmowa;
+					rozmowa.setTexture(pasek);
+					rozmowa.setPosition(ethan.getX()-30, ethan.getY()-40);
+					rozmowa.setScale(0.2,0.2);
+					m_Window.draw(rozmowa);
+					m_Window.display();
+					Event rozmowa_siostra;
+					int flag = 0;
+					while (true)
+					{
+						while (m_Window.pollEvent(rozmowa_siostra))
+						{
+							cout << "HALOO" << endl;
+							switch(rozmowa_siostra.type)
+							case Event::KeyPressed:
+							{
+								if (rozmowa_siostra.key.code == Keyboard::Z)
+								{
+									flag = 1;
+									break;
+								}
+								else if (rozmowa_siostra.key.code == Keyboard::X)
+								{
+									flag = 2;
+									break;
+								}
+								break;
+							}
+						}
+					if (flag != 0)
+						break;
+					}
+				}
+
 				break;
 			}
 			default: break;
@@ -254,7 +293,28 @@ void Engine::input()
 				{
 					opcje->move(DOWN);
 				}
+				else if (zdarzenie.key.code == Keyboard::Z && opcje->getPozycja() == 0)
+				{
+					cout << "POKEMOONY TU" << endl;
+				}
+				else if (zdarzenie.key.code == Keyboard::Z && opcje->getPozycja() == 1)
+				{
+					cout << "ITEMY TU" << endl;
+				}
+				else if (zdarzenie.key.code == Keyboard::Z && opcje->getPozycja() == 2)
+				{
+					cout << "SAVE TU" << endl;
+				}
+				else if (zdarzenie.key.code == Keyboard::Z && opcje->getPozycja() == 3)
+				{
+					m_Window.close();
+				}
 				else if (zdarzenie.key.code == Keyboard::Tab)
+				{
+					delete opcje;
+					menu_is_open = false;
+				}
+				else if (zdarzenie.key.code == Keyboard::X)
 				{
 					delete opcje;
 					menu_is_open = false;

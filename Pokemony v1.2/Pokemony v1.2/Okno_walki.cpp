@@ -154,5 +154,5 @@ void Okno_walki::wygrana_walka()
 {
 	float exp = Przeciwnik->getLVL() * 1.4 * 25;
 	Sojusznik->setC_EXP(exp);
-	gracz->piniondze += Przeciwnik->getLVL()*((rand() % 4) + 3);
+	gracz->setGold(gracz->getGold() + Przeciwnik->getLVL()*((rand() % 4) + 3));
 }
