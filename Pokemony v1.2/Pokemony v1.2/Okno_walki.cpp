@@ -137,7 +137,9 @@ void Okno_walki::atak()
 		else { //ATAK przeciwnika
 			damage = Przeciwnik->lista_atakow[rand()%Przeciwnik->lista_atakow.size()]->getSila();
 			damage *= Przeciwnik->getATK();
-			Sojusznik->setC_HP(damage - (Sojusznik->getDEF()*0.25f));
+			if (damage - (Sojusznik->getDEF()*0.4f) <= 0) damage = 1;
+			else damage -= (Sojusznik->getDEF()*0.4f);
+			Sojusznik->setC_HP(damage);
 			if (Sojusznik->getC_HP() <= 0)
 			{
 				koniec_walki = true;
@@ -152,4 +154,5 @@ void Okno_walki::wygrana_walka()
 {
 	float exp = Przeciwnik->getLVL() * 1.4 * 25;
 	Sojusznik->setC_EXP(exp);
+	gracz->piniondze += Przeciwnik->getLVL()*((rand() % 4) + 3);
 }

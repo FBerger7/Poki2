@@ -12,38 +12,17 @@ Actors::~Actors()
 }
 
 
-
-//--------------------GRACZ------------------------
-Gracz::Gracz()
-{
-
-}
-
-Gracz::Gracz(float Tx, float Ty)
-{
-	Vector2f wielkosc_gracza(16, 16);
-	ethan_tex.loadFromFile("Ethan.png");
-	osoba.setSize(wielkosc_gracza);
-	osoba.setOrigin(8, 8);
-	setSprite(ethan_tex);
-	osoba.setTextureRect(ustaw_kierunek_tekstury(DOWN));
-	//osoba.setScale(3, 3);
-	ustaw_pozycje(Tx, Ty);
-	//Lista_aktorow.insert(pair<string, Gracz>("Ethan", *this));
-	//Chyba nie mozna listy aktorow robic lokalnie :(
-}
-
-void Gracz::draw(RenderTarget & target, RenderStates state) const
+void Actors::draw(RenderTarget & target, RenderStates state) const
 {
 	target.draw(osoba, state);
 };
 
-void Gracz::setSprite(Texture &imgpath)
+void Actors::setSprite(Texture &imgpath)
 {
 	osoba.setTexture(&imgpath);
 }
 
-IntRect Gracz::ustaw_kierunek_tekstury(Direction D)
+IntRect Actors::ustaw_kierunek_tekstury(Direction D)
 {
 	IntRect wymiarR(0, 3, 15, 18);
 	IntRect wymiarL(28, 3, 15, 18);
@@ -66,7 +45,7 @@ IntRect Gracz::ustaw_kierunek_tekstury(Direction D)
 	}
 }
 
-void Gracz::move(Direction D)
+void Actors::move(Direction D)
 {
 	if (D == RIGHT)
 	{
@@ -103,22 +82,22 @@ void Gracz::move(Direction D)
 }
 
 
-void Gracz::set_xm(int _x)
+void Actors::set_xm(int _x)
 {
 	xm = _x;
 }
 
-void Gracz::set_ym(int _y)
+void Actors::set_ym(int _y)
 {
 	ym = _y;
 }
 
-RectangleShape Gracz::getSprite()
+RectangleShape Actors::getSprite()
 {
 	return osoba;
 }
 
-void Gracz::ustaw_pozycje(float Tx, float Ty)
+void Actors::ustaw_pozycje(float Tx, float Ty)
 {
 	osoba.setPosition(Tx, Ty);
 	x = Tx;
@@ -126,15 +105,52 @@ void Gracz::ustaw_pozycje(float Tx, float Ty)
 }
 
 
-float Gracz::getX()
+float Actors::getX()
 {
 	return x;
 }
 
-float Gracz::getY()
+float Actors::getY()
 {
 	return y;
 }
+
+RectangleShape Actors::getosoba()
+{
+	return osoba;
+}
+
+int Actors::get_xm()
+{
+	return xm;
+}
+
+int Actors::get_ym()
+{
+	return ym;
+}
+
+//--------------------GRACZ------------------------
+Gracz::Gracz()
+{
+
+}
+
+Gracz::Gracz(float Tx, float Ty)
+{
+	Vector2f wielkosc_gracza(16, 16);
+	ethan_tex.loadFromFile("Ethan.png");
+	osoba.setSize(wielkosc_gracza);
+	osoba.setOrigin(8, 8);
+	setSprite(ethan_tex);
+	osoba.setTextureRect(ustaw_kierunek_tekstury(DOWN));
+	//osoba.setScale(3, 3);
+	ustaw_pozycje(Tx, Ty);
+	//Lista_aktorow.insert(pair<string, Gracz>("Ethan", *this));
+	//Chyba nie mozna listy aktorow robic lokalnie :(
+	piniondze = 1000;
+}
+
 
 void Gracz::dodaj_pokemona(Pokemon *pok)
 {
@@ -151,18 +167,14 @@ vector<Pokemon*> Gracz::getlista_pok()
 	return lista_pokemonow;
 }
 
-int Gracz::get_xm()
+bool Gracz::czy_ma_pokemony()
 {
-	return xm;
+	for (it_pok = lista_pokemonow.begin(); it_pok != lista_pokemonow.end(); it_pok++)
+	{
+		if ((*it_pok)->getC_HP() > 0) return true;
+	}
+	return false;
 }
-
-int Gracz::get_ym()
-{
-	return ym;
-}
-
-
-
 
 Gracz::~Gracz()
 {

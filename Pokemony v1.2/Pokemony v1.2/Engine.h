@@ -7,8 +7,9 @@
 #include<ctime>
 #include "Mapa.h"
 #include "Pokemon.h"
-using namespace sf;
+#include "Okno_pokemon.h"
 
+using namespace sf;
 
 
 class Engine
@@ -20,12 +21,17 @@ private:
 	View view_e;
 	View view_b;
 	View view_budynku;
+	View view_pokemon;
 
 	// Tu bedzie gracz
 	Gracz ethan;
+
+	map<string, Actors*> Lista_aktorow;
+	map<string, Actors*>::iterator it;
 	// Tryb gry
 	bool walka = false;
 	bool is_in_gym = false;
+	bool menu_pokemon = false;
 	int RANDOM_NUMBER = 100;
 
 	//MAPA
@@ -33,9 +39,12 @@ private:
 	Mapa *GYM_MAP;
 	
 	Okno_walki *pojedynek;
+
 	Okno_eksploracji *mapa;
 	Okno_eksploracji *GYM;
-	
+
+	Okno_pokemon *pokemon_window;
+
 	// Funkcje prywatne do uzytku wewnetrznego
 	void input(); 
 	void update();

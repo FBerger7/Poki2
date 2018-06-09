@@ -15,7 +15,7 @@ class Scena_abstrakcyjna :
 	public Sprite
 {
 public:
-	virtual void create(RenderWindow &m_Window) = 0;
+	//virtual void create(RenderWindow &m_Window) = 0;
 };
 
 class Okno_eksploracji : public Scena_abstrakcyjna
@@ -25,6 +25,7 @@ private:
 	Texture m_BackgroundTexture;
 
 public:
+
 	Okno_eksploracji();
 	~Okno_eksploracji();
 

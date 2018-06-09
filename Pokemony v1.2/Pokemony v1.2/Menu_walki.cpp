@@ -108,10 +108,10 @@ void Menu_walki::akcja()
 		}
 		break;
 	case 2:
+		rodzaj_menu = Lista_pokemon;
 
 		break;
 	case 3:
-
 		break;
 	case 4:
 		wyjdz_z_walki = true;
