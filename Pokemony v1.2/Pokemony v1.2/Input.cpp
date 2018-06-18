@@ -239,12 +239,20 @@ void Engine::input()
 					{
 						if (pojedynek->wybierz_akcje->getRodzaj() == Lista_pokemon)
 							pokemon_window->move_kursor(UP);
+						else if (pojedynek->wybierz_akcje->getRodzaj() == Lista_przedmiotow)
+						{
+							plecak_window->move_kursor(UP, ethan);
+						}
 						else pojedynek->wybierz_akcje->move(UP);
 					}
 					else if (zdarzenie.key.code == Keyboard::Down)
 					{
 						if (pojedynek->wybierz_akcje->getRodzaj() == Lista_pokemon)
 							pokemon_window->move_kursor(DOWN);
+						else if (pojedynek->wybierz_akcje->getRodzaj() == Lista_przedmiotow)
+						{
+							plecak_window->move_kursor(DOWN, ethan);
+						}
 						else pojedynek->wybierz_akcje->move(DOWN);
 					}
 					else if (zdarzenie.key.code == Keyboard::Left)
@@ -268,7 +276,10 @@ void Engine::input()
 						case Lista_pokemon:
 							menu_pokemon = false;
 							pojedynek->wybierz_akcje->move(BACK);
-
+							break;
+						case Lista_przedmiotow:
+							menu_plecak = false;
+							pojedynek->wybierz_akcje->move(BACK);
 							break;
 						}
 					}
@@ -279,9 +290,23 @@ void Engine::input()
 						case Menu_walka:
 							pojedynek->wybierz_akcje->akcja(); //wybor walka/plecak/pokemony/ucieczka
 							if (pojedynek->wybierz_akcje->getRodzaj() == Lista_pokemon) menu_pokemon = true;
+							else if (pojedynek->wybierz_akcje->getRodzaj() == Lista_przedmiotow) menu_plecak = true;
 							break;
 						case Walka:
 							pojedynek->update(m_Window, ethan);
+							break;
+						case Lista_przedmiotow:
+							/*if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(PokeBall))
+							{
+								Pokemon *tmp=pojedynek->lapPrzeciwnika(ethan, ethan.plecak[plecak_window->getIndeks()]->lap());
+								ethan.dodaj_pokemona(tmp);
+							}
+							else*/ if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(Potion))
+							{
+								pojedynek->uleczSojusznika(20);
+							}
+							menu_plecak = false;
+							pojedynek->wybierz_akcje->move(BACK);
 							break;
 						case Lista_pokemon:
 							int i = pokemon_window->swap();
@@ -325,6 +350,10 @@ void Engine::input()
 				{
 					if (menu_pokemon)
 						pokemon_window->move_kursor(UP);
+					else if (menu_plecak)
+					{
+						plecak_window->move_kursor(UP, ethan);
+					}
 					else opcje->move(UP);
 				}
 				else if (zdarzenie.key.code == Keyboard::X && menu_pokemon)
@@ -335,10 +364,18 @@ void Engine::input()
 					}
 					else menu_pokemon = false;
 				}
+				else if (zdarzenie.key.code == Keyboard::X && menu_plecak)
+				{
+					menu_plecak = false;
+				}
 				else if (zdarzenie.key.code == Keyboard::Down)
 				{
 					if (menu_pokemon)
 						pokemon_window->move_kursor(DOWN);
+					else if (menu_plecak)
+					{
+						plecak_window->move_kursor(DOWN, ethan);
+					}
 					opcje->move(DOWN);
 				}
 				else if (zdarzenie.key.code == Keyboard::Z && menu_pokemon)
@@ -358,7 +395,7 @@ void Engine::input()
 				}
 				else if (zdarzenie.key.code == Keyboard::Z && opcje->getPozycja() == 1)
 				{
-					cout << "ITEMY TU" << endl;
+					menu_plecak = true;
 				}
 				else if (zdarzenie.key.code == Keyboard::Z && opcje->getPozycja() == 2)
 				{

@@ -8,7 +8,8 @@ using namespace sf;
 typedef enum Akcja {
 	Menu_walka,
 	Walka,
-	Lista_pokemon
+	Lista_pokemon,
+	Lista_przedmiotow
 };
 
 class Menu_walki

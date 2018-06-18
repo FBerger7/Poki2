@@ -7,6 +7,11 @@ void Engine::draw()
 		m_Window.setView(view_pokemon);
 		pokemon_window->draw(m_Window, ethan);
 	}
+	else if (menu_plecak == true)
+	{
+		m_Window.setView(view_plecak);
+		plecak_window->draw(m_Window, ethan);
+	}
 	else
 	{
 		if (walka == false) 

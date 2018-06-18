@@ -29,6 +29,7 @@ public:
 	void zaznacz();
 
 	void swap(Gracz &ethan);
+	void zresetuj_kursor();
 
 	void setZaznaczenie();
 	int getZaznaczenie();

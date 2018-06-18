@@ -169,7 +169,7 @@ int Gracz::getGold()
 
 void Gracz::dodaj_pokemona(Pokemon *pok)
 {
-	if (lista_pokemonow.size() < 6)
+	if (lista_pokemonow.size() < 5)
 		lista_pokemonow.push_back(pok);
 }
 
@@ -222,6 +222,22 @@ void Gracz::ulecz_pokemony()
 	{
 		(*it_pok)->heal();
 	}
+}
+
+void Gracz::dodaj_przedmiot(Przedmiot *item)
+{
+	bool dodaj = true;
+	for (it_plecak = plecak.begin(); it_plecak != plecak.end(); it_plecak++)
+	{
+		if ((*it_plecak)->getID() == item->getID())
+		{
+			(*it_plecak)->setLiczba(item->getLiczba());
+			dodaj = false;
+			break;
+		}
+	}
+	if(dodaj)
+		plecak.push_back(item);
 }
 
 Gracz::~Gracz()

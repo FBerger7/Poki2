@@ -26,12 +26,9 @@ Stelfozaur::Stelfozaur(int lvl, bool s)
 	dodaj_atak(new Cut());
 	dodaj_atak(new Punch());
 
-	if (s)
-	{
-		for (int i = 0; i < lista_atakow.size(); i++)
-			lista_atakow[i]->ustaw_Nazwe();
-		ustaw_HP_txt();
-	}
+	for (int i = 0; i < lista_atakow.size(); i++)
+		lista_atakow[i]->ustaw_Nazwe();
+	ustaw_HP_txt();
 }
 
 
@@ -67,8 +64,8 @@ void Stelfozaur::setSprite()
 		PokemonSprite_menu.setTexture(PokemonTexture_menu);
 		PokemonSprite_menu.setTextureRect(wybor_pokemona2);
 		PokemonSprite_menu.scale(1.7f, 1.7f);
-	}
 
+	}
 	else
 	{
 		PokemonTexture.loadFromFile("Pokemon_front.png");
@@ -77,6 +74,7 @@ void Stelfozaur::setSprite()
 		PokemonSprite.setTextureRect(wybor_pokemona);
 		PokemonSprite.setPosition(500, 37);
 	}
+
 	scale_sprite();
 }
 

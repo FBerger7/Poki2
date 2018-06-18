@@ -93,6 +93,9 @@ void Menu_walki::move(int kierunek)
 			indeks = 2;
 			KursorSprite.setPosition(608.f, 457.f);
 			break;
+		case Lista_przedmiotow:
+			indeks = 3;
+			KursorSprite.setPosition(368.f, 527.f);
 		}
 		rodzaj_menu = Menu_walka;
 		break;
@@ -118,9 +121,9 @@ void Menu_walki::akcja()
 		break;
 	case 2:
 		rodzaj_menu = Lista_pokemon;
-
 		break;
 	case 3:
+		rodzaj_menu = Lista_przedmiotow;
 		break;
 	case 4:
 		wyjdz_z_walki = true;

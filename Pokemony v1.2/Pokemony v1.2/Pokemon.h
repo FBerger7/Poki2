@@ -6,11 +6,11 @@
 using namespace std;
 using namespace sf;
 
-enum Type { Normal, Fire, Water, Air, Electric, Earth };
 
 class Pokemon
 {
 protected:
+	enum Type { Normal, Fire, Water, Air, Electric, Earth };
 	bool sojusznik;
 	float ATK;
 	float DEF;

@@ -24,7 +24,6 @@ Okno_walki::Okno_walki(RenderWindow & m_Window,Gracz ethan)
 Okno_walki::~Okno_walki()
 {
 	delete(Przeciwnik);
-//	delete(Sojusznik);
 	delete(wybierz_akcje);
 };
 
@@ -115,6 +114,7 @@ bool Okno_walki::czyKoniec()
 {
 	return koniec_walki;
 }
+
 void Okno_walki::atak(Gracz &ethan)
 {
 	int CRIT = rand() % 10;
@@ -162,4 +162,40 @@ void Okno_walki::wygrana_walka(Gracz &ethan)
 void Okno_walki::setSojusznik(Pokemon * nowy_sojusznik)
 {
 	Sojusznik = nowy_sojusznik;
+
+	hp_sojusznika.setSize(Vector2f(184 * Sojusznik->getC_HP() / Sojusznik->getMAX_HP(), 8)); //rozmiar paska zycia
+	if (Sojusznik->getC_HP() / Sojusznik->getMAX_HP() <= 1 && Sojusznik->getC_HP() / Sojusznik->getMAX_HP() > 0.5)
+		hp_sojusznika.setFillColor(Color::Green);
+	else if (Sojusznik->getC_HP() / Sojusznik->getMAX_HP() <= 0.5 && Sojusznik->getC_HP() / Sojusznik->getMAX_HP() > 0.25)
+		hp_sojusznika.setFillColor(Color::Yellow);
+	else if (Sojusznik->getC_HP() / Sojusznik->getMAX_HP() <= 0.25 && Sojusznik->getC_HP() / Sojusznik->getMAX_HP() > 0)
+		hp_sojusznika.setFillColor(Color::Red);
+
+	exp.setSize(Vector2f(245 * Sojusznik->getC_EXP() / Sojusznik->getMAX_EXP(), 4)); //rozmiar paska exp
+}
+
+void Okno_walki::uleczSojusznika(float heal)
+{
+	Sojusznik->heal(heal);
+
+	hp_sojusznika.setSize(Vector2f(184 * Sojusznik->getC_HP() / Sojusznik->getMAX_HP(), 8)); //rozmiar paska zycia
+	if (Sojusznik->getC_HP() / Sojusznik->getMAX_HP() <= 1 && Sojusznik->getC_HP() / Sojusznik->getMAX_HP() > 0.5)
+		hp_sojusznika.setFillColor(Color::Green);
+	else if (Sojusznik->getC_HP() / Sojusznik->getMAX_HP() <= 0.5 && Sojusznik->getC_HP() / Sojusznik->getMAX_HP() > 0.25)
+		hp_sojusznika.setFillColor(Color::Yellow);
+	else if (Sojusznik->getC_HP() / Sojusznik->getMAX_HP() <= 0.25 && Sojusznik->getC_HP() / Sojusznik->getMAX_HP() > 0)
+		hp_sojusznika.setFillColor(Color::Red);
+}
+
+Pokemon* Okno_walki::lapPrzeciwnika(Gracz & ethan,int szansa)
+{
+	int tmp = (rand() % 10) + 5;
+	szansa += 1/Przeciwnik->stosunek_hp();
+	if (szansa >= tmp)
+	{
+		
+		Przeciwnik->zrob_sojusznik();
+		koniec_walki = true;
+		return Przeciwnik;
+	}
 }

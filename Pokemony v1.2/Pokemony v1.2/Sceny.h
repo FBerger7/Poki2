@@ -40,7 +40,7 @@ public:
 class Okno_walki : public Scena_abstrakcyjna
 {
 private:
-	Pokemon *Przeciwnik;
+	Pokemon* Przeciwnik;
 	RectangleShape przeciwnik_texture;
 	RectangleShape hp_przeciwnika;
 
@@ -63,5 +63,7 @@ public:
 	void atak(Gracz &ethan);
 	void wygrana_walka(Gracz &ethan);
 	void setSojusznik(Pokemon* nowy_sojusznik);
+	void uleczSojusznika(float heal);
+	Pokemon* lapPrzeciwnika(Gracz &ethan, int szansa);
 };
 
