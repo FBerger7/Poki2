@@ -219,11 +219,15 @@ void Engine::input()
 				{
 					if (zdarzenie.key.code == Keyboard::Up)
 					{
-						pojedynek->wybierz_akcje->move(UP);
+						if (pojedynek->wybierz_akcje->getRodzaj() == Lista_pokemon)
+							pokemon_window->move_kursor(UP);
+						else pojedynek->wybierz_akcje->move(UP);
 					}
 					else if (zdarzenie.key.code == Keyboard::Down)
 					{
-						pojedynek->wybierz_akcje->move(DOWN);
+						if (pojedynek->wybierz_akcje->getRodzaj() == Lista_pokemon)
+							pokemon_window->move_kursor(DOWN);
+						else pojedynek->wybierz_akcje->move(DOWN);
 					}
 					else if (zdarzenie.key.code == Keyboard::Left)
 					{
@@ -262,7 +266,13 @@ void Engine::input()
 							pojedynek->update(m_Window, ethan);
 							break;
 						case Lista_pokemon:
-							
+							int i = pokemon_window->swap();
+							if (ethan.getPokemon(i)->getC_HP() > 0)
+							{
+								pojedynek->setSojusznik(ethan.getPokemon(i));
+								menu_pokemon = false;
+								pojedynek->wybierz_akcje->move(BACK);
+							}
 							break;
 						}
 						if (pojedynek->wybierz_akcje->getWyjdz_z_walki() == true)
@@ -293,15 +303,36 @@ void Engine::input()
 				break;
 			case Event::KeyPressed:
 			{
-				if (zdarzenie.key.code == Keyboard::Up && !menu_pokemon)
+				if (zdarzenie.key.code == Keyboard::Up)
 				{
-					opcje->move(UP);
+					if (menu_pokemon)
+						pokemon_window->move_kursor(UP);
+					else opcje->move(UP);
 				}
 				else if (zdarzenie.key.code == Keyboard::X && menu_pokemon)
-					menu_pokemon = false;
-				else if (zdarzenie.key.code == Keyboard::Down && !menu_pokemon)
 				{
+					if (pokemon_window->getZaznaczenie() != -1)
+					{
+						pokemon_window->setZaznaczenie();
+					}
+					else menu_pokemon = false;
+				}
+				else if (zdarzenie.key.code == Keyboard::Down)
+				{
+					if (menu_pokemon)
+						pokemon_window->move_kursor(DOWN);
 					opcje->move(DOWN);
+				}
+				else if (zdarzenie.key.code == Keyboard::Z && menu_pokemon)
+				{
+					if (pokemon_window->getZaznaczenie() == -1)
+					{
+						pokemon_window->zaznacz();
+					}
+					else
+					{
+						pokemon_window->swap(ethan);
+					}
 				}
 				else if (zdarzenie.key.code == Keyboard::Z && opcje->getPozycja() == 0)
 				{

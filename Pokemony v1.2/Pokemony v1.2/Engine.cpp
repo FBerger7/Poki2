@@ -37,6 +37,12 @@ Engine::Engine()
 	ethan.dodaj_pokemona(tmp);
 	tmp = new Stelfozaur(5, true);
 	ethan.dodaj_pokemona(tmp);
+	tmp = new Stelfozaur(5, true);
+	ethan.dodaj_pokemona(tmp);
+	tmp = new Stelfozaur(5, true);
+	ethan.dodaj_pokemona(tmp);
+	tmp = new Stelfozaur(5, true);
+	ethan.dodaj_pokemona(tmp);
 
 	mapa = new Okno_eksploracji();
 	cerulean_music.play();

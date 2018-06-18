@@ -169,7 +169,8 @@ int Gracz::getGold()
 
 void Gracz::dodaj_pokemona(Pokemon *pok)
 {
-	lista_pokemonow.push_back(pok);
+	if (lista_pokemonow.size() < 6)
+		lista_pokemonow.push_back(pok);
 }
 
 Pokemon * Gracz::getPokemon(int indeks)

@@ -35,6 +35,9 @@
     <ClCompile Include="Cut.cpp">
       <Filter>Pokemony</Filter>
     </ClCompile>
+    <ClCompile Include="Przedmiot.cpp" />
+    <ClCompile Include="Potion.cpp" />
+    <ClCompile Include="PokeBall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actors.h" />
@@ -71,6 +74,10 @@
     <ClInclude Include="Biblioteka_Pokemonow.h">
       <Filter>Pokemony</Filter>
     </ClInclude>
+    <ClInclude Include="Przedmiot.h" />
+    <ClInclude Include="Lista_przedmiotow.h" />
+    <ClInclude Include="Potion.h" />
+    <ClInclude Include="PokeBall.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

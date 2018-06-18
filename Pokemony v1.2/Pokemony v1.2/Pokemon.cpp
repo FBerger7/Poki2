@@ -166,7 +166,7 @@ Sprite Pokemon::getSprite()
 
 Sprite Pokemon::getSprite_menu(int i)
 {
-	PokemonSprite_menu.setPosition(120.f,50.f + i*84);
+	PokemonSprite_menu.setPosition(120.f,50.f + i*95.2);
 	return PokemonSprite_menu;
 }
 
