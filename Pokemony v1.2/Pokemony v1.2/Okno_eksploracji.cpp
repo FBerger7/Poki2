@@ -19,6 +19,8 @@ Okno_eksploracji::Okno_eksploracji(string nazwa_budynku, IntRect wymiary, string
 		BackgroundSprite.move(1207, 94);
 	if(Is_In == "PokeCenter")
 		BackgroundSprite.move(1048, 222);
+	if (Is_In == "PokeMart")
+		BackgroundSprite.move(1144, 350);
 }
 
 Okno_eksploracji::~Okno_eksploracji()
