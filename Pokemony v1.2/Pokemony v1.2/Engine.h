@@ -35,6 +35,7 @@ private:
 	bool walka = false;
 	bool is_in_gym = false;
 	bool is_in_PokeCenter = false;
+	bool is_in_PokeMart = false;
 	bool menu_is_open = false;
 	bool menu_pokemon = false;
 	int RANDOM_NUMBER = 100;
@@ -58,6 +59,7 @@ private:
 	Okno_eksploracji *mapa;
 	Okno_eksploracji *GYM;
 	Okno_eksploracji *PokeCenter;
+	Okno_eksploracji *PokeMart;
 
 	Okno_pokemon *pokemon_window;
 

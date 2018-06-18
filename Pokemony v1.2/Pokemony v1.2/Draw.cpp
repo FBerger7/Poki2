@@ -21,6 +21,10 @@ void Engine::draw()
 			{
 				PokeCenter->draw(m_Window);
 			}
+			else if (is_in_PokeMart)
+			{
+				PokeMart->draw(m_Window);
+			}
 			else
 				mapa->draw(m_Window);
 			for (it = Lista_aktorow.begin(); it != Lista_aktorow.end(); it++)

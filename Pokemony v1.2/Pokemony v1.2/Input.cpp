@@ -83,6 +83,16 @@ void Engine::input()
 								ethan.set_xm(7);
 								ethan.set_ym(5);
 							}
+							if (ethan.get_xm() == 29 && ethan.get_ym() == 41)
+							{
+								map1 = new Mapa("PokeMart_colisions.txt", 9, 10);
+								IntRect wymiar_dla_PokeCenter(646, 2, 160, 288);
+								PokeMart = new Okno_eksploracji("PokeMart.png", wymiar_dla_PokeCenter, "PokeMart");
+								delete mapa;
+								is_in_PokeMart = true;
+								ethan.set_xm(7);
+								ethan.set_ym(5);
+							}
 
 						}
 						//m_Window.setView(view);
@@ -130,7 +140,15 @@ void Engine::input()
 								map1 = new Mapa("Mapa.txt", 36, 56);
 								ethan.set_xm(22);
 								ethan.set_ym(35);
-
+							}
+							if (is_in_PokeMart)
+							{
+								is_in_PokeMart = false;
+								delete PokeMart;
+								mapa = new Okno_eksploracji();
+								map1 = new Mapa("Mapa.txt", 36, 56);
+								ethan.set_xm(30);
+								ethan.set_ym(41);
 							}
 						}
 					}
