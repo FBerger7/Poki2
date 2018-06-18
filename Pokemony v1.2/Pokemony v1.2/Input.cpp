@@ -293,17 +293,19 @@ void Engine::input()
 				break;
 			case Event::KeyPressed:
 			{
-				if (zdarzenie.key.code == Keyboard::Up)
+				if (zdarzenie.key.code == Keyboard::Up && !menu_pokemon)
 				{
 					opcje->move(UP);
 				}
-				else if (zdarzenie.key.code == Keyboard::Down)
+				else if (zdarzenie.key.code == Keyboard::X && menu_pokemon)
+					menu_pokemon = false;
+				else if (zdarzenie.key.code == Keyboard::Down && !menu_pokemon)
 				{
 					opcje->move(DOWN);
 				}
 				else if (zdarzenie.key.code == Keyboard::Z && opcje->getPozycja() == 0)
 				{
-					cout << "POKEMOONY TU" << endl;
+					menu_pokemon = true;
 				}
 				else if (zdarzenie.key.code == Keyboard::Z && opcje->getPozycja() == 1)
 				{
@@ -317,12 +319,12 @@ void Engine::input()
 				{
 					m_Window.close();
 				}
-				else if (zdarzenie.key.code == Keyboard::Tab)
+				else if (zdarzenie.key.code == Keyboard::Tab && !menu_pokemon)
 				{
 					delete opcje;
 					menu_is_open = false;
 				}
-				else if (zdarzenie.key.code == Keyboard::X)
+				else if (zdarzenie.key.code == Keyboard::X && !menu_pokemon)
 				{
 					delete opcje;
 					menu_is_open = false;

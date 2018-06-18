@@ -11,7 +11,6 @@
     <ClCompile Include="Mapa.cpp" />
     <ClCompile Include="Sceny.cpp" />
     <ClCompile Include="Update.cpp" />
-    <ClCompile Include="Cut.cpp" />
     <ClCompile Include="Menu_walki.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Pokemon.cpp">
@@ -33,15 +32,15 @@
       <Filter>Pokemony</Filter>
     </ClCompile>
     <ClCompile Include="Okno_pokemon.cpp" />
+    <ClCompile Include="Cut.cpp">
+      <Filter>Pokemony</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actors.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="Sceny.h" />
-    <ClInclude Include="Biblioteka_Pokemonow.h" />
-    <ClInclude Include="Biblioteka_atakow.h" />
-    <ClInclude Include="Cut.h" />
     <ClInclude Include="Menu_walki.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Pokemon.h">
@@ -63,6 +62,15 @@
       <Filter>Pokemony</Filter>
     </ClInclude>
     <ClInclude Include="Okno_pokemon.h" />
+    <ClInclude Include="Cut.h">
+      <Filter>Pokemony</Filter>
+    </ClInclude>
+    <ClInclude Include="Biblioteka_atakow.h">
+      <Filter>Pokemony</Filter>
+    </ClInclude>
+    <ClInclude Include="Biblioteka_Pokemonow.h">
+      <Filter>Pokemony</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
