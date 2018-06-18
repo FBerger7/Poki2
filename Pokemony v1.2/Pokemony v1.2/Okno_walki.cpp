@@ -158,3 +158,8 @@ void Okno_walki::wygrana_walka(Gracz &ethan)
 	Sojusznik->setC_EXP(exp);
 	ethan.setGold(gracz.getGold() + Przeciwnik->getLVL()*((rand() % 4) + 3));
 }
+
+void Okno_walki::setSojusznik(Pokemon * nowy_sojusznik)
+{
+	Sojusznik = nowy_sojusznik;
+}

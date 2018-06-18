@@ -7,6 +7,8 @@
 #include<vector>
 #include "Pokemon.h"
 #include "Biblioteka_pokemonow.h"
+#include "Przedmiot.h"
+#include "Lista_przedmiotow.h"
 
 
 using namespace std;
@@ -55,6 +57,9 @@ class Gracz :
 {
 int piniondze;
 public:
+	map<string,Przedmiot*>plecak;
+	map<string,Przedmiot*>::iterator it_plecak;
+
 	vector<Pokemon*>lista_pokemonow;
 	vector<Pokemon*>::iterator it_pok;
 	void setXY(float x, float y);

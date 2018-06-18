@@ -62,5 +62,6 @@ public:
 	bool czyKoniec();
 	void atak(Gracz &ethan);
 	void wygrana_walka(Gracz &ethan);
+	void setSojusznik(Pokemon* nowy_sojusznik);
 };
 
