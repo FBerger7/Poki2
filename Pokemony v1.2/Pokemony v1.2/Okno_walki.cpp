@@ -23,8 +23,9 @@ Okno_walki::Okno_walki(RenderWindow & m_Window,Gracz ethan)
 
 Okno_walki::~Okno_walki()
 {
-	delete(Przeciwnik);
 	delete(wybierz_akcje);
+	if (usun_przeciwnika)
+		delete(Przeciwnik);
 };
 
 ///////////////////////////////////////////////////////////
@@ -32,6 +33,7 @@ Okno_walki::~Okno_walki()
 void Okno_walki::create(RenderWindow &m_Window)//parametry: przciwnik(gracz/pokemon)
 {
 	//PRZECIWNIK
+	usun_przeciwnika = true;
 	int jaki_przeciwnik = rand() % 2;
 	int lvl_przeciwnika = (rand() % 4) + 4;
 	switch (jaki_przeciwnik)
@@ -187,15 +189,15 @@ void Okno_walki::uleczSojusznika(float heal)
 		hp_sojusznika.setFillColor(Color::Red);
 }
 
-Pokemon* Okno_walki::lapPrzeciwnika(Gracz & ethan,int szansa)
+void Okno_walki::lapPrzeciwnika(Gracz & ethan,int szansa)
 {
 	int tmp = (rand() % 10) + 5;
 	szansa += 1/Przeciwnik->stosunek_hp();
 	if (szansa >= tmp)
 	{
-		
 		Przeciwnik->zrob_sojusznik();
+		ethan.lista_pokemonow.push_back(Przeciwnik);
 		koniec_walki = true;
-		return Przeciwnik;
-	}
+		usun_przeciwnika = false;
+	} 
 }

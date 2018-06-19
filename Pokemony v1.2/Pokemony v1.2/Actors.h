@@ -79,6 +79,7 @@ public:
 	void set_it();
 	void ulecz_pokemony();
 	void dodaj_przedmiot(Przedmiot* item);
+	void sprawdz_plecak();
 };
 
 

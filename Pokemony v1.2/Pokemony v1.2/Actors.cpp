@@ -240,6 +240,15 @@ void Gracz::dodaj_przedmiot(Przedmiot *item)
 		plecak.push_back(item);
 }
 
+void Gracz::sprawdz_plecak()
+{
+	for (it_plecak = plecak.begin(); it_plecak != plecak.end(); it_plecak++)
+	{
+		if ((*it_plecak)->getLiczba() <= 0) plecak.erase(it_plecak);
+		break;
+	}
+}
+
 Gracz::~Gracz()
 {
 }

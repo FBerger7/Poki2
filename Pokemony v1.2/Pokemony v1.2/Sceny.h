@@ -50,6 +50,7 @@ private:
 	RectangleShape hp_sojusznika;
 	RectangleShape exp;
 	bool koniec_walki;
+	bool usun_przeciwnika;
 
 
 public:
@@ -64,6 +65,6 @@ public:
 	void wygrana_walka(Gracz &ethan);
 	void setSojusznik(Pokemon* nowy_sojusznik);
 	void uleczSojusznika(float heal);
-	Pokemon* lapPrzeciwnika(Gracz &ethan, int szansa);
+	void lapPrzeciwnika(Gracz &ethan, int szansa);
 };
 

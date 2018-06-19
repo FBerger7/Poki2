@@ -296,13 +296,17 @@ void Engine::input()
 							pojedynek->update(m_Window, ethan);
 							break;
 						case Lista_przedmiotow:
-							/*if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(PokeBall))
+							if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(PokeBall))
 							{
-								Pokemon *tmp=pojedynek->lapPrzeciwnika(ethan, ethan.plecak[plecak_window->getIndeks()]->lap());
-								ethan.dodaj_pokemona(tmp);
+								ethan.plecak[plecak_window->getIndeks()]->zurzyj();
+								ethan.sprawdz_plecak();
+								pojedynek->lapPrzeciwnika(ethan, ethan.plecak[plecak_window->getIndeks()]->lap());
 							}
-							else*/ if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(Potion))
+							else if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(Potion))
 							{
+								ethan.plecak[plecak_window->getIndeks()]->zurzyj();
+								ethan.sprawdz_plecak();
+								if (ethan.plecak[plecak_window->getIndeks()]->getLiczba() <= 0) ethan.plecak.erase(ethan.plecak.begin() + plecak_window->getIndeks());
 								pojedynek->uleczSojusznika(20);
 							}
 							menu_plecak = false;

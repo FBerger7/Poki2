@@ -41,3 +41,9 @@ Text Przedmiot::getIlosc()
 	return Ilosc;
 }
 
+void Przedmiot::zurzyj()
+{
+	liczba--;
+	Ilosc.setString("x" + to_string(liczba));
+}
+

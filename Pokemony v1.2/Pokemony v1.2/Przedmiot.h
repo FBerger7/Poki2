@@ -25,6 +25,8 @@ public:
 	Sprite getSprite();
 	Text getNazwa();
 	Text getIlosc();
+	void zurzyj();
+
 	virtual int lap() = 0;
 };
 

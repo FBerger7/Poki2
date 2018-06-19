@@ -76,6 +76,7 @@ public:
 	void heal();
 	void heal(float hp);
 
+
 	// Metody wirtualne
 	virtual void setSprite()=0;
 	virtual void lvl_up()=0;

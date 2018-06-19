@@ -3,6 +3,7 @@
 void Pokemon::zrob_sojusznik()
 {
 	sojusznik = true;
+	PokemonSprite.setScale(1.f,1.f);
 	setSprite();
 	ustaw_Nazwe();
 	ustaw_LVL();
