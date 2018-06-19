@@ -349,13 +349,17 @@ void Engine::input()
 						}
 						if (pojedynek->wybierz_akcje->getWyjdz_z_walki() == true)
 						{
+							vs_poke_battle_music.stop();
 							if (walka_zNPC)
-								walka_z_bossem++;
+							{
+								delete(gym_leader);
+								gym_music.play();
+							}
+							else
+								route_music.play();
 							delete pojedynek;
 							walka = false;
 							walka_zNPC = false;
-							vs_poke_battle_music.stop();
-							route_music.play();
 						}
 						break;
 					}
@@ -365,13 +369,18 @@ void Engine::input()
 				}
 			else
 			{
+				vs_poke_battle_music.stop();
 				if (walka_zNPC)
+				{
 					walka_z_bossem++;
+					delete(gym_leader);
+					gym_music.play();
+				}
+				else
+					route_music.play();
 				delete pojedynek;
 				walka = false;
 				walka_zNPC = false;
-				vs_poke_battle_music.stop();
-				route_music.play();
 			}
 		else if (menu_is_open)
 			switch (zdarzenie.type)

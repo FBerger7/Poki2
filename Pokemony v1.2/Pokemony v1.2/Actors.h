@@ -84,7 +84,7 @@ public:
 
 
 class NPC :
-	public Gracz
+	public Actors
 {
 public:
 	vector<Pokemon*>lista_pokemonow;

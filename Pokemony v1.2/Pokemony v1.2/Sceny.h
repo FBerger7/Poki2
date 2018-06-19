@@ -67,6 +67,7 @@ public:
 	void atak(Gracz &ethan);
 	void atak(Gracz &ethan, NPC *gym_leader);
 	void wygrana_walka(Gracz &ethan);
+	void wygrana_walka(Gracz &ethan, NPC *gym_leader);
 	void setSojusznik(Pokemon* nowy_sojusznik);
 	void uleczSojusznika(float heal);
 	void lapPrzeciwnika(Gracz &ethan, int szansa);

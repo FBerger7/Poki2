@@ -258,10 +258,13 @@ void NPC::dodaj_pokemona(Pokemon * pok)
 
 bool NPC::czy_ma_pokemony()
 {
-	for (int i = 0; i< lista_pokemonow.size(); i++)
+	for (it_pok = lista_pokemonow.begin(); it_pok != lista_pokemonow.end(); it_pok++)
 	{
-		if (lista_pokemonow[i]->getC_HP() > 0) return true;
+		if ((*it_pok)->getC_HP() > 0) return true;
 	}
+	//for (int i = 0; i< lista_pokemonow.size(); i++)
+	//{
+	//}
 	return false;
 }
 
@@ -292,5 +295,8 @@ NPC::NPC(int scale)
 
 NPC::~NPC()
 {
-
+	for (int i=0; i < lista_pokemonow.size(); i++)
+	{
+		lista_pokemonow.pop_back();
+	}
 }

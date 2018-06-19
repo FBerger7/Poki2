@@ -255,7 +255,7 @@ void Okno_walki::atak(Gracz &ethan, NPC *gym_leader)
 			else
 			{
 				koniec_walki = true; //koniec walki
-				wygrana_walka(ethan);
+				wygrana_walka(ethan, gym_leader);
 			}
 		}
 		else { //ATAK przeciwnika
@@ -284,7 +284,15 @@ void Okno_walki::wygrana_walka(Gracz &ethan)
 	ethan.setGold(gracz.getGold() + Przeciwnik->getLVL()*((rand() % 4) + 3));
 }
 
-void Okno_walki::setSojusznik(Pokemon * nowy_sojusznik)
+void Okno_walki::wygrana_walka(Gracz &ethan, NPC *gym_leader)
+{
+	float exp = Przeciwnik->getLVL() * 1.4 * 50;
+	Sojusznik->setC_EXP(exp);
+	ethan.setGold(gracz.getGold() + Przeciwnik->getLVL()*((rand() % 4) + 3));
+	ethan.setGold(gracz.getGold() + 1000);
+}
+
+void Okno_walki::setSojusznik(Pokemon *nowy_sojusznik)
 {
 	Sojusznik = nowy_sojusznik;
 
