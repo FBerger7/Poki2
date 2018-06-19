@@ -484,6 +484,7 @@ void Engine::input()
 					else
 					{
 						delete shop;
+						delete shop_buy;
 						shop_is_open = false;
 					}
 				}
