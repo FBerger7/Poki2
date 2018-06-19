@@ -115,6 +115,7 @@
   <ItemGroup>
     <ClCompile Include="Actors.cpp" />
     <ClCompile Include="Atak.cpp" />
+    <ClCompile Include="BaseException.cpp" />
     <ClCompile Include="Cut.cpp" />
     <ClCompile Include="Draw.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -141,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="Actors.h" />
     <ClInclude Include="Atak.h" />
+    <ClInclude Include="BaseException.h" />
     <ClInclude Include="Biblioteka_atakow.h" />
     <ClInclude Include="Biblioteka_Pokemonow.h" />
     <ClInclude Include="Cut.h" />
