@@ -304,7 +304,10 @@ void Engine::input()
 							else if (pojedynek->wybierz_akcje->getRodzaj() == Lista_przedmiotow) menu_plecak = true;
 							break;
 						case Walka:
-							pojedynek->update(m_Window, ethan);
+							if (!walka_zNPC)
+								pojedynek->update(m_Window, ethan);
+							else 
+								pojedynek->update(m_Window, ethan, gym_leader);
 							break;
 						case Lista_przedmiotow:
 							if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(PokeBall))
@@ -338,6 +341,7 @@ void Engine::input()
 						{
 							delete pojedynek;
 							walka = false;
+							walka_zNPC = false;
 							vs_poke_battle_music.stop();
 							route_music.play();
 						}
@@ -351,6 +355,7 @@ void Engine::input()
 			{
 				delete pojedynek;
 				walka = false;
+				walka_zNPC = false;
 				vs_poke_battle_music.stop();
 				route_music.play();
 			}

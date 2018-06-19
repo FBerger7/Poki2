@@ -30,12 +30,13 @@ private:
 
 	// Tu bedzie gracz
 	Gracz ethan;
-	NPC* gymleader;
+	NPC* gym_leader;
 
 	map<string, Actors*> Lista_aktorow;
 	map<string, Actors*>::iterator it;
 	// Tryb gry
 	bool walka = false;
+	bool walka_zNPC = false;
 	bool is_in_gym = false;
 	bool is_in_PokeCenter = false;
 	bool is_in_PokeMart = false;
