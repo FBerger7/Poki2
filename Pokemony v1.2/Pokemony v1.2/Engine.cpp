@@ -72,14 +72,8 @@ Engine::Engine()
 
 	Pokemon* tmp = new Poliwrath(5, true);
 	ethan.dodaj_pokemona(tmp);
-	tmp = new Stelfozaur(5, true);
-	ethan.dodaj_pokemona(tmp);
-	tmp = new Stelfozaur(5, true);
-	ethan.dodaj_pokemona(tmp);
-	ethan.dodaj_przedmiot(new PokeBall(1));
-	ethan.dodaj_przedmiot(new PokeBall(1));
-	ethan.dodaj_przedmiot(new Potion(1));
-	ethan.dodaj_przedmiot(new Potion(1));
+	ethan.dodaj_przedmiot(new Potion(5));
+	ethan.dodaj_przedmiot(new PokeBall(5));
 	mapa = new Okno_eksploracji();
 	cerulean_music.play();
 

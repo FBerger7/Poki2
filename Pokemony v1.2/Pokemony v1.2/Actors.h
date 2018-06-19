@@ -31,11 +31,6 @@ protected:
 	int xm = 0, ym = 0;
 	RectangleShape osoba;
 public:
-	map<string,Przedmiot*>plecak;
-	map<string,Przedmiot*>::iterator it_plecak;
-
-	vector<Pokemon*>lista_pokemonow;
-	vector<Pokemon*>::iterator it_pok;
 	void draw(RenderTarget & target, RenderStates state) const;
 	//Gracz(int x, int y);
 	void move(Direction D);
@@ -81,11 +76,9 @@ public:
 	vector<Pokemon*> getlista_pok();
 	bool czy_ma_pokemony();
 	Pokemon* wybierz_pierwszego();
-	vector<Pokemon*>::iterator get_it();
-	void set_it();
 	void ulecz_pokemony();
 	void dodaj_przedmiot(Przedmiot* item);
-	void sprawdz_plecak();
+	bool sprawdz_plecak();
 };
 
 
@@ -93,8 +86,13 @@ public:
 class NPC :
 	public Gracz
 {
-
 public:
+	vector<Pokemon*>lista_pokemonow;
+	vector<Pokemon*>::iterator it_pok;
+
+	void dodaj_pokemona(Pokemon* pok);
+	bool czy_ma_pokemony();
+	Pokemon* wybierz_pierwszego();
 	NPC();
 
 	~NPC();

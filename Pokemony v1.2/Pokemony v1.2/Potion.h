@@ -12,10 +12,6 @@ public:
 	Potion(int ile);
 	~Potion();
 
-	int za_ile_leczy();
-	int lap()
-	{
-		return 0;
-	};
+	int lap();
 };
 

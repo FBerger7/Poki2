@@ -3,11 +3,27 @@
 Okno_przedmiotow::Okno_przedmiotow()
 {
 	IntRect wymiary_okna(0, 0, 800, 600);
-	BackgroundTexture.loadFromFile("Pokemon_ramka.png");
+	try
+	{
+		if (!BackgroundTexture.loadFromFile("Pokemon_ramka.png"))
+			throw BaseException("Nie udalo sie wczytac pliku Pokemon_ramka.png");
+	}
+	catch (const BaseException &e)
+	{
+		cout << e.what() << endl;
+	}
 	BackgroundSprite.setTexture(BackgroundTexture);
 	BackgroundSprite.setTextureRect(wymiary_okna);
 
-	KursorTexture.loadFromFile("Kursor.png");
+	try
+	{
+		if (!KursorTexture.loadFromFile("Kursor.png"))
+			throw BaseException("Nie udalo sie wczytac pliku Kursor.png");
+	}
+	catch (const BaseException &e)
+	{
+		cout << e.what() << endl;
+	}
 	KursorSprite.setTexture(KursorTexture);
 	KursorSprite.setPosition(70.f, 80.f);
 	indeks = 0;

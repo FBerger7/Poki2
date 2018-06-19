@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Biblioteka_atakow.h"
 #include <vector>
+#include "BaseException.h"
 
 using namespace std;
 using namespace sf;

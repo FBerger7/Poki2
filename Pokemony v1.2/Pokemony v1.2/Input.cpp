@@ -310,15 +310,16 @@ void Engine::input()
 							if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(PokeBall))
 							{
 								ethan.plecak[plecak_window->getIndeks()]->zurzyj();
-								ethan.sprawdz_plecak();
 								pojedynek->lapPrzeciwnika(ethan, ethan.plecak[plecak_window->getIndeks()]->lap());
+								if(ethan.sprawdz_plecak())
+									plecak_window->zresetuj_kursor();
 							}
 							else if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(Potion))
 							{
 								ethan.plecak[plecak_window->getIndeks()]->zurzyj();
-								ethan.sprawdz_plecak();
-								if (ethan.plecak[plecak_window->getIndeks()]->getLiczba() <= 0) ethan.plecak.erase(ethan.plecak.begin() + plecak_window->getIndeks());
-								pojedynek->uleczSojusznika(20);
+								pojedynek->uleczSojusznika(ethan.plecak[plecak_window->getIndeks()]->lap());
+								if (ethan.sprawdz_plecak())
+									plecak_window->zresetuj_kursor();
 							}
 							menu_plecak = false;
 							pojedynek->wybierz_akcje->move(BACK);

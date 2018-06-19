@@ -206,16 +206,6 @@ Pokemon * Gracz::wybierz_pierwszego()
 	return nullptr;
 }
 
-vector<Pokemon*>::iterator Gracz::get_it()
-{
-	return it_pok;
-}
-
-void Gracz::set_it()
-{
-	it_pok++;
-}
-
 void Gracz::ulecz_pokemony()
 {
 	for (it_pok = lista_pokemonow.begin(); it_pok != lista_pokemonow.end(); it_pok++)
@@ -240,13 +230,17 @@ void Gracz::dodaj_przedmiot(Przedmiot *item)
 		plecak.push_back(item);
 }
 
-void Gracz::sprawdz_plecak()
+bool Gracz::sprawdz_plecak()
 {
 	for (it_plecak = plecak.begin(); it_plecak != plecak.end(); it_plecak++)
 	{
-		if ((*it_plecak)->getLiczba() <= 0) plecak.erase(it_plecak);
-		break;
+		if ((*it_plecak)->getLiczba() <= 0)
+		{
+			plecak.erase(it_plecak);
+			return true;
+		}
 	}
+	return false;
 }
 
 Gracz::~Gracz()
@@ -255,6 +249,35 @@ Gracz::~Gracz()
 
 
 //--------------------NPC-----------------------
+
+void NPC::dodaj_pokemona(Pokemon * pok)
+{
+	if (lista_pokemonow.size() < 5)
+		lista_pokemonow.push_back(pok);
+}
+
+bool NPC::czy_ma_pokemony()
+{
+	for (int i = 0; i< lista_pokemonow.size(); i++)
+	{
+		if (lista_pokemonow[i]->getC_HP() > 0) return true;
+	}
+	return false;
+}
+
+Pokemon * NPC::wybierz_pierwszego()
+{
+	int i = 0;
+	for (it_pok = lista_pokemonow.begin(); it_pok != lista_pokemonow.end(); it_pok++)
+	{
+		if ((*it_pok)->getC_HP() > 0)
+		{
+			return getPokemon(i);		//wywlic wyjatek jesli lista puta
+		}
+		i++;
+	}
+	return nullptr;
+}
 
 NPC::NPC()
 {
