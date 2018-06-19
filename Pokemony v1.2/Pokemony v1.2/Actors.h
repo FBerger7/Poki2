@@ -31,6 +31,11 @@ protected:
 	int xm = 0, ym = 0;
 	RectangleShape osoba;
 public:
+	map<string,Przedmiot*>plecak;
+	map<string,Przedmiot*>::iterator it_plecak;
+
+	vector<Pokemon*>lista_pokemonow;
+	vector<Pokemon*>::iterator it_pok;
 	void draw(RenderTarget & target, RenderStates state) const;
 	//Gracz(int x, int y);
 	void move(Direction D);
@@ -55,13 +60,9 @@ public:
 class Gracz :
 	public Actors
 {
+protected:
 int piniondze;
 public:
-	map<string,Przedmiot*>plecak;
-	map<string,Przedmiot*>::iterator it_plecak;
-
-	vector<Pokemon*>lista_pokemonow;
-	vector<Pokemon*>::iterator it_pok;
 	void setXY(float x, float y);
 	Gracz();
 	~Gracz();
@@ -85,8 +86,10 @@ public:
 
 
 class NPC :
-	public Actors
+	public Gracz
 {
+
+public:
 	NPC();
 
 	~NPC();

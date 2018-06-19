@@ -11,6 +11,7 @@
 #include "Pokemon.h"
 #include "Okno_pokemon.h"
 #include "Menu.h"
+#include "BaseException.h"
 
 using namespace sf;
 
@@ -28,6 +29,7 @@ private:
 
 	// Tu bedzie gracz
 	Gracz ethan;
+	NPC* gymleader;
 
 	map<string, Actors*> Lista_aktorow;
 	map<string, Actors*>::iterator it;
@@ -76,5 +78,5 @@ public:
 	Engine();
 	bool czy_jest_walka();
 	void start();
-
+	~Engine();
 };

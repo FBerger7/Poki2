@@ -22,17 +22,54 @@ Engine::Engine()
 	ethan.setGold(700);
 	
 	//------------Ladowanie muzyki------------------
-	if (!gym_music.openFromFile("Gym_sound.wav"))
-		cout << "Nie udalo sie wczytac muzyki z GYM'u" << endl;
-	if (!cerulean_music.openFromFile("City_sound.wav"))
-		cout << "Nie udalo sie wczytac muzyki z miasta" << endl;
-	if (!vs_poke_battle_music.openFromFile("vs_wild_poke_sound.wav"))
-		cout << "Nie udalo sie wczytac muzyki z walki vs pokemon" << endl;
-	if (!route_music.openFromFile("route_music.wav"))
-		cout << "Nie udalo sie wczytac route muzyki" << endl;
-	if (!poke_center_music.openFromFile("pokemon-center.wav"))
-		cout << "Nie udalo sie wczytac route muzyki" << endl;
+	try
+	{
+		if (!gym_music.openFromFile("Gym_sound.wav"))
+			throw BaseException("Nie udalo sie wczytac muzyki z GYM'u");
+	}
+	catch (const BaseException &e)
+	{
+		cout << e.what() << endl;
+	}
+	try
+	{
+		if (!cerulean_music.openFromFile("City_sound.wav"))
+			throw BaseException("Nie udalo sie wczytac muzyki z miasta");
+	}
+	catch (const BaseException &e)
+	{
+		cout << e.what() << endl;
+	}
+	try
+	{
+		if (!vs_poke_battle_music.openFromFile("vs_wild_poke_sound.wav"))
+			throw BaseException("Nie udalo sie wczytac muzyki z walki vs pokemon");
+	}
+	catch (const BaseException &e)
+	{
+		cout << e.what() << endl;
+	}
+	try
+	{
+		if (!route_music.openFromFile("route_music.wav"))
+			throw BaseException("Nie udalo sie wczytac route muzyki");
+	}
+	catch (const BaseException &e)
+	{
+		cout << e.what() << endl;
+	}
+	try
+	{
+		if (!poke_center_music.openFromFile("pokemon-center.wav"))
+			throw BaseException("Nie udalo sie wczytac muzyki z PokeCenter");
+	}
+	catch (const BaseException &e)
+	{
+		cout << e.what() << endl;
+	}
+
 	//---------------------------------------------
+
 	Pokemon* tmp = new Poliwrath(5, true);
 	ethan.dodaj_pokemona(tmp);
 	tmp = new Stelfozaur(5, true);
@@ -78,4 +115,8 @@ void Engine::start()
 		update();
 		draw();
 	}
+}
+
+Engine::~Engine()
+{
 }

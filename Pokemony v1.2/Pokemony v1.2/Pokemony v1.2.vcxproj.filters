@@ -38,6 +38,7 @@
     <ClCompile Include="Przedmiot.cpp" />
     <ClCompile Include="Potion.cpp" />
     <ClCompile Include="PokeBall.cpp" />
+    <ClCompile Include="BaseException.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actors.h" />
@@ -78,6 +79,7 @@
     <ClInclude Include="Lista_przedmiotow.h" />
     <ClInclude Include="Potion.h" />
     <ClInclude Include="PokeBall.h" />
+    <ClInclude Include="BaseException.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

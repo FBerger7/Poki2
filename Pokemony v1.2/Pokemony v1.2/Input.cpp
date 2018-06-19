@@ -70,6 +70,8 @@ void Engine::input()
 								is_in_gym = true;
 								ethan.set_xm(18);
 								ethan.set_ym(6);
+								//Pokemon*tmp = new Stelfozaur(5, true);
+								//gymleader->dodaj_pokemona(tmp);
 							}
 							if (ethan.get_xm() == 21 && ethan.get_ym() == 35)
 							{
