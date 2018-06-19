@@ -235,7 +235,13 @@ void Engine::input()
 				}
 				else if (ethan.get_xm() == 4 && ethan.get_ym() == 4 && zdarzenie.key.code == Keyboard::Z && is_in_gym)
 				{
-					cout << "WALKA Z BOSSEM" << endl;
+					gym_leader = new NPC(walka_z_bossem);
+					pojedynek = new Okno_walki(m_Window, ethan, gym_leader);
+					walka = true;
+					walka_zNPC = true;
+					gym_music.stop();
+					vs_poke_battle_music.play();
+
 				}
 				break;
 			}
@@ -343,6 +349,8 @@ void Engine::input()
 						}
 						if (pojedynek->wybierz_akcje->getWyjdz_z_walki() == true)
 						{
+							if (walka_zNPC)
+								walka_z_bossem++;
 							delete pojedynek;
 							walka = false;
 							walka_zNPC = false;
@@ -357,6 +365,8 @@ void Engine::input()
 				}
 			else
 			{
+				if (walka_zNPC)
+					walka_z_bossem++;
 				delete pojedynek;
 				walka = false;
 				walka_zNPC = false;

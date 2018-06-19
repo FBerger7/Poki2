@@ -29,7 +29,7 @@ Okno_walki::Okno_walki(RenderWindow & m_Window,Gracz ethan)
 
 }
 
-Okno_walki::Okno_walki(RenderWindow & m_Window, Gracz ethan, NPC gym_leader)
+Okno_walki::Okno_walki(RenderWindow & m_Window, Gracz ethan, NPC *gym_leader)
 {
 	koniec_walki = false;
 	IntRect wymiary_okna(0, 0, 800, 600);
@@ -52,7 +52,7 @@ Okno_walki::Okno_walki(RenderWindow & m_Window, Gracz ethan, NPC gym_leader)
 	exp.setPosition(520, 382);
 	exp.setFillColor(Color::Blue);
 
-	create(m_Window, &gym_leader);
+	create(m_Window, gym_leader);
 
 	wybierz_akcje = new Menu_walki();
 }

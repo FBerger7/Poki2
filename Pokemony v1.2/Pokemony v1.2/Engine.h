@@ -47,6 +47,8 @@ private:
 	bool buying_is_open = false;
 	int RANDOM_NUMBER = 100;
 
+	int walka_z_bossem = 1;
+
 	//MUZYKA
 	Music gym_music;
 	Music cerulean_music;

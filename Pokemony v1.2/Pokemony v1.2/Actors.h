@@ -93,7 +93,8 @@ public:
 	void dodaj_pokemona(Pokemon* pok);
 	bool czy_ma_pokemony();
 	Pokemon* wybierz_pierwszego();
-	NPC();
+	Pokemon* getPokemon(int indeks);
+	NPC(int scale);
 
 	~NPC();
 };

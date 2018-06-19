@@ -56,7 +56,7 @@ private:
 public:
 	Menu_walki *wybierz_akcje;
 	Okno_walki(RenderWindow &m_Window,Gracz ethan);
-	Okno_walki(RenderWindow &m_Window, Gracz ethan, NPC gym_leader);
+	Okno_walki(RenderWindow &m_Window, Gracz ethan, NPC *gym_leader);
 	~Okno_walki();
 	void create(RenderWindow &m_Window);
 	void create(RenderWindow &m_Window, NPC *gym_leader);

@@ -272,16 +272,22 @@ Pokemon * NPC::wybierz_pierwszego()
 	{
 		if ((*it_pok)->getC_HP() > 0)
 		{
-			return getPokemon(i);		//wywlic wyjatek jesli lista puta
+			return getPokemon(i);
 		}
 		i++;
 	}
 	return nullptr;
 }
 
-NPC::NPC()
+Pokemon * NPC::getPokemon(int indeks)
 {
+	return lista_pokemonow[indeks];
+}
 
+NPC::NPC(int scale)
+{
+	dodaj_pokemona(new Poliwrath(5 * scale,false));
+	dodaj_pokemona(new Stelfozaur(5 * scale, false));
 }
 
 NPC::~NPC()
