@@ -5,7 +5,7 @@ void Engine::input()
 	Event zdarzenie;
 	while (m_Window.pollEvent(zdarzenie))
 	{
-		if (walka == false && menu_is_open == false)
+		if (walka == false && menu_is_open == false && shop_is_open == false)
 			switch (zdarzenie.type)
 			{
 			case Event::Closed:
@@ -179,8 +179,8 @@ void Engine::input()
 				}
 				else if (zdarzenie.key.code == Keyboard::Tab)
 				{
-					opcje = new Menu();
-					opcje->ustaw_pozycje(ethan.getX(),ethan.getY());
+					opcje = new Menu("MENU");
+					opcje->ustaw_pozycje(ethan.getX(),ethan.getY(), "MENU");
 					opcje->ustaw_pieniadze(ethan.getGold(), ethan.getX(), ethan.getY());
 					menu_is_open = true;
 				}
@@ -221,7 +221,16 @@ void Engine::input()
 						break;
 					}
 				}
-
+				else if (ethan.get_xm() == 5 && ethan.get_ym() == 3 && zdarzenie.key.code == Keyboard::Z && is_in_PokeMart)
+				{
+					shop = new Menu("SHOP");
+					shop->im_in_shop();
+					shop->ustaw_pozycje(ethan.getX(), ethan.getY(), "SHOP");
+					shop->ustaw_pieniadze(ethan.getGold(), ethan.getX(), ethan.getY());
+					shop_is_open = true;
+					shop_buy = new Menu("SHOP2");
+					shop_buy->ustaw_pozycje(ethan.getX(), ethan.getY(), "SHOP2");
+				}
 				break;
 			}
 			default: break;
@@ -380,6 +389,70 @@ void Engine::input()
 				}
 			}
 			default: break;
+		}
+		else if (shop_is_open)
+			switch (zdarzenie.type)
+			{
+			case Event::Closed:
+				m_Window.close();
+				break;
+			case Event::KeyPressed:
+			{
+				if (zdarzenie.key.code == Keyboard::X)
+				{
+					if (buying_is_open)
+					{
+						buying_is_open = false;
+					}
+					else
+					{
+						delete shop;
+						shop_is_open = false;
+					}
+				}
+				else if (zdarzenie.key.code == Keyboard::Down)
+				{
+					if (buying_is_open)
+						shop_buy->move(DOWN);
+					else
+						shop->move(DOWN);
+				}
+				else if (zdarzenie.key.code == Keyboard::Up)
+				{
+					if (buying_is_open)
+						shop_buy->move(UP);
+					else
+						shop->move(UP);
+				}
+				else if (zdarzenie.key.code == Keyboard::Z && shop->getPozycja() == 0 && !buying_is_open)
+				{
+					shop_buy->im_buying();
+					buying_is_open = true;
+				}
+				else if (zdarzenie.key.code == Keyboard::Z && shop->getPozycja() == 1 && !buying_is_open)
+				{
+					cout << "SELL" << endl;
+				}
+				else if (zdarzenie.key.code == Keyboard::Z && shop_buy->getPozycja() == 0 && buying_is_open)
+				{
+					if (ethan.getGold() - 200 > 0)
+					{
+						ethan.setGold(ethan.getGold() - 200);
+						shop->ustaw_pieniadze(ethan.getGold(),ethan.getX(), ethan.getY());
+					}
+				}
+				else if (zdarzenie.key.code == Keyboard::Z && shop_buy->getPozycja() == 1 && buying_is_open)
+				{
+					cout << "KUPUJEMY POTIONA!!" << endl;
+				}
+				else if (zdarzenie.key.code == Keyboard::Z && shop->getPozycja() == 2)
+				{
+					delete shop_buy;
+					delete shop;
+					shop_is_open = false;
+				}
 			}
+			break;			
+		}
 	}
 }

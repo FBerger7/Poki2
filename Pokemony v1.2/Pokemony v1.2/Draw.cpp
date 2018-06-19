@@ -41,6 +41,12 @@ void Engine::draw()
 		{
 			opcje->draw(m_Window);
 		}
+		else if (shop_is_open)
+		{
+			shop->draw(m_Window);
+			if (buying_is_open)
+				shop_buy->draw(m_Window);
+		}
 	}
 	m_Window.display();
 }

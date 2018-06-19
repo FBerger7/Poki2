@@ -38,6 +38,8 @@ private:
 	bool is_in_PokeMart = false;
 	bool menu_is_open = false;
 	bool menu_pokemon = false;
+	bool shop_is_open = false;
+	bool buying_is_open = false;
 	int RANDOM_NUMBER = 100;
 
 	//MUZYKA
@@ -49,6 +51,8 @@ private:
 
 	//MENU
 	Menu*opcje;
+	Menu*shop;
+	Menu*shop_buy;
 
 	//MAPA
 	Mapa *map1;
