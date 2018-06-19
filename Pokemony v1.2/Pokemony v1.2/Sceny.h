@@ -56,12 +56,16 @@ private:
 public:
 	Menu_walki *wybierz_akcje;
 	Okno_walki(RenderWindow &m_Window,Gracz ethan);
+	Okno_walki(RenderWindow &m_Window, Gracz ethan, NPC gym_leader);
 	~Okno_walki();
 	void create(RenderWindow &m_Window);
+	void create(RenderWindow &m_Window, NPC *gym_leader);
 	void update(RenderWindow &m_Window, Gracz &ethan);
+	void update(RenderWindow &m_Window, Gracz &ethan, NPC *gym_leader);
 	void draw(RenderWindow &m_Window);
 	bool czyKoniec();
 	void atak(Gracz &ethan);
+	void atak(Gracz &ethan, NPC *gym_leader);
 	void wygrana_walka(Gracz &ethan);
 	void setSojusznik(Pokemon* nowy_sojusznik);
 	void uleczSojusznika(float heal);

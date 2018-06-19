@@ -35,7 +35,15 @@ void Pokemon::ustaw_Nazwe()
 
 void Pokemon::ustaw_LVL()
 {
-	font.loadFromFile("arial.ttf");
+	try
+	{
+		if (!font.loadFromFile("arial.ttf"))
+			throw BaseException("Nie udalo sie wczytac pliku arial.ttf");
+	}
+	catch (const BaseException &e)
+	{
+		cout << e.what() << endl;
+	}
 	Level.setFont(font);
 	if (sojusznik)
 	{
@@ -53,7 +61,15 @@ void Pokemon::ustaw_LVL()
 
 void Pokemon::ustaw_HP_txt()
 {
-	font.loadFromFile("arial.ttf");
+	try
+	{
+		if (!font.loadFromFile("arial.ttf"))
+			throw BaseException("Nie udalo sie wczytac pliku arial.ttf");
+	}
+	catch (const BaseException &e)
+	{
+		cout << e.what() << endl;
+	}
 	C_HP_txt.setFont(font);
 	MAX_HP_txt.setFont(font);
 

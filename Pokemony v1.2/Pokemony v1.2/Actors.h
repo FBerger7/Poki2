@@ -76,11 +76,9 @@ public:
 	vector<Pokemon*> getlista_pok();
 	bool czy_ma_pokemony();
 	Pokemon* wybierz_pierwszego();
-	vector<Pokemon*>::iterator get_it();
-	void set_it();
 	void ulecz_pokemony();
 	void dodaj_przedmiot(Przedmiot* item);
-	void sprawdz_plecak();
+	bool sprawdz_plecak();
 };
 
 
@@ -88,8 +86,13 @@ public:
 class NPC :
 	public Gracz
 {
-
 public:
+	vector<Pokemon*>lista_pokemonow;
+	vector<Pokemon*>::iterator it_pok;
+
+	void dodaj_pokemona(Pokemon* pok);
+	bool czy_ma_pokemony();
+	Pokemon* wybierz_pierwszego();
 	NPC();
 
 	~NPC();

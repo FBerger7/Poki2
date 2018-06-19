@@ -32,7 +32,7 @@ Potion::~Potion()
 {
 }
 
-int Potion::za_ile_leczy()
+int Potion::lap()
 {
 	return ulecz_za;
-}
+};

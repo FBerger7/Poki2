@@ -53,13 +53,30 @@ void Stelfozaur::setSprite()
 {
 	if (sojusznik == true)
 	{
-		PokemonTexture.loadFromFile("Pokemon_back.png");
+		try
+		{
+			if (!PokemonTexture.loadFromFile("Pokemon_back.png"))
+				throw BaseException("Nie udalo sie wczytac pliku Pokemon_back.png");
+		}
+		catch (const BaseException &e)
+		{
+			cout << e.what() << endl;
+		}
 		IntRect wybor_pokemona(159, 848, 50, 50);
 		PokemonSprite.setTexture(PokemonTexture);
 		PokemonSprite.setTextureRect(wybor_pokemona);
 		PokemonSprite.setPosition(85, 195);
 
-		PokemonTexture_menu.loadFromFile("Pokemon_front.png");
+		
+		try
+		{
+			if (!PokemonTexture_menu.loadFromFile("Pokemon_front.png"))
+				throw BaseException("Nie udalo sie wczytac pliku Pokemon_front.png");
+		}
+		catch (const BaseException &e)
+		{
+			cout << e.what() << endl;
+		}
 		IntRect wybor_pokemona2(521, 985, 56, 56);
 		PokemonSprite_menu.setTexture(PokemonTexture_menu);
 		PokemonSprite_menu.setTextureRect(wybor_pokemona2);
@@ -68,7 +85,15 @@ void Stelfozaur::setSprite()
 	}
 	else
 	{
-		PokemonTexture.loadFromFile("Pokemon_front.png");
+		try
+		{
+			if (!PokemonTexture.loadFromFile("Pokemon_front.png"))
+				throw BaseException("Nie udalo sie wczytac pliku Pokemon_front.png");
+		}
+		catch (const BaseException &e)
+		{
+			cout << e.what() << endl;
+		}
 		IntRect wybor_pokemona(521, 985, 56, 56);
 		PokemonSprite.setTexture(PokemonTexture);
 		PokemonSprite.setTextureRect(wybor_pokemona);
