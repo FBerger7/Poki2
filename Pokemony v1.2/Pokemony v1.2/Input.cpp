@@ -24,7 +24,7 @@ void Engine::input()
 						view_e.move(16, 0);
 						ethan.setXY(-16, 0);
 						if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
-							if (czy_jest_walka())
+							if (czy_jest_walka() && ethan.czy_ma_pokemony())
 							{
 								pojedynek = new Okno_walki(m_Window, ethan);
 								walka = true;
@@ -50,7 +50,7 @@ void Engine::input()
 						view_e.move(0, -16);
 						ethan.setXY(0, 16);
 						if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
-							if (czy_jest_walka())
+							if (czy_jest_walka() && ethan.czy_ma_pokemony())
 							{
 								pojedynek = new Okno_walki(m_Window, ethan);
 								walka = true;
@@ -110,7 +110,7 @@ void Engine::input()
 						view_e.move(0, 16);
 						ethan.setXY(0, -16);
 						if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
-							if (czy_jest_walka())
+							if (czy_jest_walka() && ethan.czy_ma_pokemony())
 							{
 								pojedynek = new Okno_walki(m_Window, ethan);
 								walka = true;
@@ -164,7 +164,7 @@ void Engine::input()
 						view_e.move(-16, 0);
 						ethan.setXY(16,0);
 						if (map1->is_grass(ethan.get_xm(), ethan.get_ym()))
-							if (czy_jest_walka())
+							if (czy_jest_walka() && ethan.czy_ma_pokemony())
 							{
 								pojedynek = new Okno_walki(m_Window,ethan);
 								walka = true;
@@ -233,7 +233,7 @@ void Engine::input()
 					shop_buy = new Menu("SHOP2");
 					shop_buy->ustaw_pozycje(ethan.getX(), ethan.getY(), "SHOP2");
 				}
-				else if (ethan.get_xm() == 4 && ethan.get_ym() == 4 && zdarzenie.key.code == Keyboard::Z && is_in_gym)
+				else if (ethan.get_xm() == 4 && ethan.get_ym() == 4 && zdarzenie.key.code == Keyboard::Z && is_in_gym && ethan.czy_ma_pokemony())
 				{
 					gym_leader = new NPC(walka_z_bossem);
 					pojedynek = new Okno_walki(m_Window, ethan, gym_leader);
@@ -320,7 +320,7 @@ void Engine::input()
 								pojedynek->update(m_Window, ethan, gym_leader);
 							break;
 						case Lista_przedmiotow:
-							if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(PokeBall))
+							if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(PokeBall) && walka_zNPC == false)
 							{
 								ethan.plecak[plecak_window->getIndeks()]->zurzyj();
 								pojedynek->lapPrzeciwnika(ethan, ethan.plecak[plecak_window->getIndeks()]->lap());

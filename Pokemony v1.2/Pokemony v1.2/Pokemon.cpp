@@ -116,6 +116,7 @@ void Pokemon::dodaj_atak(Atak* nowy_atak)
 void Pokemon::heal()
 {
 	C_HP = MAX_HP;
+	setHP_txt();
 }
 
 void Pokemon::heal(float hp)

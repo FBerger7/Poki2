@@ -165,6 +165,7 @@ void Okno_walki::update(RenderWindow &m_Window, Gracz &ethan, NPC *gym_leader)
 		else if (Sojusznik->getC_HP() / Sojusznik->getMAX_HP() <= 0.25 && Sojusznik->getC_HP() / Sojusznik->getMAX_HP() > 0)
 			hp_sojusznika.setFillColor(Color::Red);
 		//---------------------------------------------------------------
+		exp.setSize(Vector2f(245 * Sojusznik->getC_EXP() / Sojusznik->getMAX_EXP(), 4)); //rozmiar paska exp
 };
 void Okno_walki::draw(RenderWindow &m_Window)
 {
@@ -250,12 +251,12 @@ void Okno_walki::atak(Gracz &ethan, NPC *gym_leader)
 		Przeciwnik->setC_HP(damage - (Przeciwnik->getDEF()*0.1f));
 		if (Przeciwnik->getC_HP() <= 0)
 		{
+			wygrana_walka(ethan, gym_leader);
 			if (gym_leader->czy_ma_pokemony())
 				Przeciwnik = gym_leader->wybierz_pierwszego();
 			else
 			{
 				koniec_walki = true; //koniec walki
-				wygrana_walka(ethan, gym_leader);
 			}
 		}
 		else { //ATAK przeciwnika
@@ -288,8 +289,7 @@ void Okno_walki::wygrana_walka(Gracz &ethan, NPC *gym_leader)
 {
 	float exp = Przeciwnik->getLVL() * 1.4 * 50;
 	Sojusznik->setC_EXP(exp);
-	ethan.setGold(gracz.getGold() + Przeciwnik->getLVL()*((rand() % 4) + 3));
-	ethan.setGold(gracz.getGold() + 1000);
+	ethan.setGold(gracz.getGold() + 100 * Przeciwnik->getLVL());
 }
 
 void Okno_walki::setSojusznik(Pokemon *nowy_sojusznik)

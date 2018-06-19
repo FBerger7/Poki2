@@ -212,6 +212,7 @@ void Gracz::ulecz_pokemony()
 	{
 		(*it_pok)->heal();
 	}
+
 }
 
 void Gracz::dodaj_przedmiot(Przedmiot *item)
