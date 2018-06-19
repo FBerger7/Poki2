@@ -5,11 +5,11 @@
 #include<string>
 #include<iostream>
 #include<vector>
+#include <typeinfo>
 #include "Pokemon.h"
-#include "Biblioteka_pokemonow.h"
 #include "Przedmiot.h"
+#include "Biblioteka_pokemonow.h"
 #include "Lista_przedmiotow.h"
-
 
 using namespace std;
 using namespace sf;
@@ -63,12 +63,15 @@ class Gracz :
 protected:
 int piniondze;
 public:
+	vector<Przedmiot*>plecak;
+	vector<Przedmiot*>::iterator it_plecak;
+
+	vector<Pokemon*>lista_pokemonow;
+	vector<Pokemon*>::iterator it_pok;
 	void setXY(float x, float y);
 	Gracz();
 	~Gracz();
 	Texture ethan_tex;
-	//map<string, Gracz> Lista_aktorow;
-	//map<string, Gracz>::iterator it;
 	Gracz(float Tx, float Ty);
 
 	void setGold(int ilosc);
@@ -81,6 +84,8 @@ public:
 	vector<Pokemon*>::iterator get_it();
 	void set_it();
 	void ulecz_pokemony();
+	void dodaj_przedmiot(Przedmiot* item);
+	void sprawdz_plecak();
 };
 
 

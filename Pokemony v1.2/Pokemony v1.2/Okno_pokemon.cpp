@@ -101,7 +101,9 @@ void Okno_pokemon::draw(RenderWindow & m_Window, Gracz ethan)
 
 int Okno_pokemon::swap()
 {
-	return indeks;
+	int pom = indeks;
+	zresetuj_kursor();
+	return pom;
 }
 
 void Okno_pokemon::zaznacz()
@@ -116,6 +118,12 @@ void Okno_pokemon::swap(Gracz & ethan)
 	ethan.lista_pokemonow[zaznaczenie_bool] = ethan.lista_pokemonow[indeks];
 	ethan.lista_pokemonow[indeks] = pom;
 	setZaznaczenie();
+}
+
+void Okno_pokemon::zresetuj_kursor()
+{
+	KursorSprite.setPosition(70.f, 80.f);
+	indeks = 0;
 }
 
 void Okno_pokemon::setZaznaczenie()

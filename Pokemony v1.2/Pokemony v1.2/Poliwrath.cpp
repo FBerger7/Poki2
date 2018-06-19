@@ -36,13 +36,9 @@ Poliwrath::Poliwrath(int lvl, bool s)
 	dodaj_atak(new Cut());
 	dodaj_atak(new Punch());
 
-
-	if (s)
-	{
-		for (int i = 0; i < lista_atakow.size(); i++)
-			lista_atakow[i]->ustaw_Nazwe();
-		ustaw_HP_txt();
-	}
+	for (int i = 0; i < lista_atakow.size(); i++)
+		lista_atakow[i]->ustaw_Nazwe();
+	ustaw_HP_txt();
 }
 
 Poliwrath::~Poliwrath()
@@ -74,6 +70,8 @@ void Poliwrath::setSprite()
 		PokemonSprite.setTextureRect(wybor_pokemona);
 		PokemonSprite.setPosition(500, 37);
 	}
+
+
 	scale_sprite();
 }
 

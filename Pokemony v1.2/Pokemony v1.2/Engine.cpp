@@ -76,11 +76,10 @@ Engine::Engine()
 	ethan.dodaj_pokemona(tmp);
 	tmp = new Stelfozaur(5, true);
 	ethan.dodaj_pokemona(tmp);
-	tmp = new Stelfozaur(5, true);
-	ethan.dodaj_pokemona(tmp);
-	tmp = new Stelfozaur(5, true);
-	ethan.dodaj_pokemona(tmp);
-
+	ethan.dodaj_przedmiot(new PokeBall(1));
+	ethan.dodaj_przedmiot(new PokeBall(1));
+	ethan.dodaj_przedmiot(new Potion(1));
+	ethan.dodaj_przedmiot(new Potion(1));
 	mapa = new Okno_eksploracji();
 	cerulean_music.play();
 
@@ -97,6 +96,10 @@ Engine::Engine()
 	pokemon_window = new Okno_pokemon(m_Window);
 	view_pokemon.setSize(sf::Vector2f(800, 600));
 	view_pokemon.setCenter(Vector2f(400, 300));
+	
+	plecak_window = new Okno_przedmiotow();
+	view_plecak.setSize(sf::Vector2f(800, 600));
+	view_plecak.setCenter(Vector2f(400, 300));
 
 	ethan.set_xm(9);
 	ethan.set_ym(29);

@@ -3,6 +3,11 @@
 void Pokemon::zrob_sojusznik()
 {
 	sojusznik = true;
+	PokemonSprite.setScale(1.f,1.f);
+	setSprite();
+	ustaw_Nazwe();
+	ustaw_LVL();
+	ustaw_HP_txt();
 }
 
 void Pokemon::scale_sprite()
@@ -100,7 +105,11 @@ void Pokemon::heal()
 void Pokemon::heal(float hp)
 {
 	C_HP += hp;
-	if (C_HP > MAX_HP) C_HP = MAX_HP;
+	if (C_HP > MAX_HP)
+	{
+		C_HP = MAX_HP;
+	}
+	setHP_txt();
 }
 
 

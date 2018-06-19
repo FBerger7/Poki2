@@ -6,11 +6,11 @@
 using namespace std;
 using namespace sf;
 
-enum Type { Normal, Fire, Water, Air, Electric, Earth };
 
 class Pokemon
 {
 protected:
+	enum Type { Normal, Fire, Water, Air, Electric, Earth };
 	bool sojusznik;
 	float ATK;
 	float DEF;
@@ -75,6 +75,7 @@ public:
 	void dodaj_atak(Atak* nowy_atak);
 	void heal();
 	void heal(float hp);
+
 
 	// Metody wirtualne
 	virtual void setSprite()=0;

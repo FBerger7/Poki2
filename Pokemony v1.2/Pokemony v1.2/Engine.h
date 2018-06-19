@@ -1,5 +1,4 @@
 #pragma once
-
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Actors.h"
@@ -10,6 +9,7 @@
 #include "Mapa.h"
 #include "Pokemon.h"
 #include "Okno_pokemon.h"
+#include "Okno_przedmiotow.h"
 #include "Menu.h"
 #include "BaseException.h"
 
@@ -26,6 +26,7 @@ private:
 	View view_b;
 	View view_budynku;
 	View view_pokemon;
+	View view_plecak;
 
 	// Tu bedzie gracz
 	Gracz ethan;
@@ -40,6 +41,7 @@ private:
 	bool is_in_PokeMart = false;
 	bool menu_is_open = false;
 	bool menu_pokemon = false;
+	bool menu_plecak = false;
 	bool shop_is_open = false;
 	bool buying_is_open = false;
 	int RANDOM_NUMBER = 100;
@@ -68,6 +70,8 @@ private:
 	Okno_eksploracji *PokeMart;
 
 	Okno_pokemon *pokemon_window;
+
+	Okno_przedmiotow *plecak_window;
 
 	// Funkcje prywatne do uzytku wewnetrznego
 
