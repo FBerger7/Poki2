@@ -289,7 +289,7 @@ void Okno_walki::wygrana_walka(Gracz &ethan, NPC *gym_leader)
 {
 	float exp = Przeciwnik->getLVL() * 1.4 * 50;
 	Sojusznik->setC_EXP(exp);
-	ethan.setGold(gracz.getGold() + 100 * Przeciwnik->getLVL());
+	ethan.setGold(ethan.getGold() + 100 * Przeciwnik->getLVL());
 }
 
 void Okno_walki::setSojusznik(Pokemon *nowy_sojusznik)
