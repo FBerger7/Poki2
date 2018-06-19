@@ -5,6 +5,7 @@
 #include<map>
 #include<string>
 #include"Actors.h"
+#include"BaseException.h"
 using namespace std;
 using namespace sf;
 

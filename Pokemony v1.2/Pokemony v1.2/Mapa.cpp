@@ -51,42 +51,49 @@ bool Mapa::check_door(int _x, int _y)
 Mapa::Mapa(string nazwa, int _a, int _b)
 {
 	fstream plik;
-	plik.open(nazwa, ios::in);
-	if (plik.good() == true)
+	try
 	{
-		char x;
-		for (int i = 0; i<_a; i++)
-			for (int j = 0; j<_b; j++)
-			{
-				plik >> x;
-				if (x == '0')
+		plik.open(nazwa, ios::in);
+		if (plik.good() == true)
+		{
+			char x;
+			for (int i = 0; i<_a; i++)
+				for (int j = 0; j<_b; j++)
 				{
-					Tile * tmp = new Tile();
-					tab[i][j] = tmp;
-					tmp->set_tile_no_colision(NORMAL, tmp);
-				}
-				if (x == '1' || x == '3')
-				{
-					Tile * tmp = new Tile();
-					tab[i][j] = tmp;
-					tmp->set_tile_colision(NORMAL, tmp);
-				}
-				if (x == '2')
-				{
-					Tile * tmp = new Tile();
-					tab[i][j] = tmp;
-					tmp->set_tile_no_colision(GRASS, tmp);
-				}
-				if (x == '4')
-				{
-					Tile * tmp = new Tile();
-					tab[i][j] = tmp;
-					tmp->set_tile_no_colision(DOOR, tmp);
+					plik >> x;
+					if (x == '0')
+					{
+						Tile * tmp = new Tile();
+						tab[i][j] = tmp;
+						tmp->set_tile_no_colision(NORMAL, tmp);
+					}
+					if (x == '1' || x == '3')
+					{
+						Tile * tmp = new Tile();
+						tab[i][j] = tmp;
+						tmp->set_tile_colision(NORMAL, tmp);
+					}
+					if (x == '2')
+					{
+						Tile * tmp = new Tile();
+						tab[i][j] = tmp;
+						tmp->set_tile_no_colision(GRASS, tmp);
+					}
+					if (x == '4')
+					{
+						Tile * tmp = new Tile();
+						tab[i][j] = tmp;
+						tmp->set_tile_no_colision(DOOR, tmp);
+					}
 				}
 			}
+		else
+			throw BaseException("Nie udalo sie wczytac pliku mapy (txt)");
 	}
-	else
-		cout << "Nie udalo sie otworzyc pliku mapy" << endl;
+	catch (const BaseException &e)
+	{
+		cout << e.what() << endl;
+	}
 	plik.close();
 }
 

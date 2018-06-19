@@ -31,11 +31,6 @@ protected:
 	int xm = 0, ym = 0;
 	RectangleShape osoba;
 public:
-	map<string,Przedmiot*>plecak;
-	map<string,Przedmiot*>::iterator it_plecak;
-
-	vector<Pokemon*>lista_pokemonow;
-	vector<Pokemon*>::iterator it_pok;
 	void draw(RenderTarget & target, RenderStates state) const;
 	//Gracz(int x, int y);
 	void move(Direction D);

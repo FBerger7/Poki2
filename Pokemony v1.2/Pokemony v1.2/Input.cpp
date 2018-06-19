@@ -233,6 +233,10 @@ void Engine::input()
 					shop_buy = new Menu("SHOP2");
 					shop_buy->ustaw_pozycje(ethan.getX(), ethan.getY(), "SHOP2");
 				}
+				else if (ethan.get_xm() == 4 && ethan.get_ym() == 4 && zdarzenie.key.code == Keyboard::Z && is_in_gym)
+				{
+					cout << "WALKA Z BOSSEM" << endl;
+				}
 				break;
 			}
 			default: break;
@@ -391,6 +395,7 @@ void Engine::input()
 					{
 						plecak_window->move_kursor(DOWN, ethan);
 					}
+					else
 					opcje->move(DOWN);
 				}
 				else if (zdarzenie.key.code == Keyboard::Z && menu_pokemon)
@@ -447,6 +452,10 @@ void Engine::input()
 					{
 						buying_is_open = false;
 					}
+					else if (menu_plecak)
+					{
+						menu_plecak = false;
+					}
 					else
 					{
 						delete shop;
@@ -457,6 +466,8 @@ void Engine::input()
 				{
 					if (buying_is_open)
 						shop_buy->move(DOWN);
+					else if(menu_plecak)
+						plecak_window->move_kursor(DOWN, ethan);
 					else
 						shop->move(DOWN);
 				}
@@ -464,29 +475,53 @@ void Engine::input()
 				{
 					if (buying_is_open)
 						shop_buy->move(UP);
+					else if(menu_plecak)
+						plecak_window->move_kursor(UP, ethan);
 					else
 						shop->move(UP);
 				}
-				else if (zdarzenie.key.code == Keyboard::Z && shop->getPozycja() == 0 && !buying_is_open)
+				else if (zdarzenie.key.code == Keyboard::Z && shop->getPozycja() == 0 && !buying_is_open && !menu_plecak)
 				{
 					shop_buy->im_buying();
 					buying_is_open = true;
 				}
-				else if (zdarzenie.key.code == Keyboard::Z && shop->getPozycja() == 1 && !buying_is_open)
+				else if (zdarzenie.key.code == Keyboard::Z && shop->getPozycja() == 1 && !buying_is_open && !menu_plecak)
 				{
-					cout << "SELL" << endl;
+					menu_plecak = true;
 				}
 				else if (zdarzenie.key.code == Keyboard::Z && shop_buy->getPozycja() == 0 && buying_is_open)
 				{
-					if (ethan.getGold() - 200 > 0)
+					if (ethan.getGold() - 200 >= 0)
 					{
 						ethan.setGold(ethan.getGold() - 200);
 						shop->ustaw_pieniadze(ethan.getGold(),ethan.getX(), ethan.getY());
+						ethan.dodaj_przedmiot(new PokeBall(1));
 					}
 				}
 				else if (zdarzenie.key.code == Keyboard::Z && shop_buy->getPozycja() == 1 && buying_is_open)
 				{
-					cout << "KUPUJEMY POTIONA!!" << endl;
+					if (ethan.getGold() - 100 >= 0)
+					{
+						ethan.setGold(ethan.getGold() - 100);
+						shop->ustaw_pieniadze(ethan.getGold(), ethan.getX(), ethan.getY());
+						ethan.dodaj_przedmiot(new Potion(1));
+					}
+				}
+				else if (zdarzenie.key.code == Keyboard::Z && menu_plecak)
+				{
+					if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(PokeBall))
+					{
+						ethan.plecak[plecak_window->getIndeks()]->zurzyj();
+						ethan.setGold(ethan.getGold() + 100);
+						shop->ustaw_pieniadze(ethan.getGold(), ethan.getX(), ethan.getY());
+					}
+					else if (typeid(*ethan.plecak[plecak_window->getIndeks()]) == typeid(Potion))
+					{
+						ethan.plecak[plecak_window->getIndeks()]->zurzyj();
+						ethan.setGold(ethan.getGold() + 50);
+						shop->ustaw_pieniadze(ethan.getGold(), ethan.getX(), ethan.getY());
+					}
+					ethan.sprawdz_plecak();
 				}
 				else if (zdarzenie.key.code == Keyboard::Z && shop->getPozycja() == 2)
 				{
